@@ -4,6 +4,7 @@
 #include <SprCollision.h>
 #include <Physics/SprPHJointMotor.h>
 #include <../src/SprCSharp/SprExport/CSUtility.h>
+#include <codecvt>
 using namespace Spr;
 using namespace std;
 extern "C" {
@@ -803,8 +804,8 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_CDShapeIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_CDShapeIf_FreeString(std::wstring* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void * __cdecl Spr_CDShapeIf_GetIfInfo(void * _this) {
@@ -1049,8 +1050,8 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_CDConvexIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_CDConvexIf_FreeString(std::wstring* ptr) {
+        try {delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void * __cdecl Spr_CDConvexIf_GetIfInfo(void * _this) {
@@ -1110,8 +1111,8 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_CDFaceIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_CDFaceIf_FreeString(std::wstring* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void * __cdecl Spr_CDFaceIf_GetIfInfo(void * _this) {
@@ -1390,7 +1391,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void * __cdecl Spr_CDEllipsoidIf_ToString(void * _this) {
-        BSTR result = NULL;
+        std::wstring* result = NULL;
         try {
             ostringstream oss;
             string str = "";
@@ -1402,8 +1403,9 @@ extern "C" {
             int lenA = str.size();
             int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = new std::wstring(lenW, L'\0');
+                std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
+                std::wstring myString = converter.from_bytes(cstr);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
