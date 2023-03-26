@@ -17,31 +17,31 @@ extern "C" {
 
     // std::vector
     //  int
-    __declspec(dllexport) HANDLE __cdecl Spr_vector_new_int() {
-	HANDLE _ptr = (HANDLE) NULL;
+    __declspec(dllexport) void* __cdecl Spr_vector_new_int() {
+	void* _ptr = (void*) NULL;
 	try { _ptr = new vector<int>; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
-	return (HANDLE) _ptr;
+	return (void*) _ptr;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_delete_int(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_vector_delete_int(void* ptr) {
 	if (ptr == NULL) return;
         vector<int>* vec = (vector<int>*) ptr;
         try { vector<int>().swap(*vec); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) int __cdecl Spr_vector_get_int(HANDLE ptr, int index) {
+    __declspec(dllexport) int __cdecl Spr_vector_get_int(void* ptr, int index) {
         vector<int>* vecptr = (vector<int>*) ptr;
 	int _val = 0;
         try { _val = (*vecptr)[index]; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
 	return _val;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_set_int(HANDLE ptr, int index, int value) {
+    __declspec(dllexport) void __cdecl Spr_vector_set_int(void* ptr, int index, int value) {
         vector<int>* vecptr = (vector<int>*) ptr;
         try { (*vecptr)[index] = value; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) int __cdecl Spr_vector_size_int(HANDLE ptr) {
+    __declspec(dllexport) int __cdecl Spr_vector_size_int(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<int>* vecptr = (vector<int>*) ptr;
 	int _val = 0;
@@ -49,12 +49,12 @@ extern "C" {
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
 	return _val;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_push_back_int(HANDLE ptr, int value) {
+    __declspec(dllexport) void __cdecl Spr_vector_push_back_int(void* ptr, int value) {
         vector<int>* vecptr = (vector<int>*) ptr;
         try { (*vecptr).push_back(value); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) void __cdecl Spr_vector_clear_int(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_vector_clear_int(void* ptr) {
 	if (ptr == NULL) return;
         vector<int>* vecptr = (vector<int>*) ptr;
         try { (*vecptr).clear(); }
@@ -62,31 +62,31 @@ extern "C" {
     }
 
     //  unsigned int
-    __declspec(dllexport) HANDLE __cdecl Spr_vector_new_unsigned_int() {
-	HANDLE _ptr = (HANDLE) NULL;
+    __declspec(dllexport) void* __cdecl Spr_vector_new_unsigned_int() {
+	void* _ptr = (void*) NULL;
         try { _ptr = new vector<unsigned int>; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return _ptr;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_delete_unsigned_int(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_vector_delete_unsigned_int(void* ptr) {
 	if (ptr == NULL) return;
         vector<unsigned int>* vec = (vector<unsigned int>*) ptr;
         try { vector<unsigned int>().swap(*vec); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) unsigned int __cdecl Spr_vector_get_unsigned_int(HANDLE ptr, int index) {
+    __declspec(dllexport) unsigned int __cdecl Spr_vector_get_unsigned_int(void* ptr, int index) {
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
 	unsigned int _val = 0;
         try { _val = (*vecptr)[index]; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
 	return _val;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_set_unsigned_int(HANDLE ptr, int index, unsigned int value) {
+    __declspec(dllexport) void __cdecl Spr_vector_set_unsigned_int(void* ptr, int index, unsigned int value) {
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
         try { (*vecptr)[index] = value; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) int __cdecl Spr_vector_size_unsigned_int(HANDLE ptr) {
+    __declspec(dllexport) int __cdecl Spr_vector_size_unsigned_int(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
 	int _val = 0;
@@ -94,12 +94,12 @@ extern "C" {
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
 	return _val;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_push_back_unsigned_int(HANDLE ptr, unsigned int value) {
+    __declspec(dllexport) void __cdecl Spr_vector_push_back_unsigned_int(void* ptr, unsigned int value) {
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
         try { (*vecptr).push_back(value); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) void __cdecl Spr_vector_clear_unsigned_int(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_vector_clear_unsigned_int(void* ptr) {
 	if (ptr == NULL) return;
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
         try { (*vecptr).clear(); }
@@ -107,31 +107,31 @@ extern "C" {
     }
 
     //  size_t
-    __declspec(dllexport) HANDLE __cdecl Spr_vector_new_size_t() {
-	HANDLE _ptr = (HANDLE) NULL;
+    __declspec(dllexport) void* __cdecl Spr_vector_new_size_t() {
+	void* _ptr = (void*) NULL;
         try { _ptr = new vector<size_t>; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return _ptr;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_delete_size_t(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_vector_delete_size_t(void* ptr) {
 	if (ptr == NULL) return;
         vector<size_t>* vec = (vector<size_t>*) ptr;
         try { vector<size_t>().swap(*vec); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) size_t __cdecl Spr_vector_get_size_t(HANDLE ptr, int index) {
+    __declspec(dllexport) size_t __cdecl Spr_vector_get_size_t(void* ptr, int index) {
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
 	size_t _val = 0;
         try { _val = (*vecptr)[index]; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
 	return _val;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_set_size_t(HANDLE ptr, int index, size_t value) {
+    __declspec(dllexport) void __cdecl Spr_vector_set_size_t(void* ptr, int index, size_t value) {
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
         try { (*vecptr)[index] = value; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) int __cdecl Spr_vector_size_size_t(HANDLE ptr) {
+    __declspec(dllexport) int __cdecl Spr_vector_size_size_t(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
 	int _val = 0;
@@ -139,12 +139,12 @@ extern "C" {
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
 	return _val;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_push_back_size_t(HANDLE ptr, size_t value) {
+    __declspec(dllexport) void __cdecl Spr_vector_push_back_size_t(void* ptr, size_t value) {
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
         try { (*vecptr).push_back(value); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) void __cdecl Spr_vector_clear_size_t(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_vector_clear_size_t(void* ptr) {
 	if (ptr == NULL) return;
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
         try { (*vecptr).clear(); }
@@ -152,31 +152,31 @@ extern "C" {
     }
 
     //  float
-    __declspec(dllexport) HANDLE __cdecl Spr_vector_new_float() {
-	HANDLE _ptr = (HANDLE) NULL;
+    __declspec(dllexport) void* __cdecl Spr_vector_new_float() {
+	void* _ptr = (void*) NULL;
 	try { _ptr = new vector<float>; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return _ptr;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_delete_float(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_vector_delete_float(void* ptr) {
 	if (ptr == NULL) return;
         vector<float>* vecptr = (vector<float>*) ptr;
 	try { vector<float>().swap(*vecptr); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) float __cdecl Spr_vector_get_float(HANDLE ptr, int index) {
+    __declspec(dllexport) float __cdecl Spr_vector_get_float(void* ptr, int index) {
         vector<float>* vecptr = (vector<float>*) ptr;
 	float _val = 0;
 	try { _val = (*vecptr)[index]; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
 	return _val;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_set_float(HANDLE ptr, int index, float value) {
+    __declspec(dllexport) void __cdecl Spr_vector_set_float(void* ptr, int index, float value) {
         vector<float>* vecptr = (vector<float>*) ptr;
 	try { (*vecptr)[index] = value; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) int __cdecl Spr_vector_size_float(HANDLE ptr) {
+    __declspec(dllexport) int __cdecl Spr_vector_size_float(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<float>* vecptr = (vector<float>*) ptr;
 	int _val = 0;
@@ -184,12 +184,12 @@ extern "C" {
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
 	return _val;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_push_back_float(HANDLE ptr, float value) {
+    __declspec(dllexport) void __cdecl Spr_vector_push_back_float(void* ptr, float value) {
         vector<float>* vecptr = (vector<float>*) ptr;
 	try { (*vecptr).push_back(value); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) void __cdecl Spr_vector_clear_float(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_vector_clear_float(void* ptr) {
 	if (ptr == NULL) return;
         vector<float>* vecptr = (vector<float>*) ptr;
 	try { (*vecptr).clear(); }
@@ -197,31 +197,31 @@ extern "C" {
     }
 
     //  double
-    __declspec(dllexport) HANDLE __cdecl Spr_vector_new_double() {
-	HANDLE _ptr = (HANDLE) NULL;
+    __declspec(dllexport) void* __cdecl Spr_vector_new_double() {
+	void* _ptr = (void*) NULL;
         try { _ptr = new vector<double>; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return _ptr;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_delete_double(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_vector_delete_double(void* ptr) {
 	if (ptr == NULL) return;
         vector<double>* vecptr = (vector<double>*) ptr;
         try { vector<double>().swap(*vecptr); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) double __cdecl Spr_vector_get_double(HANDLE ptr, int index) {
+    __declspec(dllexport) double __cdecl Spr_vector_get_double(void* ptr, int index) {
         vector<double>* vecptr = (vector<double>*) ptr;
 	double _val = 0;
         try { _val = (*vecptr)[index]; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
 	return _val;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_set_double(HANDLE ptr, int index, double value) {
+    __declspec(dllexport) void __cdecl Spr_vector_set_double(void* ptr, int index, double value) {
         vector<double>* vecptr = (vector<double>*) ptr;
         try { (*vecptr)[index] = value; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) int __cdecl Spr_vector_size_double(HANDLE ptr) {
+    __declspec(dllexport) int __cdecl Spr_vector_size_double(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<double>* vecptr = (vector<double>*) ptr;
 	int _val = 0;
@@ -229,12 +229,12 @@ extern "C" {
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
 	return _val;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_push_back_double(HANDLE ptr, double value) {
+    __declspec(dllexport) void __cdecl Spr_vector_push_back_double(void* ptr, double value) {
         vector<double>* vecptr = (vector<double>*) ptr;
         try { (*vecptr).push_back(value); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) void __cdecl Spr_vector_clear_double(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_vector_clear_double(void* ptr) {
 	if (ptr == NULL) return;
         vector<double>* vecptr = (vector<double>*) ptr;
         try { (*vecptr).clear(); }
@@ -242,19 +242,19 @@ extern "C" {
     }
 
     //  string
-    __declspec(dllexport) HANDLE __cdecl Spr_vector_new_string() {
-	HANDLE _ptr = (HANDLE) NULL;
+    __declspec(dllexport) void* __cdecl Spr_vector_new_string() {
+	void* _ptr = (void*) NULL;
         try { _ptr = new vector<string>; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return _ptr;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_delete_string(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_vector_delete_string(void* ptr) {
 	if (ptr == NULL) return;
         vector<string>* vecptr = (vector<string>*) ptr;
         try { vector<string>().swap(*vecptr); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) HANDLE __cdecl Spr_vector_get_string(HANDLE ptr, int index) {
+    __declspec(dllexport) void* __cdecl Spr_vector_get_string(void* ptr, int index) {
         BSTR result = NULL;
         vector<string>* vecptr = (vector<string>*) ptr;
 	try {
@@ -268,7 +268,7 @@ extern "C" {
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_set_string(HANDLE ptr, int index, HANDLE value) {
+    __declspec(dllexport) void __cdecl Spr_vector_set_string(void* ptr, int index, void* value) {
 	try {
             int lenMB = ::WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) value, -1, NULL, 0, NULL, NULL);
             if (lenMB > 0) {
@@ -280,7 +280,7 @@ extern "C" {
 	}
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) int __cdecl Spr_vector_size_string(HANDLE ptr) {
+    __declspec(dllexport) int __cdecl Spr_vector_size_string(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<string>* vecptr = (vector<string>*) ptr;
 	int _val = 0;
@@ -288,7 +288,7 @@ extern "C" {
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
 	return _val;
     }
-    __declspec(dllexport) void __cdecl Spr_vector_push_back_string(HANDLE ptr, HANDLE value) {
+    __declspec(dllexport) void __cdecl Spr_vector_push_back_string(void* ptr, void* value) {
 	try {
             int lenMB = ::WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) value, -1, NULL, 0, NULL, NULL);
             if (lenMB > 0) {
@@ -300,7 +300,7 @@ extern "C" {
 	}
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) void __cdecl Spr_vector_clear_string(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_vector_clear_string(void* ptr) {
 	if (ptr == NULL) return;
         vector<string>* vecptr = (vector<string>*) ptr;
         try { (*vecptr).clear(); }
@@ -309,104 +309,104 @@ extern "C" {
 
     // array
     //  int
-    __declspec(dllexport) HANDLE __cdecl Spr_array_new_int(unsigned int nelm) {
-	HANDLE _ptr = (HANDLE) NULL;
+    __declspec(dllexport) void* __cdecl Spr_array_new_int(unsigned int nelm) {
+	void* _ptr = (void*) NULL;
 	try { _ptr = new int[nelm]; }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
-	return (HANDLE) _ptr;
+	return (void*) _ptr;
     }
-    __declspec(dllexport) void __cdecl Spr_array_delete_int(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_array_delete_int(void* ptr) {
 	int* _ptr = (int*) ptr;
         try { delete[] _ptr; }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) int __cdecl Spr_array_get_int(HANDLE ptr, int index) {
+    __declspec(dllexport) int __cdecl Spr_array_get_int(void* ptr, int index) {
         int* aryptr = (int*) ptr;
         return aryptr[index];
     }
-    __declspec(dllexport) void __cdecl Spr_array_set_int(HANDLE ptr, int index, int value) {
+    __declspec(dllexport) void __cdecl Spr_array_set_int(void* ptr, int index, int value) {
         int* aryptr = (int*) ptr;
         aryptr[index] = value;
     }
 
     //  unsigned int
-    __declspec(dllexport) HANDLE __cdecl Spr_array_new_unsigned_int(unsigned int nelm) {
-        return (HANDLE) new unsigned int[nelm];
+    __declspec(dllexport) void* __cdecl Spr_array_new_unsigned_int(unsigned int nelm) {
+        return (void*) new unsigned int[nelm];
     }
-    __declspec(dllexport) void __cdecl Spr_array_delete_unsigned_int(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_array_delete_unsigned_int(void* ptr) {
 	if (ptr == NULL) return;
 	delete[] ptr;
     }
-    __declspec(dllexport) unsigned int __cdecl Spr_array_get_unsigned_int(HANDLE ptr, int index) {
+    __declspec(dllexport) unsigned int __cdecl Spr_array_get_unsigned_int(void* ptr, int index) {
         unsigned int* aryptr = (unsigned int*) ptr;
         return aryptr[index];
     }
-    __declspec(dllexport) void __cdecl Spr_array_set_unsigned_int(HANDLE ptr, int index, unsigned int value) {
+    __declspec(dllexport) void __cdecl Spr_array_set_unsigned_int(void* ptr, int index, unsigned int value) {
         unsigned int* aryptr = (unsigned int*) ptr;
         aryptr[index] = value;
     }
 
     //  size_t
-    __declspec(dllexport) HANDLE __cdecl Spr_array_new_size_t(unsigned int nelm) {
-        return (HANDLE) new size_t[nelm];
+    __declspec(dllexport) void* __cdecl Spr_array_new_size_t(unsigned int nelm) {
+        return (void*) new size_t[nelm];
     }
-    __declspec(dllexport) void __cdecl Spr_array_delete_size_t(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_array_delete_size_t(void* ptr) {
 	if (ptr == NULL) return;
 	delete[] ptr;
     }
-    __declspec(dllexport) size_t __cdecl Spr_array_get_size_t(HANDLE ptr, int index) {
+    __declspec(dllexport) size_t __cdecl Spr_array_get_size_t(void* ptr, int index) {
         size_t* aryptr = (size_t*) ptr;
         return aryptr[index];
     }
-    __declspec(dllexport) void __cdecl Spr_array_set_size_t(HANDLE ptr, int index, size_t value) {
+    __declspec(dllexport) void __cdecl Spr_array_set_size_t(void* ptr, int index, size_t value) {
         size_t* aryptr = (size_t*) ptr;
         aryptr[index] = value;
     }
 
     //  float
-    __declspec(dllexport) HANDLE __cdecl Spr_array_new_float(unsigned int nelm) {
-        return (HANDLE) new float[nelm];
+    __declspec(dllexport) void* __cdecl Spr_array_new_float(unsigned int nelm) {
+        return (void*) new float[nelm];
     }
-    __declspec(dllexport) void __cdecl Spr_array_delete_float(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_array_delete_float(void* ptr) {
 	if (ptr == NULL) return;
 	delete[] ptr;
     }
-    __declspec(dllexport) float __cdecl Spr_array_get_float(HANDLE ptr, int index) {
+    __declspec(dllexport) float __cdecl Spr_array_get_float(void* ptr, int index) {
         float* aryptr = (float*) ptr;
         return aryptr[index];
     }
-    __declspec(dllexport) void __cdecl Spr_array_set_float(HANDLE ptr, int index, float value) {
+    __declspec(dllexport) void __cdecl Spr_array_set_float(void* ptr, int index, float value) {
         float* aryptr = (float*) ptr;
         aryptr[index] = value;
     }
 
     //  double
-    __declspec(dllexport) HANDLE __cdecl Spr_array_new_double(unsigned int nelm) {
-        return (HANDLE) new double[nelm];
+    __declspec(dllexport) void* __cdecl Spr_array_new_double(unsigned int nelm) {
+        return (void*) new double[nelm];
     }
-    __declspec(dllexport) void __cdecl Spr_array_delete_double(HANDLE ptr) {
+    __declspec(dllexport) void __cdecl Spr_array_delete_double(void* ptr) {
 	if (ptr == NULL) return;
 	delete[] ptr;
     }
-    __declspec(dllexport) double __cdecl Spr_array_get_double(HANDLE ptr, int index) {
+    __declspec(dllexport) double __cdecl Spr_array_get_double(void* ptr, int index) {
         double* aryptr = (double*) ptr;
         return aryptr[index];
     }
-    __declspec(dllexport) void __cdecl Spr_array_set_double(HANDLE ptr, int index, double value) {
+    __declspec(dllexport) void __cdecl Spr_array_set_double(void* ptr, int index, double value) {
         double* aryptr = (double*) ptr;
         aryptr[index] = value;
     }
 
     //  string
-    __declspec(dllexport) HANDLE __cdecl Spr_array_new_string(unsigned int nelm) {
-        return (HANDLE) new std::string[nelm];
+    __declspec(dllexport) void* __cdecl Spr_array_new_string(unsigned int nelm) {
+        return (void*) new std::string[nelm];
     }
-    __declspec(dllexport) void __cdecl Spr_array_delete_string(HANDLE ptr, unsigned int nelm) {
+    __declspec(dllexport) void __cdecl Spr_array_delete_string(void* ptr, unsigned int nelm) {
 	if (ptr == NULL) return;
         std::string* aryptr = (std::string*) ptr;
         std::string().swap(*aryptr);
     }
-    __declspec(dllexport) HANDLE __cdecl Spr_array_get_string(HANDLE ptr, int index) {
+    __declspec(dllexport) void* __cdecl Spr_array_get_string(void* ptr, int index) {
         BSTR result = NULL;
         std::string* aryptr = (std::string*) ptr;
         std::string str = aryptr[index];
@@ -415,9 +415,9 @@ extern "C" {
             result = ::SysAllocStringLen(0, lenW);
             ::MultiByteToWideChar(CP_ACP, 0, str.c_str(), -1, result, lenW);
         }
-        return (HANDLE) result;
+        return (void*) result;
     }
-    __declspec(dllexport) void __cdecl Spr_array_set_string(HANDLE ptr, int index, HANDLE value) {
+    __declspec(dllexport) void __cdecl Spr_array_set_string(void* ptr, int index, void* value) {
         int lenMB = ::WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) value, -1, NULL, 0, NULL, NULL);
         if (lenMB > 0) {
             LPSTR addr = (LPSTR) ::SysAllocStringLen(0, lenMB);
@@ -435,10 +435,10 @@ extern "C" {
     }
 
     //  char*
-    __declspec(dllexport) HANDLE __cdecl Spr_array_new_char_p(unsigned int nelm) {
-        return (HANDLE) new char**[nelm];
+    __declspec(dllexport) void* __cdecl Spr_array_new_char_p(unsigned int nelm) {
+        return (void*) new char**[nelm];
     }
-    __declspec(dllexport) void __cdecl Spr_array_delete_char_p(HANDLE ptr, unsigned int nelm) {
+    __declspec(dllexport) void __cdecl Spr_array_delete_char_p(void* ptr, unsigned int nelm) {
 	if (ptr == NULL) return;
         char** aryptr = (char**) ptr;
         for (unsigned int i = 0; i < nelm; i++) {
@@ -446,12 +446,12 @@ extern "C" {
 	}
         delete[] aryptr;
     }
-    __declspec(dllexport) void __cdecl Spr_array_init_char_p(HANDLE ptr, unsigned int nelm) {
+    __declspec(dllexport) void __cdecl Spr_array_init_char_p(void* ptr, unsigned int nelm) {
 	if (ptr == NULL) return;
         char** aryptr = (char**) ptr;
         for (unsigned int i = 0; i < nelm; i++) { aryptr[i] = NULL; }
     }
-    __declspec(dllexport) HANDLE __cdecl Spr_array_get_char_p(HANDLE ptr, int index) {
+    __declspec(dllexport) void* __cdecl Spr_array_get_char_p(void* ptr, int index) {
         BSTR result = NULL;
         char** aryptr = (char**) ptr;
         char* cstr = aryptr[index];
@@ -460,9 +460,9 @@ extern "C" {
             result = ::SysAllocStringLen(0, lenW);
             ::MultiByteToWideChar(CP_ACP, 0, cstr, -1, result, lenW);
         }
-        return (HANDLE) result;
+        return (void*) result;
     }
-    __declspec(dllexport) void __cdecl Spr_array_set_char_p(HANDLE ptr, int index, HANDLE value) {
+    __declspec(dllexport) void __cdecl Spr_array_set_char_p(void* ptr, int index, void* value) {
         int lenMB = ::WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) value, -1, NULL, 0, NULL, NULL);
         if (lenMB > 0) {
             LPSTR addr = (LPSTR) ::SysAllocStringLen(0, lenMB);

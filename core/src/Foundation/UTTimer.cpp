@@ -249,10 +249,10 @@ bool UTTimer::Start(){
 	else if(mode == UTTimerIf::THREAD){
 #if defined _WIN32
 		unsigned long id=0;
-		HANDLE thread_id = CreateThread(NULL, 0x1000, UTTimer_ThreadCallback, (void*)(size_t)timerId, 0, &id);
+		void* thread_id = CreateThread(NULL, 0x1000, UTTimer_ThreadCallback, (void*)(size_t)timerId, 0, &id);
 		timerIdImpl = ((size_t) thread_id) & 0xffffffff;
 		if (timerIdImpl){
-			SetThreadPriority((HANDLE)(size_t)timerIdImpl, THREAD_PRIORITY_TIME_CRITICAL);//THREAD_PRIORITY_ABOVE_NORMAL);
+			SetThreadPriority((void*)(size_t)timerIdImpl, THREAD_PRIORITY_TIME_CRITICAL);//THREAD_PRIORITY_ABOVE_NORMAL);
 			bStarted = true;
 		}
 #endif
@@ -299,7 +299,7 @@ bool UTTimer::Stop(){
 		for(int t=0; t<100 && bStopThread; t++) Sleep(20);	//	停止するまで待ってみる
 		if (bStopThread)
 			DSTR << "UTTimer THREAD mode: Can not stop the timer thread. There may be a dead lock problem." << std::endl;
-		CloseHandle((HANDLE)(size_t)timerIdImpl);
+		CloseHandle((void*)(size_t)timerIdImpl);
 		timerIdImpl = 0;
 		bStarted = false;
 #endif

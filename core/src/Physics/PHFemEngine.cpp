@@ -187,7 +187,7 @@ void PHFemEngine::VibrationTransfer() {
 				Vec3d surfacePoint[2];
 				Vec3d pivotPoint;
 
-				//Creates a new FEM collision object to handle the FEM interface calculations
+				//Creates a new FEM collision object to void* the FEM interface calculations
 				PHFemCollision *femcol;
 				DSTR << "NEW " << mesh[0]->femIndex << "-" <<mesh[1]->femIndex << std::endl;   //DEBUG
 				if (femColArray[mesh[0]->femIndex][mesh[1]->femIndex] == NULL) {

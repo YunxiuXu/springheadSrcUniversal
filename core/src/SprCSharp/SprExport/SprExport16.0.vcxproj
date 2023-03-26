@@ -227,9 +227,6 @@
     <ClCompile Include="wrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="module.wrapper.cpp.prologue" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\Base\Base16.0.vcxproj">
       <Project>{90010cd8-7c45-481e-8697-aab9b3fb9e4f}</Project>
     </ProjectReference>

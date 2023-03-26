@@ -140,7 +140,7 @@ void SEH_Exception::raise_managed_exception(char* msg) const throw() {
 //  Transfer exception information from C++ to C#.
 // --------------------------------------------------------------------------
 extern "C" {
-	__declspec(dllexport) HANDLE __cdecl Spr_SEH_Exception_what() {
+	__declspec(dllexport) void* __cdecl Spr_SEH_Exception_what() {
 		BSTR result = NULL;
 		const char* cstr = _seh_exception_info->c_str();
 		int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, -1, NULL, 0);
@@ -177,7 +177,7 @@ extern "C" {
   #define  SymGetLineFromAddr_	SymGetLineFromAddr
 #endif
 
-const char* convertAddress(HANDLE process, D_WORD addr) {
+const char* convertAddress(void* process, D_WORD addr) {
 	std::stringstream out;
 	//
 	char IHS_tmp[MAX_PATH + sizeof(IMAGEHLP_SYMBOL_)];
@@ -251,7 +251,7 @@ const char* printStack(void* sample_address) {
 	void* callers_stack [kMaxCallers];
 	unsigned short frames;
 	SYMBOL_INFO* symbol;
-	HANDLE process;
+	void* process;
 	process = GetCurrentProcess();
 	SymInitialize(process, NULL, TRUE);
 	frames = (func)(0, kMaxCallers, callers_stack, NULL);
