@@ -1,99 +1,250 @@
-# CMakeLists.txt for SprExport
-#
-set(SPR_EXPORT_VERSION 1.1.0)		# 2021/08/18 バージョン管理開始
+set(PROJECT_NAME SprExport16.0)
 
-# ------------------------------------------------------------------------------
-#  Set target name.
-#
-set(Target "SprExport")
-message("** ${Target} **")
+################################################################################
+# Source groups
+################################################################################
+set(Sources
+    "CSBase.cpp"
+    "CSCollision.cpp"
+    "CSFoundation.cpp"
+    "CSPhysics.cpp"
+    "module.wrapper.cpp"
+    "wrapper.cpp"
+)
+source_group("Sources" FILES ${Sources})
 
-# ------------------------------------------------------------------------------
-#  Read setting parameters.
-#
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/CMakeSettings.txt")
-    include("${CMAKE_CURRENT_SOURCE_DIR}/CMakeSettings.txt")
+set(ALL_FILES
+    ${Sources}
+)
+
+################################################################################
+# Target
+################################################################################
+add_library(${PROJECT_NAME} SHARED ${ALL_FILES})
+
+use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" "${DEFAULT_CXX_PROPS}")
+################################################################################
+# Includes for CMake from *.props
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    use_props(${PROJECT_NAME} Debug   "../../SpringheadMacros.cmake")
+    use_props(${PROJECT_NAME} Release "../../SpringheadMacros.cmake")
+    use_props(${PROJECT_NAME} Trace   "../../SpringheadMacros.cmake")
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    use_props(${PROJECT_NAME} Debug   "../../SpringheadMacros.cmake")
+    use_props(${PROJECT_NAME} Release "../../SpringheadMacros.cmake")
+    use_props(${PROJECT_NAME} Trace   "../../SpringheadMacros.cmake")
 endif()
 
-# ------------------------------------------------------------------------------
-#  Read compiler/linker option file (try to find in following order).
-#
-set(OPTS_FILE_NAME "CMakeOpts.txt")
-set(OPTS_FILE "${CMAKE_CURRENT_SOURCE_DIR}/${OPTS_FILE_NAME}")
-set(OPTS_DEFAULT_FILE "${SPR_SRC_DIR}/${OPTS_FILE_NAME}.dist")
-include_file(OPTS ${OPTS_FILE} ${OPTS_DEFAULT_FILE})
+set(ROOT_NAMESPACE SprExport)
 
-# ------------------------------------------------------------------------------
-#  Output directory.
-#
-set(Vers ${VS_VERSION})
-set(Plat ${ARCHITECTURE})
-set(Conf $<$<CONFIG:Debug>:Debug>$<$<CONFIG:Release>:Release>$<$<CONFIG:Trace>:Trace>)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SPRCSHARP}/${Vers}/bin/${Plat}/${Conf})
-
-# ------------------------------------------------------------------------------
-#  Source files
-#
-set(SRCS CSUtility.h CSUtility.cpp wrapper.cpp module.wrapper.cpp)
-set_source_files_properties(module.wrapper.cpp
-    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    PROPERTIES GENERATED TRUE
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    VS_GLOBAL_KEYWORD "ManagedCProj"
 )
-foreach(_proj ${SPR_PROJS})
-    set(_name CS${_proj}.cpp)
-    set(SRCS ${SRCS} ${_name})
-    #  These files will be generated at runtime.
-    set_source_files_properties(${_name}
-	DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-	PROPERTIES GENERATED TRUE
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        COMMON_LANGUAGE_RUNTIME         "No"
     )
-endforeach()
-
-# ------------------------------------------------------------------------------
-#  Main target
-#
-add_library(${Target} SHARED
-    ${SRCS}
-)
-message("** SRCS ${SRCS}")
-
-target_include_directories(${Target} BEFORE
-    PRIVATE ${SPR_INC_DIR} ${SPR_SRC_DIR} ${SPR_TOP_DIR}/dependency/src
-)
-target_link_directories(${Target}
-    PRIVATE ${SPR_TOP_DIR}/dependency/lib/win64
-    PRIVATE ${SPR_TOP_DIR}/dependency/lib/win32
-)
-set(_libs ${Empty})
-foreach(_proj ${SPR_PROJS})
-    set(_lib "${SPR_SRC_DIR}/${_proj}/${_proj}${VS_VERSION}${ARCHITECTURE}.lib")
-    file(TO_NATIVE_PATH ${_lib} _lib)
-    target_link_libraries(${Target} PRIVATE ${_lib})
-    message("++ add library ${_lib}")
-endforeach()
-
-# ------------------------------------------------------------------------------
-#  Compiler/linker options.
-#
-if(Windows)
-    set(CMAKE_CXX_FLAGS		"${COMP_FLAGS}")
-    set(CMAKE_CXX_FLAGS_DEBUG	"${COMP_FLAGS_DEBUG}")
-    set(CMAKE_CXX_FLAGS_RELEASE	"${COMP_FLAGS_RELEASE}")
-    set(CMAKE_CXX_FLAGS_TRACE	"${COMP_FLAGS_TRACE}")
-    set(CMAKE_SHARED_LINKER_FLAGS		"${LINK_FLAGS}")
-    set(CMAKE_SHARED_LINKER_FLAGS_DEBUG		"${LINK_FLAGS_DEBUG}")
-    set(CMAKE_SHARED_LINKER_FLAGS_RELEASE	"${LINK_FLAGS_RELEASE}")
-    set(CMAKE_SHARED_LINKER_FLAGS_TRACE		"${LINK_FLAGS_TRACE}")
-elseif(unix)
-    foreach(_flag ${COMP_FLAGS})
-        target_compile_options(${Target} PUBLIC ${_flag})
-    endforeach()
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        COMMON_LANGUAGE_RUNTIME         "No"
+    )
 endif()
-foreach(_macro ${DEFINE_MACROS})
-        target_compile_definitions(${Target} PUBLIC ${_macro})
-endforeach()
-#
-#  Parent needs these variables to be set.
-set(CMAKE_SHARED_LINKER_FLAGS_TRACE ${CMAKE_SHARED_LINKER_FLAGS_TRACE} PARENT_SCOPE)
+################################################################################
+# Target name
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        TARGET_NAME_DEBUG   "SprExport"
+        TARGET_NAME_RELEASE "SprExport"
+        TARGET_NAME_TRACE   "SprExport"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        TARGET_NAME_DEBUG   "SprExport"
+        TARGET_NAME_RELEASE "SprExport"
+        TARGET_NAME_TRACE   "SprExport"
+    )
+endif()
+################################################################################
+# Output directory
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        OUTPUT_DIRECTORY_DEBUG   "${CMAKE_SOURCE_DIR}/$ENV{VisualStudioVersion}/bin/$ENV{PlatformShortName}/$<CONFIG>/"
+        OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/$ENV{VisualStudioVersion}/bin/$ENV{PlatformShortName}/$<CONFIG>/"
+        OUTPUT_DIRECTORY_TRACE   "${CMAKE_SOURCE_DIR}/$ENV{VisualStudioVersion}/bin/$ENV{PlatformShortName}/$<CONFIG>/"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        OUTPUT_DIRECTORY_DEBUG   "${CMAKE_SOURCE_DIR}/$ENV{VisualStudioVersion}/bin/$ENV{PlatformShortName}/$<CONFIG>/"
+        OUTPUT_DIRECTORY_RELEASE "${CMAKE_SOURCE_DIR}/$ENV{VisualStudioVersion}/bin/$ENV{PlatformShortName}/$<CONFIG>/"
+        OUTPUT_DIRECTORY_TRACE   "${CMAKE_SOURCE_DIR}/$ENV{VisualStudioVersion}/bin/$ENV{PlatformShortName}/$<CONFIG>/"
+    )
+endif()
+################################################################################
+# Include directories
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    target_include_directories(${PROJECT_NAME} PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/../../../include;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../..;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../$ENV{DependencySrc}"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    target_include_directories(${PROJECT_NAME} PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/../../../include;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../..;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/../$ENV{DependencySrc}"
+    )
+endif()
 
-# end: CMakeLists.txt
+################################################################################
+# Compile definitions
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "$<$<CONFIG:Debug>:"
+            "_DEBUG"
+        ">"
+        "$<$<CONFIG:Release>:"
+            "NDEBUG"
+        ">"
+        "$<$<CONFIG:Trace>:"
+            "NDEBUG"
+        ">"
+        "WIN32;"
+        "_MBCS"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "$<$<CONFIG:Debug>:"
+            "_DEBUG"
+        ">"
+        "$<$<CONFIG:Release>:"
+            "NDEBUG;"
+            "_CRT_SECURE_NO_WARNINGS"
+        ">"
+        "$<$<CONFIG:Trace>:"
+            "NDEBUG;"
+            "_CRT_SECURE_NO_WARNINGS"
+        ">"
+        "_MBCS"
+    )
+endif()
+
+################################################################################
+# Compile and link options
+################################################################################
+if(MSVC)
+    if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+        target_compile_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Debug>:
+                /Gm-;
+                /Od;
+                /Zi
+            >
+            $<$<CONFIG:Release>:
+                /Oi;
+                /Oy;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
+                /Ot
+            >
+            $<$<CONFIG:Trace>:
+                /Oi;
+                /Oy;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
+                /Ot
+            >
+            /MP;
+            /GL-;
+            /sdl;
+            /W3;
+            /fp:except;
+            /wd4091;
+            /wd4244;
+            /wd4267;
+            /EHa;
+            /Y-
+        )
+    elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+        target_compile_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Debug>:
+                /Gm-;
+                /Od;
+                /Oy-;
+                /Zi
+            >
+            $<$<CONFIG:Release>:
+                /Oi;
+                /Oy;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
+                /Ot
+            >
+            $<$<CONFIG:Trace>:
+                /Oi;
+                /Oy;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
+                /Ot
+            >
+            /MP;
+            /GL-;
+            /sdl;
+            /W3;
+            /fp:except;
+            /wd4091;
+            /wd4244;
+            /wd4267;
+            /EHa;
+            /Y-
+        )
+    endif()
+    if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+        target_link_options(${PROJECT_NAME} PRIVATE
+            /NODEFAULTLIB:XINPUT.LIB;
+            /DEBUG:FULL;
+            /INCREMENTAL:NO;
+            /IGNORE:4099
+        )
+    elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+        target_link_options(${PROJECT_NAME} PRIVATE
+            /NODEFAULTLIB:XINPUT.LIB;
+            /DEBUG:FULL;
+            /INCREMENTAL:NO;
+            /IGNORE:4099
+        )
+    endif()
+endif()
+
+################################################################################
+# Dependencies
+################################################################################
+# Link with other targets.
+target_link_libraries(${PROJECT_NAME} PUBLIC
+    Base
+    Collision
+    Foundation
+    Physics
+)
+
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set(ADDITIONAL_LIBRARY_DEPENDENCIES
+        "XINPUT9_1_0"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set(ADDITIONAL_LIBRARY_DEPENDENCIES
+        "XINPUT9_1_0"
+    )
+endif()
+target_link_libraries(${PROJECT_NAME} PUBLIC "${ADDITIONAL_LIBRARY_DEPENDENCIES}")
+
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    target_link_directories(${PROJECT_NAME} PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/../$ENV{DependencyLib}/win32"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    target_link_directories(${PROJECT_NAME} PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/../$ENV{DependencyLib}/win64"
+    )
+endif()
+

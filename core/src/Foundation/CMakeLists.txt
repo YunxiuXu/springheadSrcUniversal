@@ -1,126 +1,308 @@
-# CMakeLists.txt for Foundation
-#
-set(FOUNDATION_VERSION 1.1.1)		# 2021/09/09 Fix GENERATED attribute.
+set(PROJECT_NAME Foundation)
 
-# ------------------------------------------------------------------------------
-#  Set target name.
-#
-set(Target "Foundation")
-message("** ${Target} **")
+################################################################################
+# Source groups
+################################################################################
+set(no_group_source_files
+    "Scilab.i"
+)
+source_group("" FILES ${no_group_source_files})
 
-# ------------------------------------------------------------------------------
-#  Read setting parameters.
-#
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/CMakeSettings.txt")
-    include("${CMAKE_CURRENT_SOURCE_DIR}/CMakeSettings.txt")
+set(Headers
+    "../../include/Foundation/SprObject.h"
+    "../../include/Foundation/SprScene.h"
+    "../../include/Foundation/SprUTCriticalSection.h"
+    "../../include/Foundation/SprUTOptimizer.h"
+    "../../include/Foundation/SprUTQPTimer.h"
+    "../../include/Foundation/SprUTTimer.h"
+    "../../include/SprFoundation.h"
+    "ClapackLibsDef.h"
+    "Object.h"
+    "QuadProg++.hh"
+    "Scene.h"
+    "UTBaseType.h"
+    "UTClapack.h"
+    "UTDllLoader.h"
+    "UTDllLoaderImpl.h"
+    "UTLoadContext.h"
+    "UTLoadHandler.h"
+    "UTOptimizer.h"
+    "UTPath.h"
+    "UTQPTimer.h"
+    "UTSocket.h"
+    "UTTimer.h"
+    "UTTypeDesc.h"
+)
+source_group("Headers" FILES ${Headers})
+
+set(Sources
+    "FoundationStub.cpp"
+    "Object.cpp"
+    "QuadProg++.cc"
+    "Scene.cpp"
+    "ScilabStub.cpp"
+    "UTCriticalSection.cpp"
+    "UTDllLoader.cpp"
+    "UTLoadContext.cpp"
+    "UTLoadHandler.cpp"
+    "UTOptimizer.cpp"
+    "UTPath.cpp"
+    "UTQPTimer.cpp"
+    "UTRegisterTypeDesc.cpp"
+    "UTSocket.cpp"
+    "UTTimer.cpp"
+    "UTTypeDesc.cpp"
+)
+source_group("Sources" FILES ${Sources})
+
+set(ALL_FILES
+    ${no_group_source_files}
+    ${Headers}
+    ${Sources}
+)
+
+################################################################################
+# Target
+################################################################################
+add_library(${PROJECT_NAME} STATIC ${ALL_FILES})
+
+use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" "${DEFAULT_CXX_PROPS}")
+################################################################################
+# Includes for CMake from *.props
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    use_props(${PROJECT_NAME} Debug   "../SpringheadMacros.cmake")
+    use_props(${PROJECT_NAME} Release "../SpringheadMacros.cmake")
+    use_props(${PROJECT_NAME} Trace   "../SpringheadMacros.cmake")
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    use_props(${PROJECT_NAME} Debug   "../SpringheadMacros.cmake")
+    use_props(${PROJECT_NAME} Release "../SpringheadMacros.cmake")
+    use_props(${PROJECT_NAME} Trace   "../SpringheadMacros.cmake")
 endif()
 
-# ------------------------------------------------------------------------------
-#  Define sources and headers.
-#
-file(GLOB SRCS *.cpp *.h
-	QuadProg++.cc
-	QuadProg++.hh
-)
-file(GLOB COMMON_HDRS
-	${SPR_INC_DIR}/SprFoundation.h
-	${SPR_INC_DIR}/${Target}/*.h
-)
-file(GLOB EXCLUDE_SRCS 
-	Foundation.h
-)
+set(ROOT_NAMESPACE Foundation)
 
-list(APPEND SRCS ${COMMON_HDRS})
-if(EXCLUDE_SRCS)
-    message("++ exclude: ${EXCLUDE_SRCS}")
-    list(REMOVE_ITEM SRCS ${EXCLUDE_SRCS})
-endif()
-
-if(unix)
-    file(GLOB KLUDGES
-	${SPR_SRC_DIR}/kludge_for_unix/*.h
-	${SPR_SRC_DIR}/kludge_for_unix/*.cpp
+################################################################################
+# Target name
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        TARGET_NAME_DEBUG   "${PROJECT_NAME}$ENV{VisualStudioVersion}$ENV{LibConfDebug}${CMAKE_VS_PLATFORM_NAME}"
+        TARGET_NAME_RELEASE "${PROJECT_NAME}$ENV{VisualStudioVersion}$ENV{LibConfRelease}${CMAKE_VS_PLATFORM_NAME}"
+        TARGET_NAME_TRACE   "${PROJECT_NAME}$ENV{VisualStudioVersion}$ENV{LibConfTrace}${CMAKE_VS_PLATFORM_NAME}"
     )
-    list(APPEND SRCS ${KLUDGES})
-endif()
-
-file(STRINGS "RunSwig_gen_files.txt" _tmp_buff)
-foreach(_file ${_tmp_buff})
-    #message("     mark generated: \"${_file}\"")
-    list(APPEND SRCS ${_file})
-    set_source_files_properties(${_file}
-	DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
- 	PROPERTIES GENERATED TRUE
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        TARGET_NAME_DEBUG   "${PROJECT_NAME}$ENV{VisualStudioVersion}$ENV{LibConfDebug}${CMAKE_VS_PLATFORM_NAME}"
+        TARGET_NAME_RELEASE "${PROJECT_NAME}$ENV{VisualStudioVersion}$ENV{LibConfRelease}${CMAKE_VS_PLATFORM_NAME}"
+        TARGET_NAME_TRACE   "${PROJECT_NAME}$ENV{VisualStudioVersion}$ENV{LibConfTrace}${CMAKE_VS_PLATFORM_NAME}"
     )
-endforeach()
-
-# ------------------------------------------------------------------------------
-#  Definition of library.
-#
-if(Windows)
-    add_library(${Target} ${LIBTYPE} ${SRCS})
-    set(_platform ${CMAKE_GENERATOR_PLATFORM})
-    set(_output_name_debug   "${Target}${VS_VERSION}${LIB_SUFFIX_DEBUG}${_platform}")
-    set(_output_name_release "${Target}${VS_VERSION}${LIB_SUFFIX_RELEASE}${_platform}")
-    set(_output_name_trace   "${Target}${VS_VERSION}${LIB_SUFFIX_TRACE}${_platform}")
-    set_target_properties("${Target}" PROPERTIES
-	OUTPUT_NAME_DEBUG   ${_output_name_debug}
-	OUTPUT_NAME_RELEASE ${_output_name_release}
-	OUTPUT_NAME_TRACE   ${_output_name_trace}
-	ARCHIVE_OUTPUT_DIRECTORY_DEBUG   ${SPR_SRC_DIR}/${Target}
-	ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${SPR_SRC_DIR}/${Target}
-	ARCHIVE_OUTPUT_DIRECTORY_TRACE   ${SPR_SRC_DIR}/${Target}
+endif()
+################################################################################
+# Output directory
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        OUTPUT_DIRECTORY_DEBUG   "${CMAKE_CURRENT_SOURCE_DIR}/"
+        OUTPUT_DIRECTORY_RELEASE "${CMAKE_CURRENT_SOURCE_DIR}/"
+        OUTPUT_DIRECTORY_TRACE   "${CMAKE_CURRENT_SOURCE_DIR}/"
     )
-    #message("     lib name debug:   ${_output_name_debug}")
-    #message("     lib name release: ${_output_name_release}")
-    #message("     lib name trace:   ${_output_name_trace}")
-elseif(unix)
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${SPR_SRC_DIR}/${Target})
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${SPR_SRC_DIR}/${Target})
-    add_library(${Target} STATIC ${SRCS})
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        OUTPUT_DIRECTORY_DEBUG   "${CMAKE_CURRENT_SOURCE_DIR}/"
+        OUTPUT_DIRECTORY_RELEASE "${CMAKE_CURRENT_SOURCE_DIR}/"
+        OUTPUT_DIRECTORY_TRACE   "${CMAKE_CURRENT_SOURCE_DIR}/"
+    )
+endif()
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        INTERPROCEDURAL_OPTIMIZATION_RELEASE "FALSE"
+        INTERPROCEDURAL_OPTIMIZATION_TRACE   "FALSE"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        INTERPROCEDURAL_OPTIMIZATION_RELEASE "FALSE"
+        INTERPROCEDURAL_OPTIMIZATION_TRACE   "FALSE"
+    )
+endif()
+################################################################################
+# Include directories
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    target_include_directories(${PROJECT_NAME} PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/../../include;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/..;"
+        "$ENV{DependencySrc}"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    target_include_directories(${PROJECT_NAME} PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/../../include;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/..;"
+        "$ENV{DependencySrc}"
+    )
 endif()
 
-# ------------------------------------------------------------------------------
-#  Compiler/linker options.
-#
-if(Windows)
-    set(CMAKE_CXX_FLAGS		"${COMP_FLAGS}")
-    set(CMAKE_CXX_FLAGS_DEBUG	"${COMP_FLAGS_DEBUG}")
-    set(CMAKE_CXX_FLAGS_RELEASE	"${COMP_FLAGS_RELEASE}")
-    set(CMAKE_CXX_FLAGS_TRACE	"${COMP_FLAGS_TRACE}")
-elseif(unix)
-    foreach(_flag ${COMP_FLAGS})
-        target_compile_options(${Target} PUBLIC ${_flag})
-    endforeach()
-    #set(CMAKE_CXX_COMPILER "/usr/bin/g++")
-endif()
-foreach(_macro ${DEFINE_MACROS})
-        target_compile_definitions(${Target} PUBLIC ${_macro})
-endforeach()
-
-# ------------------------------------------------------------------------------
-#  Include directories.
-#
-set(CMAKE_USE_RELATIVE_PATHS TRUE)
-target_include_directories(${Target} BEFORE PRIVATE ${INCLUDE_PATHS})
-if(DEFINED Boost_INCLUDE_DIRS)
-    target_include_directories(${Target} BEFORE PRIVATE ${Boost_INCLUDE_DIRS})
-endif()
-if(DEFINED GLEW_INCLUDE_DIRS)
-    target_include_directories(${Target} BEFORE PRIVATE ${GLEW_INCLUDE_DIRS})
-endif()
-if(DEFINED GLUT_INCLUDE_DIR)
-    target_include_directories(${Target} BEFORE PRIVATE ${GLUT_INCLUDE_DIR})
+################################################################################
+# Compile definitions
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "$<$<CONFIG:Trace>:"
+            "TRACE"
+        ">"
+        "_LIB;"
+        "_MBCS"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "$<$<CONFIG:Trace>:"
+            "TRACE"
+        ">"
+        "_LIB;"
+        "_MBCS"
+    )
 endif()
 
-# ------------------------------------------------------------------------------
-#  Record this build state.
-#
-add_custom_command(TARGET ${Target}
-    POST_BUILD
-    COMMAND echo "LASTLIBTYPE=${LIBTYPE}" > ${LASTBUILD_LIBTYPE_FILE}
-    BYPRODUCTS ${LASTBUILD_LIBTYPE_FILE}
-    COMMANT [[  last build library type: ${LIBTYPE}  ]]
+################################################################################
+# Compile and link options
+################################################################################
+if(MSVC)
+    if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+        target_compile_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Debug>:
+                /Od;
+                /Ob0;
+                /fp:except;
+                /Zi
+            >
+            $<$<CONFIG:Release>:
+                /GL-;
+                /O2;
+                /Ob2;
+                /Oy;
+                /Gr;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
+                /Ot;
+                /GS
+            >
+            $<$<CONFIG:Trace>:
+                /GL-;
+                /O2;
+                /Ob2;
+                /Oy-;
+                /Gr;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
+                /Ot;
+                /GS
+            >
+            /MP;
+            /Gm-;
+            /Oi-;
+            /sdl;
+            /GF-;
+            /arch:AVX;
+            /Gy-;
+            /W3;
+            /wd4996;
+            /wd4244;
+            ${DEFAULT_CXX_EXCEPTION_HANDLING};
+            /openmp
+        )
+    elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+        target_compile_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Debug>:
+                /Gm-;
+                /Od;
+                /Ob0;
+                /Oy-;
+                /fp:except;
+                /Zi
+            >
+            $<$<CONFIG:Release>:
+                /GL-;
+                /O2;
+                /Ob2;
+                /Oy;
+                /Gr;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
+                /Ot;
+                /GS
+            >
+            $<$<CONFIG:Trace>:
+                /GL-;
+                /O2;
+                /Ob2;
+                /Oy-;
+                /Gr;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
+                /Ot;
+                /GS
+            >
+            /MP;
+            /Oi-;
+            /sdl;
+            /GF-;
+            /arch:AVX;
+            /Gy-;
+            /W3;
+            /wd4996;
+            /wd4244;
+            ${DEFAULT_CXX_EXCEPTION_HANDLING};
+            /openmp
+        )
+    endif()
+    if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+        target_link_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Release>:
+                /OPT:REF;
+                /OPT:ICF
+            >
+            $<$<CONFIG:Trace>:
+                /OPT:REF;
+                /OPT:ICF
+            >
+        )
+    elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+        target_link_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Release>:
+                /OPT:REF;
+                /OPT:ICF
+            >
+            $<$<CONFIG:Trace>:
+                /OPT:REF;
+                /OPT:ICF
+            >
+        )
+    endif()
+endif()
+
+################################################################################
+# Post build events
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    add_custom_command_if(
+        TARGET ${PROJECT_NAME}
+        POST_BUILD
+        COMMANDS
+        COMMAND   $<CONFIG:Debug> echo   $<TARGET_FILE_NAME:${PROJECT_NAME}> done 1>&2
+        COMMAND $<CONFIG:Release> echo   $<TARGET_FILE_NAME:${PROJECT_NAME}> done 1>&2
+        COMMAND   $<CONFIG:Trace> echo   $<TARGET_FILE_NAME:${PROJECT_NAME}> done 1>&2
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    add_custom_command_if(
+        TARGET ${PROJECT_NAME}
+        POST_BUILD
+        COMMANDS
+        COMMAND   $<CONFIG:Debug> echo   $<TARGET_FILE_NAME:${PROJECT_NAME}> done 1>&2
+        COMMAND $<CONFIG:Release> echo   $<TARGET_FILE_NAME:${PROJECT_NAME}> done 1>&2
+        COMMAND   $<CONFIG:Trace> echo   $<TARGET_FILE_NAME:${PROJECT_NAME}> done 1>&2
+    )
+endif()
+
+################################################################################
+# Dependencies
+################################################################################
+add_dependencies(${PROJECT_NAME}
+    Base
 )
 
-# end: CMakeLists.txt

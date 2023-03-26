@@ -1,112 +1,297 @@
-# CMakeLists.txt for Collision
-#
-set(COLLISION_VERSION 1.1.1)		# 2021/09/09 Fix GENERATED attribute.
+set(PROJECT_NAME Collision)
 
-# ------------------------------------------------------------------------------
-#  Set target name.
-#
-set(Target "Collision")
-message("** ${Target} **")
-
-# ------------------------------------------------------------------------------
-#  Read setting parameters.
-#
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/CMakeSettings.txt")
-    include("${CMAKE_CURRENT_SOURCE_DIR}/CMakeSettings.txt")
-endif()
-
-# ------------------------------------------------------------------------------
-#  Define sources and headers.
-#
-file(GLOB SRCS *.cpp *.h)
-file(GLOB COMMON_HDRS
-    ${SPR_INC_DIR}/${Target}/*.h
+################################################################################
+# Source groups
+################################################################################
+set(Headers
+    "../../include/Collision/SprCDDetector.h"
+    "../../include/Collision/SprCDShape.h"
+    "../../include/Collision/SprCDSpHash.h"
+    "CDBox.h"
+    "CDCapsule.h"
+    "CDCollisionFunctions.h"
+    "CDConvex.h"
+    "CDConvexMesh.h"
+    "CDConvexMeshInterpolate.h"
+    "CDCutRing.h"
+    "CDDetectorImp.h"
+    "CDEllipsoid.h"
+    "CDQuickHull2D.h"
+    "CDQuickHull2DImp.h"
+    "CDQuickHull3D.h"
+    "CDQuickHull3DImp.h"
+    "CDRoundCone.h"
+    "CDShape.h"
+    "CDSpatialHashTable.h"
+    "CDSphere.h"
+    "Collision.h"
 )
-file(GLOB EXCLUDE_SRCS "")
+source_group("Headers" FILES ${Headers})
 
-list(APPEND SRCS ${COMMON_HDRS})
-if(EXCLUDE_SRCS)
-    message("++ exclude: ${EXCLUDE_SRCS}")
-    list(REMOVE_ITEM SRCS ${EXCLUDE_SRCS})
-endif()
+set(Sources
+    "CDBox.cpp"
+    "CDCapsule.cpp"
+    "CDConvex.cpp"
+    "CDConvexMesh.cpp"
+    "CDConvexMeshInterpolate.cpp"
+    "CDCutRing.cpp"
+    "CDDetectorImp.cpp"
+    "CDEllipsoid.cpp"
+    "CDGJK.cpp"
+    "CDRegisterTypeDesc.cpp"
+    "CDRoundCone.cpp"
+    "CDShape.cpp"
+    "CDSpatialHashTable.cpp"
+    "CDSphere.cpp"
+    "CollisionStub.cpp"
+)
+source_group("Sources" FILES ${Sources})
 
-file(STRINGS "RunSwig_gen_files.txt" _tmp_buff)
-foreach(_file ${_tmp_buff})
-    #message("     mark generated: \"${_file}\"")
-    list(APPEND SRCS ${_file})
-    set_source_files_properties(${_file}
-	DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
- 	PROPERTIES GENERATED TRUE
-    )
-endforeach()
-
-# ------------------------------------------------------------------------------
-#  Definition of library.
-#
-if(Windows)
-    add_library(${Target} ${LIBTYPE} ${SRCS})
-    set(_platform ${CMAKE_GENERATOR_PLATFORM})
-    set(_output_name_debug   "${Target}${VS_VERSION}${LIB_SUFFIX_DEBUG}${_platform}")
-    set(_output_name_release "${Target}${VS_VERSION}${LIB_SUFFIX_RELEASE}${_platform}")
-    set(_output_name_trace   "${Target}${VS_VERSION}${LIB_SUFFIX_TRACE}${_platform}")
-    set_target_properties("${Target}" PROPERTIES
-	OUTPUT_NAME_DEBUG   ${_output_name_debug}
-	OUTPUT_NAME_RELEASE ${_output_name_release}
-	OUTPUT_NAME_TRACE   ${_output_name_trace}
-	ARCHIVE_OUTPUT_DIRECTORY_DEBUG   ${SPR_SRC_DIR}/${Target}
-	ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${SPR_SRC_DIR}/${Target}
-	ARCHIVE_OUTPUT_DIRECTORY_TRACE   ${SPR_SRC_DIR}/${Target}
-    )
-    #message("     lib name debug:   ${_output_name_debug}")
-    #message("     lib name release: ${_output_name_release}")
-    #message("     lib name trace:   ${_output_name_trace}")
-elseif(unix)
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${SPR_SRC_DIR}/${Target})
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${SPR_SRC_DIR}/${Target})
-    add_library(${Target} STATIC ${SRCS})
-endif()
-
-# ------------------------------------------------------------------------------
-#  Compiler/linker options.
-#
-if(Windows)
-    set(CMAKE_CXX_FLAGS		"${COMP_FLAGS}")
-    set(CMAKE_CXX_FLAGS_DEBUG	"${COMP_FLAGS_DEBUG}")
-    set(CMAKE_CXX_FLAGS_RELEASE	"${COMP_FLAGS_RELEASE}")
-    set(CMAKE_CXX_FLAGS_TRACE	"${COMP_FLAGS_TRACE}")
-elseif(unix)
-    foreach(_flag ${COMP_FLAGS})
-        target_compile_options(${Target} PUBLIC ${_flag})
-    endforeach()
-    #set(CMAKE_CXX_COMPILER "/usr/bin/g++")
-endif()
-foreach(_macro ${DEFINE_MACROS})
-	target_compile_definitions(${Target} PUBLIC ${_macro})
-endforeach()
-
-# ------------------------------------------------------------------------------
-#  Include directories.
-#
-set(CMAKE_USE_RELATIVE_PATHS TRUE)
-target_include_directories(${Target} BEFORE PRIVATE ${INCLUDE_PATHS})
-if(DEFINED Boost_INCLUDE_DIRS)
-    target_include_directories(${Target} BEFORE PRIVATE ${Boost_INCLUDE_DIRS})
-endif()
-if(DEFINED GLEW_INCLUDE_DIRS)
-    target_include_directories(${Target} BEFORE PRIVATE ${GLEW_INCLUDE_DIRS})
-endif()
-if(DEFINED GLUT_INCLUDE_DIR)
-    target_include_directories(${Target} BEFORE PRIVATE ${GLUT_INCLUDE_DIR})
-endif()
-
-# ------------------------------------------------------------------------------
-#  Record this build state.
-#
-add_custom_command(TARGET ${Target}
-    POST_BUILD
-    COMMAND echo "LASTLIBTYPE=${LIBTYPE}" > ${LASTBUILD_LIBTYPE_FILE}
-    BYPRODUCTS ${LASTBUILD_LIBTYPE_FILE}
-    COMMANT [[  last build library type: ${LIBTYPE}  ]]
+set(ALL_FILES
+    ${Headers}
+    ${Sources}
 )
 
-# end: CMakeLists.txt
+################################################################################
+# Target
+################################################################################
+add_library(${PROJECT_NAME} STATIC ${ALL_FILES})
+
+use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" "${DEFAULT_CXX_PROPS}")
+################################################################################
+# Includes for CMake from *.props
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    use_props(${PROJECT_NAME} Debug   "../SpringheadMacros.cmake")
+    use_props(${PROJECT_NAME} Release "../SpringheadMacros.cmake")
+    use_props(${PROJECT_NAME} Trace   "../SpringheadMacros.cmake")
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    use_props(${PROJECT_NAME} Debug   "../SpringheadMacros.cmake")
+    use_props(${PROJECT_NAME} Release "../SpringheadMacros.cmake")
+    use_props(${PROJECT_NAME} Trace   "../SpringheadMacros.cmake")
+endif()
+
+set(ROOT_NAMESPACE Collision)
+
+################################################################################
+# Target name
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        TARGET_NAME_DEBUG   "${PROJECT_NAME}$ENV{VisualStudioVersion}$ENV{LibConfDebug}${CMAKE_VS_PLATFORM_NAME}"
+        TARGET_NAME_RELEASE "${PROJECT_NAME}$ENV{VisualStudioVersion}$ENV{LibConfRelease}${CMAKE_VS_PLATFORM_NAME}"
+        TARGET_NAME_TRACE   "${PROJECT_NAME}$ENV{VisualStudioVersion}$ENV{LibConfTrace}${CMAKE_VS_PLATFORM_NAME}"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        TARGET_NAME_DEBUG   "${PROJECT_NAME}$ENV{VisualStudioVersion}$ENV{LibConfDebug}${CMAKE_VS_PLATFORM_NAME}"
+        TARGET_NAME_RELEASE "${PROJECT_NAME}$ENV{VisualStudioVersion}$ENV{LibConfRelease}${CMAKE_VS_PLATFORM_NAME}"
+        TARGET_NAME_TRACE   "${PROJECT_NAME}$ENV{VisualStudioVersion}$ENV{LibConfTrace}${CMAKE_VS_PLATFORM_NAME}"
+    )
+endif()
+################################################################################
+# Output directory
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        OUTPUT_DIRECTORY_DEBUG   "${CMAKE_CURRENT_SOURCE_DIR}/"
+        OUTPUT_DIRECTORY_RELEASE "${CMAKE_CURRENT_SOURCE_DIR}/"
+        OUTPUT_DIRECTORY_TRACE   "${CMAKE_CURRENT_SOURCE_DIR}/"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        OUTPUT_DIRECTORY_DEBUG   "${CMAKE_CURRENT_SOURCE_DIR}/"
+        OUTPUT_DIRECTORY_RELEASE "${CMAKE_CURRENT_SOURCE_DIR}/"
+        OUTPUT_DIRECTORY_TRACE   "${CMAKE_CURRENT_SOURCE_DIR}/"
+    )
+endif()
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        INTERPROCEDURAL_OPTIMIZATION_RELEASE "FALSE"
+        INTERPROCEDURAL_OPTIMIZATION_TRACE   "FALSE"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+        INTERPROCEDURAL_OPTIMIZATION_RELEASE "FALSE"
+        INTERPROCEDURAL_OPTIMIZATION_TRACE   "FALSE"
+    )
+endif()
+################################################################################
+# Include directories
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    target_include_directories(${PROJECT_NAME} PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/../../include;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/..;"
+        "$ENV{DependencySrc}"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    target_include_directories(${PROJECT_NAME} PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/../../include;"
+        "${CMAKE_CURRENT_SOURCE_DIR}/..;"
+        "$ENV{DependencySrc}"
+    )
+endif()
+
+################################################################################
+# Compile definitions
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "$<$<CONFIG:Trace>:"
+            "TRACE"
+        ">"
+        "_LIB;"
+        "_MBCS"
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "$<$<CONFIG:Trace>:"
+            "TRACE"
+        ">"
+        "_LIB;"
+        "_MBCS"
+    )
+endif()
+
+################################################################################
+# Compile and link options
+################################################################################
+if(MSVC)
+    if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+        target_compile_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Debug>:
+                /Gm-;
+                /Od;
+                /Ob0;
+                /fp:except;
+                /Zi
+            >
+            $<$<CONFIG:Release>:
+                /GL-;
+                /O2;
+                /Ob2;
+                /Oy;
+                /Gr;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
+                /Ot;
+                /GS
+            >
+            $<$<CONFIG:Trace>:
+                /GL-;
+                /O2;
+                /Ob2;
+                /Oy-;
+                /Gr;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
+                /Ot;
+                /GS
+            >
+            /MP;
+            /Oi-;
+            /sdl;
+            /GF-;
+            /arch:AVX;
+            /Gy-;
+            /W3;
+            /wd4244;
+            ${DEFAULT_CXX_EXCEPTION_HANDLING};
+            /openmp
+        )
+    elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+        target_compile_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Debug>:
+                /Gm-;
+                /Od;
+                /Ob0;
+                /Oy-;
+                /fp:except;
+                /Zi
+            >
+            $<$<CONFIG:Release>:
+                /GL-;
+                /O2;
+                /Ob2;
+                /Oy;
+                /Gr;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
+                /Ot;
+                /GS
+            >
+            $<$<CONFIG:Trace>:
+                /GL-;
+                /O2;
+                /Ob2;
+                /Oy-;
+                /Gr;
+                ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
+                /Ot;
+                /GS
+            >
+            /MP;
+            /Oi-;
+            /sdl;
+            /GF-;
+            /arch:AVX;
+            /Gy-;
+            /W3;
+            /wd4244;
+            ${DEFAULT_CXX_EXCEPTION_HANDLING};
+            /openmp
+        )
+    endif()
+    if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+        target_link_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Release>:
+                /OPT:REF;
+                /OPT:ICF
+            >
+            $<$<CONFIG:Trace>:
+                /OPT:REF;
+                /OPT:ICF
+            >
+        )
+    elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+        target_link_options(${PROJECT_NAME} PRIVATE
+            $<$<CONFIG:Release>:
+                /OPT:REF;
+                /OPT:ICF
+            >
+            $<$<CONFIG:Trace>:
+                /OPT:REF;
+                /OPT:ICF
+            >
+        )
+    endif()
+endif()
+
+################################################################################
+# Post build events
+################################################################################
+if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+    add_custom_command_if(
+        TARGET ${PROJECT_NAME}
+        POST_BUILD
+        COMMANDS
+        COMMAND   $<CONFIG:Debug> echo   $<TARGET_FILE_NAME:${PROJECT_NAME}> done 1>&2
+        COMMAND $<CONFIG:Release> echo   $<TARGET_FILE_NAME:${PROJECT_NAME}> done 1>&2
+        COMMAND   $<CONFIG:Trace> echo   $<TARGET_FILE_NAME:${PROJECT_NAME}> done 1>&2
+    )
+elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+    add_custom_command_if(
+        TARGET ${PROJECT_NAME}
+        POST_BUILD
+        COMMANDS
+        COMMAND   $<CONFIG:Debug> echo   $<TARGET_FILE_NAME:${PROJECT_NAME}> done 1>&2
+        COMMAND $<CONFIG:Release> echo   $<TARGET_FILE_NAME:${PROJECT_NAME}> done 1>&2
+        COMMAND   $<CONFIG:Trace> echo   $<TARGET_FILE_NAME:${PROJECT_NAME}> done 1>&2
+    )
+endif()
+
+################################################################################
+# Dependencies
+################################################################################
+add_dependencies(${PROJECT_NAME}
+    Foundation
+)
+
