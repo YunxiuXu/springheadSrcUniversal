@@ -19,239 +19,239 @@ extern "C" {
     __declspec(dllexport) void* __cdecl Spr_vector_new_int() {
 	void* _ptr = (void*) NULL;
 	try { _ptr = new vector<int>; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return (void*) _ptr;
     }
     __declspec(dllexport) void __cdecl Spr_vector_delete_int(void* ptr) {
 	if (ptr == NULL) return;
         vector<int>* vec = (vector<int>*) ptr;
         try { vector<int>().swap(*vec); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) int __cdecl Spr_vector_get_int(void* ptr, int index) {
         vector<int>* vecptr = (vector<int>*) ptr;
 	int _val = 0;
         try { _val = (*vecptr)[index]; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __declspec(dllexport) void __cdecl Spr_vector_set_int(void* ptr, int index, int value) {
         vector<int>* vecptr = (vector<int>*) ptr;
         try { (*vecptr)[index] = value; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) int __cdecl Spr_vector_size_int(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<int>* vecptr = (vector<int>*) ptr;
 	int _val = 0;
         try { _val = (int) (*vecptr).size(); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __declspec(dllexport) void __cdecl Spr_vector_push_back_int(void* ptr, int value) {
         vector<int>* vecptr = (vector<int>*) ptr;
         try { (*vecptr).push_back(value); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) void __cdecl Spr_vector_clear_int(void* ptr) {
 	if (ptr == NULL) return;
         vector<int>* vecptr = (vector<int>*) ptr;
         try { (*vecptr).clear(); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
 
     //  unsigned int
     __declspec(dllexport) void* __cdecl Spr_vector_new_unsigned_int() {
 	void* _ptr = (void*) NULL;
         try { _ptr = new vector<unsigned int>; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
         return _ptr;
     }
     __declspec(dllexport) void __cdecl Spr_vector_delete_unsigned_int(void* ptr) {
 	if (ptr == NULL) return;
         vector<unsigned int>* vec = (vector<unsigned int>*) ptr;
         try { vector<unsigned int>().swap(*vec); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) unsigned int __cdecl Spr_vector_get_unsigned_int(void* ptr, int index) {
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
 	unsigned int _val = 0;
         try { _val = (*vecptr)[index]; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __declspec(dllexport) void __cdecl Spr_vector_set_unsigned_int(void* ptr, int index, unsigned int value) {
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
         try { (*vecptr)[index] = value; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) int __cdecl Spr_vector_size_unsigned_int(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
 	int _val = 0;
         try { _val = (int) (*vecptr).size(); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __declspec(dllexport) void __cdecl Spr_vector_push_back_unsigned_int(void* ptr, unsigned int value) {
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
         try { (*vecptr).push_back(value); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) void __cdecl Spr_vector_clear_unsigned_int(void* ptr) {
 	if (ptr == NULL) return;
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
         try { (*vecptr).clear(); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
 
     //  size_t
     __declspec(dllexport) void* __cdecl Spr_vector_new_size_t() {
 	void* _ptr = (void*) NULL;
         try { _ptr = new vector<size_t>; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
         return _ptr;
     }
     __declspec(dllexport) void __cdecl Spr_vector_delete_size_t(void* ptr) {
 	if (ptr == NULL) return;
         vector<size_t>* vec = (vector<size_t>*) ptr;
         try { vector<size_t>().swap(*vec); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) size_t __cdecl Spr_vector_get_size_t(void* ptr, int index) {
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
 	size_t _val = 0;
         try { _val = (*vecptr)[index]; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __declspec(dllexport) void __cdecl Spr_vector_set_size_t(void* ptr, int index, size_t value) {
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
         try { (*vecptr)[index] = value; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) int __cdecl Spr_vector_size_size_t(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
 	int _val = 0;
         try { _val = (int) (*vecptr).size(); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __declspec(dllexport) void __cdecl Spr_vector_push_back_size_t(void* ptr, size_t value) {
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
         try { (*vecptr).push_back(value); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) void __cdecl Spr_vector_clear_size_t(void* ptr) {
 	if (ptr == NULL) return;
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
         try { (*vecptr).clear(); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
 
     //  float
     __declspec(dllexport) void* __cdecl Spr_vector_new_float() {
 	void* _ptr = (void*) NULL;
 	try { _ptr = new vector<float>; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
         return _ptr;
     }
     __declspec(dllexport) void __cdecl Spr_vector_delete_float(void* ptr) {
 	if (ptr == NULL) return;
         vector<float>* vecptr = (vector<float>*) ptr;
 	try { vector<float>().swap(*vecptr); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) float __cdecl Spr_vector_get_float(void* ptr, int index) {
         vector<float>* vecptr = (vector<float>*) ptr;
 	float _val = 0;
 	try { _val = (*vecptr)[index]; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __declspec(dllexport) void __cdecl Spr_vector_set_float(void* ptr, int index, float value) {
         vector<float>* vecptr = (vector<float>*) ptr;
 	try { (*vecptr)[index] = value; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) int __cdecl Spr_vector_size_float(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<float>* vecptr = (vector<float>*) ptr;
 	int _val = 0;
 	try { _val = (int) (*vecptr).size(); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __declspec(dllexport) void __cdecl Spr_vector_push_back_float(void* ptr, float value) {
         vector<float>* vecptr = (vector<float>*) ptr;
 	try { (*vecptr).push_back(value); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) void __cdecl Spr_vector_clear_float(void* ptr) {
 	if (ptr == NULL) return;
         vector<float>* vecptr = (vector<float>*) ptr;
 	try { (*vecptr).clear(); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
 
     //  double
     __declspec(dllexport) void* __cdecl Spr_vector_new_double() {
 	void* _ptr = (void*) NULL;
         try { _ptr = new vector<double>; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
         return _ptr;
     }
     __declspec(dllexport) void __cdecl Spr_vector_delete_double(void* ptr) {
 	if (ptr == NULL) return;
         vector<double>* vecptr = (vector<double>*) ptr;
         try { vector<double>().swap(*vecptr); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) double __cdecl Spr_vector_get_double(void* ptr, int index) {
         vector<double>* vecptr = (vector<double>*) ptr;
 	double _val = 0;
         try { _val = (*vecptr)[index]; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __declspec(dllexport) void __cdecl Spr_vector_set_double(void* ptr, int index, double value) {
         vector<double>* vecptr = (vector<double>*) ptr;
         try { (*vecptr)[index] = value; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) int __cdecl Spr_vector_size_double(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<double>* vecptr = (vector<double>*) ptr;
 	int _val = 0;
         try { _val = (int) (*vecptr).size(); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __declspec(dllexport) void __cdecl Spr_vector_push_back_double(void* ptr, double value) {
         vector<double>* vecptr = (vector<double>*) ptr;
         try { (*vecptr).push_back(value); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) void __cdecl Spr_vector_clear_double(void* ptr) {
 	if (ptr == NULL) return;
         vector<double>* vecptr = (vector<double>*) ptr;
         try { (*vecptr).clear(); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
 
     //  string
     __declspec(dllexport) void* __cdecl Spr_vector_new_string() {
 	void* _ptr = (void*) NULL;
         try { _ptr = new vector<string>; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
         return _ptr;
     }
     __declspec(dllexport) void __cdecl Spr_vector_delete_string(void* ptr) {
 	if (ptr == NULL) return;
         vector<string>* vecptr = (vector<string>*) ptr;
         try { vector<string>().swap(*vecptr); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) void* __cdecl Spr_vector_get_string(void* ptr, int index) {
         void * result = nullptr;
@@ -264,7 +264,7 @@ extern "C" {
                 ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
 	}
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
         return result;
     }
     __declspec(dllexport) void __cdecl Spr_vector_set_string(void* ptr, int index, void* value) {
@@ -277,14 +277,14 @@ extern "C" {
                 (*vecptr)[index] = string(addr);
             }
 	}
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) int __cdecl Spr_vector_size_string(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<string>* vecptr = (vector<string>*) ptr;
 	int _val = 0;
         try { _val = (int) (*vecptr).size(); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __declspec(dllexport) void __cdecl Spr_vector_push_back_string(void* ptr, void* value) {
@@ -297,13 +297,13 @@ extern "C" {
                 (*vecptr).push_back(string(addr));
             }
 	}
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
     __declspec(dllexport) void __cdecl Spr_vector_clear_string(void* ptr) {
 	if (ptr == NULL) return;
         vector<string>* vecptr = (vector<string>*) ptr;
         try { (*vecptr).clear(); }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
     }
 
     // array
@@ -311,13 +311,13 @@ extern "C" {
     __declspec(dllexport) void* __cdecl Spr_array_new_int(unsigned int nelm) {
 	void* _ptr = (void*) NULL;
 	try { _ptr = new int[nelm]; }
-	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+	catch (const std::exception& e) {  }
 	return (void*) _ptr;
     }
     __declspec(dllexport) void __cdecl Spr_array_delete_int(void* ptr) {
 	int* _ptr = (int*) ptr;
         try { delete[] _ptr; }
-        catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
+        catch (const std::exception& e) {  }
     }
     __declspec(dllexport) int __cdecl Spr_array_get_int(void* ptr, int index) {
         int* aryptr = (int*) ptr;
