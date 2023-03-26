@@ -1,0 +1,63 @@
+#  Do not edit. RunSwig_CSharp.bat will update this file.   
+#  File: Makefile_CSharp.swig.Base	
+			
+INCHDRS=\
+../../include/Base/Affine.h \
+../../include/Base/BaseDebug.h \
+../../include/Base/BaseTypeInfo.h \
+../../include/Base/BaseUtility.h \
+../../include/Base/Env.h \
+../../include/Base/QuadProgram.h \
+../../include/Base/Spatial.h \
+../../include/Base/TCurve.h \
+../../include/Base/TinyMat.h \
+../../include/Base/TinyVec.h \
+../../include/Base/TMatrix.h \
+../../include/Base/TMatrixUtility.h \
+../../include/Base/TQuaternion.h \
+../../include/Base/TVector.h \
+../../include/Base/VectorDebug.h \
+			
+SRCHDRS=\
+../../src/Base/Base.h \
+../../src/Base/Combination.h \
+../../src/Base/KeyList.h \
+../../src/Base/RingBuf.h \
+../../src/Base/StrBufBase.h \
+			
+INTFILES=\
+./Base.i \
+./Collision.i \
+./Creature.i \
+./FileIO.i \
+./Foundation.i \
+./Framework.i \
+./Graphics.i \
+./HumanInterface.i \
+./Physics.i \
+			
+FIXED_WRAPPERS=\
+./SprCSharp/wrapper.cs		\
+./SprImport/wrapper.cs		\
+./SprExport/wrapper.cpp	\
+			
+WRAPPERS=\
+./SprCSharp/module.wrapper.cs	\
+./SprImport/module.wrapper.cs	\
+./SprExport/module.wrapper.cpp	\
+			
+all:	./SprCSharp/CSBase.cs    
+			
+./SprCSharp/CSBase.cs:	$(INCHDRS) $(SRCHDRS) $(INTFILES) $(FIXED_WRAPPERS)
+	call RunSwig_CSharp\CSharpSwig.bat Base 	
+				
+$(INCHDRS):			
+				
+$(SRCHDRS):			
+				
+$(INTFILES):			
+				
+$(FIXED_WRAPPERS):		
+				
+$(WRAPPERS):			
+				

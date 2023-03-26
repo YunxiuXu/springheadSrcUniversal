@@ -1,0 +1,86 @@
+#  Do not edit. RunSwig_CSharp.bat will update this file.   
+#  File: Makefile_CSharp.swig.HumanInterface	
+			
+INCHDRS=\
+../../include/HumanInterface/SprHIBase.h \
+../../include/HumanInterface/SprHIDevice.h \
+../../include/HumanInterface/SprHIDRUart.h \
+../../include/HumanInterface/SprHIDRUsb.h \
+../../include/HumanInterface/SprHIJoyStick.h \
+../../include/HumanInterface/SprHIKeyMouse.h \
+../../include/HumanInterface/SprHILeap.h \
+../../include/HumanInterface/SprHINovint.h \
+../../include/HumanInterface/SprHISdk.h \
+../../include/HumanInterface/SprHISkeletonSensor.h \
+../../include/HumanInterface/SprHISpaceNavigator.h \
+../../include/HumanInterface/SprHISpidar.h \
+../../include/HumanInterface/SprHITrackball.h \
+../../include/HumanInterface/SprHIXbox360Controller.h \
+			
+SRCHDRS=\
+../../src/HumanInterface/Device.h \
+../../src/HumanInterface/DRADAPIO.h \
+../../src/HumanInterface/DRContecIsaCounter.h \
+../../src/HumanInterface/DRContecIsaDa.h \
+../../src/HumanInterface/DRCyUsb20Sh4.h \
+../../src/HumanInterface/DRKeyMouseWin32.h \
+../../src/HumanInterface/DRNittaForce.h \
+../../src/HumanInterface/DRPortIO.h \
+../../src/HumanInterface/DRTokin3D.h \
+../../src/HumanInterface/DRUartMotorDriver.h \
+../../src/HumanInterface/DRUPP.h \
+../../src/HumanInterface/DRUsb20Sh4.h \
+../../src/HumanInterface/DRUsb20Simple.h \
+../../src/HumanInterface/DRUsbH8Simple.h \
+../../src/HumanInterface/DRUsbH8SimpleDef.h \
+../../src/HumanInterface/DRWinDriver.h \
+../../src/HumanInterface/HIBase.h \
+../../src/HumanInterface/HIDevice.h \
+../../src/HumanInterface/HILeap.h \
+../../src/HumanInterface/HINovintFalcon.h \
+../../src/HumanInterface/HISdk.h \
+../../src/HumanInterface/HISkeletonSensor.h \
+../../src/HumanInterface/HISpaceNavigator.h \
+../../src/HumanInterface/HISpidar.h \
+../../src/HumanInterface/HISpidarCalc.h \
+../../src/HumanInterface/HISpidarMotor.h \
+../../src/HumanInterface/HITrackball.h \
+../../src/HumanInterface/HIXbox360Controller.h \
+../../src/HumanInterface/HumanInterface.h \
+			
+INTFILES=\
+./Base.i \
+./Collision.i \
+./Creature.i \
+./FileIO.i \
+./Foundation.i \
+./Framework.i \
+./Graphics.i \
+./HumanInterface.i \
+./Physics.i \
+			
+FIXED_WRAPPERS=\
+./SprCSharp/wrapper.cs		\
+./SprImport/wrapper.cs		\
+./SprExport/wrapper.cpp	\
+			
+WRAPPERS=\
+./SprCSharp/module.wrapper.cs	\
+./SprImport/module.wrapper.cs	\
+./SprExport/module.wrapper.cpp	\
+			
+all:	./SprCSharp/CSHumanInterface.cs    
+			
+./SprCSharp/CSHumanInterface.cs:	$(INCHDRS) $(SRCHDRS) $(INTFILES) $(FIXED_WRAPPERS)
+	call RunSwig_CSharp\CSharpSwig.bat HumanInterface 	
+				
+$(INCHDRS):			
+				
+$(SRCHDRS):			
+				
+$(INTFILES):			
+				
+$(FIXED_WRAPPERS):		
+				
+$(WRAPPERS):			
+				

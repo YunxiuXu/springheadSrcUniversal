@@ -1,0 +1,16 @@
+D:\VS Projects\Springhead\core\src\SprCSharp\SprCSharp\obj\x64\Release\SprCSharp16.0.csprojAssemblyReference.cache
+D:\VS Projects\Springhead\core\src\SprCSharp\SprCSharp\obj\x64\Release\SprCSharp16.0.csproj.CoreCompileInputs.cache
+D:\Springhead\core\src\SprCSharp\16.0\bin\x64\Release\SprCSharp.dll
+D:\Springhead\core\src\SprCSharp\16.0\bin\x64\Release\SprCSharp.pdb
+D:\Springhead\core\src\SprCSharp\SprCSharp\obj\x64\Release\SprCSharp16.0.csprojAssemblyReference.cache
+D:\Springhead\core\src\SprCSharp\SprCSharp\obj\x64\Release\SprCSharp16.0.csproj.CoreCompileInputs.cache
+D:\Springhead\core\src\SprCSharp\SprCSharp\obj\x64\Release\SprCSharp16.0.csproj.CopyComplete
+D:\Springhead\core\src\SprCSharp\SprCSharp\obj\x64\Release\SprCSharp.dll
+D:\Springhead\core\src\SprCSharp\SprCSharp\obj\x64\Release\SprCSharp.pdb
+D:\springheadSrcUniversal\core\src\SprCSharp\16.0\bin\x64\Release\SprCSharp.dll
+D:\springheadSrcUniversal\core\src\SprCSharp\16.0\bin\x64\Release\SprCSharp.pdb
+D:\springheadSrcUniversal\core\src\SprCSharp\SprCSharp\obj\x64\Release\SprCSharp16.0.csprojAssemblyReference.cache
+D:\springheadSrcUniversal\core\src\SprCSharp\SprCSharp\obj\x64\Release\SprCSharp16.0.csproj.CoreCompileInputs.cache
+D:\springheadSrcUniversal\core\src\SprCSharp\SprCSharp\obj\x64\Release\SprCSharp16.0.csproj.CopyComplete
+D:\springheadSrcUniversal\core\src\SprCSharp\SprCSharp\obj\x64\Release\SprCSharp.dll
+D:\springheadSrcUniversal\core\src\SprCSharp\SprCSharp\obj\x64\Release\SprCSharp.pdb

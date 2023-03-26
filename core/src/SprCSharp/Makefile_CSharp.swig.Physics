@@ -1,0 +1,115 @@
+#  Do not edit. RunSwig_CSharp.bat will update this file.   
+#  File: Makefile_CSharp.swig.Physics	
+			
+INCHDRS=\
+../../include/Physics/SprPHDef.h \
+../../include/Physics/SprPHEngine.h \
+../../include/Physics/SprPHFemMesh.h \
+../../include/Physics/SprPHFemMeshNew.h \
+../../include/Physics/SprPHHaptic.h \
+../../include/Physics/SprPHIK.h \
+../../include/Physics/SprPHJoint.h \
+../../include/Physics/SprPHJointLimit.h \
+../../include/Physics/SprPHJointMotor.h \
+../../include/Physics/SprPHNodeHandlers.h \
+../../include/Physics/SprPHOpObj.h \
+../../include/Physics/SprPHOpSpHashAgent.h \
+../../include/Physics/SprPHScene.h \
+../../include/Physics/SprPHSdk.h \
+../../include/Physics/SprPHSkeleton.h \
+../../include/Physics/SprPHSolid.h \
+			
+SRCHDRS=\
+../../src/Physics/PHAxisIndex.h \
+../../src/Physics/PHBallJoint.h \
+../../src/Physics/PHBody.h \
+../../src/Physics/PHConstraint.h \
+../../src/Physics/PHConstraintEngine.h \
+../../src/Physics/PHContactDetector.h \
+../../src/Physics/PHContactPoint.h \
+../../src/Physics/PHContactSurface.h \
+../../src/Physics/PHEngine.h \
+../../src/Physics/PHFemBase.h \
+../../src/Physics/PHFemCollision.h \
+../../src/Physics/PHFemEngine.h \
+../../src/Physics/PHFemMesh.h \
+../../src/Physics/PHFemMeshNew.h \
+../../src/Physics/PHFemMeshThermo.h \
+../../src/Physics/PHFemPorousWOMove.h \
+../../src/Physics/PHFemThermo.h \
+../../src/Physics/PHFemVibration.h \
+../../src/Physics/PHFixJoint.h \
+../../src/Physics/PHForceField.h \
+../../src/Physics/PHGear.h \
+../../src/Physics/PHGenericJoint.h \
+../../src/Physics/PHHapticEngine.h \
+../../src/Physics/PHHapticPointer.h \
+../../src/Physics/PHHapticStepBase.h \
+../../src/Physics/PHHapticStepImpulse.h \
+../../src/Physics/PHHapticStepLocalDynamics.h \
+../../src/Physics/PHHapticStepLocalDynamicsDev.h \
+../../src/Physics/PHHapticStepMulti.h \
+../../src/Physics/PHHapticStepSingle.h \
+../../src/Physics/PHHingeJoint.h \
+../../src/Physics/PHIKActuator.h \
+../../src/Physics/PHIKEndEffector.h \
+../../src/Physics/PHIKEngine.h \
+../../src/Physics/PHJoint.h \
+../../src/Physics/PHJointLimit.h \
+../../src/Physics/PHJointMotor.h \
+../../src/Physics/PHOpAnimation.h \
+../../src/Physics/PHOpDecompositionMethods.h \
+../../src/Physics/PHOpEngine.h \
+../../src/Physics/PHOpGroup.h \
+../../src/Physics/PHOpHapticController.h \
+../../src/Physics/PHOpHapticRenderer.h \
+../../src/Physics/PHOpObj.h \
+../../src/Physics/PHOpParticle.h \
+../../src/Physics/PHOpSpHashColliAgent.h \
+../../src/Physics/PHPathJoint.h \
+../../src/Physics/PHPenaltyEngine.h \
+../../src/Physics/PHScene.h \
+../../src/Physics/PHSdk.h \
+../../src/Physics/PHSkeleton.h \
+../../src/Physics/PHSliderJoint.h \
+../../src/Physics/PHSolid.h \
+../../src/Physics/PHSpring.h \
+../../src/Physics/PHTreeNode.h \
+../../src/Physics/Physics.h \
+			
+INTFILES=\
+./Base.i \
+./Collision.i \
+./Creature.i \
+./FileIO.i \
+./Foundation.i \
+./Framework.i \
+./Graphics.i \
+./HumanInterface.i \
+./Physics.i \
+			
+FIXED_WRAPPERS=\
+./SprCSharp/wrapper.cs		\
+./SprImport/wrapper.cs		\
+./SprExport/wrapper.cpp	\
+			
+WRAPPERS=\
+./SprCSharp/module.wrapper.cs	\
+./SprImport/module.wrapper.cs	\
+./SprExport/module.wrapper.cpp	\
+			
+all:	./SprCSharp/CSPhysics.cs    
+			
+./SprCSharp/CSPhysics.cs:	$(INCHDRS) $(SRCHDRS) $(INTFILES) $(FIXED_WRAPPERS)
+	call RunSwig_CSharp\CSharpSwig.bat Physics 	
+				
+$(INCHDRS):			
+				
+$(SRCHDRS):			
+				
+$(INTFILES):			
+				
+$(FIXED_WRAPPERS):		
+				
+$(WRAPPERS):			
+				

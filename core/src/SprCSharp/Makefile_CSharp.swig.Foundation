@@ -1,0 +1,65 @@
+#  Do not edit. RunSwig_CSharp.bat will update this file.   
+#  File: Makefile_CSharp.swig.Foundation	
+			
+INCHDRS=\
+../../include/Foundation/SprObject.h \
+../../include/Foundation/SprScene.h \
+../../include/Foundation/SprUTCriticalSection.h \
+../../include/Foundation/SprUTOptimizer.h \
+../../include/Foundation/SprUTQPTimer.h \
+../../include/Foundation/SprUTTimer.h \
+			
+SRCHDRS=\
+../../src/Foundation/ClapackLibsDef.h \
+../../src/Foundation/Foundation.h \
+../../src/Foundation/Object.h \
+../../src/Foundation/Scene.h \
+../../src/Foundation/UTBaseType.h \
+../../src/Foundation/UTClapack.h \
+../../src/Foundation/UTDllLoader.h \
+../../src/Foundation/UTDllLoaderImpl.h \
+../../src/Foundation/UTLoadContext.h \
+../../src/Foundation/UTLoadHandler.h \
+../../src/Foundation/UTOptimizer.h \
+../../src/Foundation/UTPath.h \
+../../src/Foundation/UTQPTimer.h \
+../../src/Foundation/UTSocket.h \
+../../src/Foundation/UTTimer.h \
+../../src/Foundation/UTTypeDesc.h \
+			
+INTFILES=\
+./Base.i \
+./Collision.i \
+./Creature.i \
+./FileIO.i \
+./Foundation.i \
+./Framework.i \
+./Graphics.i \
+./HumanInterface.i \
+./Physics.i \
+			
+FIXED_WRAPPERS=\
+./SprCSharp/wrapper.cs		\
+./SprImport/wrapper.cs		\
+./SprExport/wrapper.cpp	\
+			
+WRAPPERS=\
+./SprCSharp/module.wrapper.cs	\
+./SprImport/module.wrapper.cs	\
+./SprExport/module.wrapper.cpp	\
+			
+all:	./SprCSharp/CSFoundation.cs    
+			
+./SprCSharp/CSFoundation.cs:	$(INCHDRS) $(SRCHDRS) $(INTFILES) $(FIXED_WRAPPERS)
+	call RunSwig_CSharp\CSharpSwig.bat Foundation 	
+				
+$(INCHDRS):			
+				
+$(SRCHDRS):			
+				
+$(INTFILES):			
+				
+$(FIXED_WRAPPERS):		
+				
+$(WRAPPERS):			
+				

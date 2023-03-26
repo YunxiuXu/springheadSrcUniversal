@@ -1,0 +1,63 @@
+#  Do not edit. RunSwig_CSharp.bat will update this file.   
+#  File: Makefile_CSharp.swig.Graphics	
+			
+INCHDRS=\
+../../include/Graphics/SprGRBlendMesh.h \
+../../include/Graphics/SprGRFrame.h \
+../../include/Graphics/SprGRMesh.h \
+../../include/Graphics/SprGRRender.h \
+../../include/Graphics/SprGRScene.h \
+../../include/Graphics/SprGRSdk.h \
+../../include/Graphics/SprGRShader.h \
+../../include/Graphics/SprGRSphere.h \
+../../include/Graphics/SprGRVertex.h \
+			
+SRCHDRS=\
+../../src/Graphics/Graphics.h \
+../../src/Graphics/GRBlendMesh.h \
+../../src/Graphics/GRDeviceGL.h \
+../../src/Graphics/GRDrawEllipsoid.h \
+../../src/Graphics/GRFrame.h \
+../../src/Graphics/GRLoadBmp.h \
+../../src/Graphics/GRMesh.h \
+../../src/Graphics/GRRender.h \
+../../src/Graphics/GRScene.h \
+../../src/Graphics/GRSdk.h \
+../../src/Graphics/GRSphere.h \
+			
+INTFILES=\
+./Base.i \
+./Collision.i \
+./Creature.i \
+./FileIO.i \
+./Foundation.i \
+./Framework.i \
+./Graphics.i \
+./HumanInterface.i \
+./Physics.i \
+			
+FIXED_WRAPPERS=\
+./SprCSharp/wrapper.cs		\
+./SprImport/wrapper.cs		\
+./SprExport/wrapper.cpp	\
+			
+WRAPPERS=\
+./SprCSharp/module.wrapper.cs	\
+./SprImport/module.wrapper.cs	\
+./SprExport/module.wrapper.cpp	\
+			
+all:	./SprCSharp/CSGraphics.cs    
+			
+./SprCSharp/CSGraphics.cs:	$(INCHDRS) $(SRCHDRS) $(INTFILES) $(FIXED_WRAPPERS)
+	call RunSwig_CSharp\CSharpSwig.bat Graphics 	
+				
+$(INCHDRS):			
+				
+$(SRCHDRS):			
+				
+$(INTFILES):			
+				
+$(FIXED_WRAPPERS):		
+				
+$(WRAPPERS):			
+				

@@ -1,0 +1,64 @@
+#  Do not edit. RunSwig_CSharp.bat will update this file.   
+#  File: Makefile_CSharp.swig.Collision	
+			
+INCHDRS=\
+../../include/Collision/SprCDDetector.h \
+../../include/Collision/SprCDShape.h \
+../../include/Collision/SprCDSpHash.h \
+			
+SRCHDRS=\
+../../src/Collision/CDBox.h \
+../../src/Collision/CDCapsule.h \
+../../src/Collision/CDCollisionFunctions.h \
+../../src/Collision/CDConvex.h \
+../../src/Collision/CDConvexMesh.h \
+../../src/Collision/CDConvexMeshInterpolate.h \
+../../src/Collision/CDCutRing.h \
+../../src/Collision/CDDetectorImp.h \
+../../src/Collision/CDEllipsoid.h \
+../../src/Collision/CDQuickHull2D.h \
+../../src/Collision/CDQuickHull2DImp.h \
+../../src/Collision/CDQuickHull3D.h \
+../../src/Collision/CDQuickHull3DImp.h \
+../../src/Collision/CDRoundCone.h \
+../../src/Collision/CDShape.h \
+../../src/Collision/CDSpatialHashTable.h \
+../../src/Collision/CDSphere.h \
+../../src/Collision/Collision.h \
+			
+INTFILES=\
+./Base.i \
+./Collision.i \
+./Creature.i \
+./FileIO.i \
+./Foundation.i \
+./Framework.i \
+./Graphics.i \
+./HumanInterface.i \
+./Physics.i \
+			
+FIXED_WRAPPERS=\
+./SprCSharp/wrapper.cs		\
+./SprImport/wrapper.cs		\
+./SprExport/wrapper.cpp	\
+			
+WRAPPERS=\
+./SprCSharp/module.wrapper.cs	\
+./SprImport/module.wrapper.cs	\
+./SprExport/module.wrapper.cpp	\
+			
+all:	./SprCSharp/CSCollision.cs    
+			
+./SprCSharp/CSCollision.cs:	$(INCHDRS) $(SRCHDRS) $(INTFILES) $(FIXED_WRAPPERS)
+	call RunSwig_CSharp\CSharpSwig.bat Collision 	
+				
+$(INCHDRS):			
+				
+$(SRCHDRS):			
+				
+$(INTFILES):			
+				
+$(FIXED_WRAPPERS):		
+				
+$(WRAPPERS):			
+				

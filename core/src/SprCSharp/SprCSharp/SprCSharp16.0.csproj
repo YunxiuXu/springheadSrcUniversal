@@ -75,12 +75,7 @@
   <ItemGroup>
     <Compile Include="CSBase.cs" />
     <Compile Include="CSCollision.cs" />
-    <Compile Include="CSCreature.cs" />
-    <Compile Include="CSFileIO.cs" />
     <Compile Include="CSFoundation.cs" />
-    <Compile Include="CSFramework.cs" />
-    <Compile Include="CSGraphics.cs" />
-    <Compile Include="CSHumanInterface.cs" />
     <Compile Include="CSPhysics.cs" />
     <Compile Include="CSUtility.cs" />
     <Compile Include="cs_object.cs" />
@@ -90,12 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="module.wrapper.cs.prologue" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SprImport\SprImport16.0.csproj">
-      <Project>{14187602-db2f-41ec-9291-5a4b9376dcc9}</Project>
-      <Name>SprImport16.0</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -175,7 +175,7 @@ def RunSwig(module, dept='', verbose=0, dry_run=False):
 	lines.append('')
 	lines.append('%s:\t\\' % stubfile)
 	lines.append('\t%s' % '\\\n\t'.join(Util.pathconv(deptlist)))
-	line = Util.pathconv('\t%s -I%s/Lib' % (swig, swigbindir))
+	line = Util.pathconv('\t%s -I"%s/Lib"' % (swig, swigbindir))
 	line += ' -spr -w305,312,319,325,401,402'
 	line += ' -DSWIG_%s -c++ %s' % (module, interfacefile)
 	if Util.is_unix():

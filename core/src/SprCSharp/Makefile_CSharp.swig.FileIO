@@ -1,0 +1,61 @@
+#  Do not edit. RunSwig_CSharp.bat will update this file.   
+#  File: Makefile_CSharp.swig.FileIO	
+			
+INCHDRS=\
+../../include/FileIO/SprFIFile.h \
+../../include/FileIO/SprFIImport.h \
+../../include/FileIO/SprFIOpStateHandler.h \
+../../include/FileIO/SprFISdk.h \
+			
+SRCHDRS=\
+../../src/FileIO/FIFile.h \
+../../src/FileIO/FIFileBinary.h \
+../../src/FileIO/FIFileCOLLADA.h \
+../../src/FileIO/FIFileCOLLADAHandler.h \
+../../src/FileIO/FIFileSpr.h \
+../../src/FileIO/FIFileVrml.h \
+../../src/FileIO/FIFileX.h \
+../../src/FileIO/FIImport.h \
+../../src/FileIO/FileIO.h \
+../../src/FileIO/FILoadContext.h \
+../../src/FileIO/FIOpStateHandler.h \
+../../src/FileIO/FISaveContext.h \
+../../src/FileIO/FISdk.h \
+../../src/FileIO/FISpirit.h \
+			
+INTFILES=\
+./Base.i \
+./Collision.i \
+./Creature.i \
+./FileIO.i \
+./Foundation.i \
+./Framework.i \
+./Graphics.i \
+./HumanInterface.i \
+./Physics.i \
+			
+FIXED_WRAPPERS=\
+./SprCSharp/wrapper.cs		\
+./SprImport/wrapper.cs		\
+./SprExport/wrapper.cpp	\
+			
+WRAPPERS=\
+./SprCSharp/module.wrapper.cs	\
+./SprImport/module.wrapper.cs	\
+./SprExport/module.wrapper.cpp	\
+			
+all:	./SprCSharp/CSFileIO.cs    
+			
+./SprCSharp/CSFileIO.cs:	$(INCHDRS) $(SRCHDRS) $(INTFILES) $(FIXED_WRAPPERS)
+	call RunSwig_CSharp\CSharpSwig.bat FileIO 	
+				
+$(INCHDRS):			
+				
+$(SRCHDRS):			
+				
+$(INTFILES):			
+				
+$(FIXED_WRAPPERS):		
+				
+$(WRAPPERS):			
+				

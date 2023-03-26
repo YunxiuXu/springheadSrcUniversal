@@ -23,7 +23,7 @@
     <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>SprExport</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -220,12 +220,7 @@
   <ItemGroup>
     <ClCompile Include="CSBase.cpp" />
     <ClCompile Include="CSCollision.cpp" />
-    <ClCompile Include="CSCreature.cpp" />
-    <ClCompile Include="CSFileIO.cpp" />
     <ClCompile Include="CSFoundation.cpp" />
-    <ClCompile Include="CSFramework.cpp" />
-    <ClCompile Include="CSGraphics.cpp" />
-    <ClCompile Include="CSHumanInterface.cpp" />
     <ClCompile Include="CSPhysics.cpp" />
     <ClCompile Include="CSUtility.cpp" />
     <ClCompile Include="module.wrapper.cpp" />
@@ -241,23 +236,8 @@
     <ProjectReference Include="..\..\Collision\Collision16.0.vcxproj">
       <Project>{8c62959e-9e67-4439-836e-25be57501463}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\Creature\Creature16.0.vcxproj">
-      <Project>{f674a4d7-a183-4c53-815d-12e17b71c6a0}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\FileIO\FileIO16.0.vcxproj">
-      <Project>{3ca4689d-77da-4b2e-a718-cbb6a8ff04d7}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\..\Foundation\Foundation16.0.vcxproj">
       <Project>{916bf063-5a94-4652-b355-62220ef17768}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Framework\Framework16.0.vcxproj">
-      <Project>{755660be-3b1e-416b-b795-4f653c83a43a}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Graphics\Graphics16.0.vcxproj">
-      <Project>{a339c0ca-d5fb-4dfa-9bcf-826739790653}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\HumanInterface\HumanInterface16.0.vcxproj">
-      <Project>{05138f41-5673-4e19-a5c7-2a684488b23a}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\Physics\Physics16.0.vcxproj">
       <Project>{a2b91f83-df0a-473d-9c3b-059673cd2046}</Project>

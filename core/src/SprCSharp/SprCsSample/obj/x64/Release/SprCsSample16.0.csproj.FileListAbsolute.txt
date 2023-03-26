@@ -1,0 +1,18 @@
+D:\VS Projects\Springhead\core\src\SprCSharp\SprCsSample\obj\x64\Release\SprCsSample16.0.csprojAssemblyReference.cache
+D:\VS Projects\Springhead\core\src\SprCSharp\SprCsSample\obj\x64\Release\SprCsSample16.0.csproj.CoreCompileInputs.cache
+D:\Springhead\core\src\SprCSharp\16.0\bin\x64\Release\SprCsSample.exe.config
+D:\Springhead\core\src\SprCSharp\16.0\bin\x64\Release\SprCsSample.exe
+D:\Springhead\core\src\SprCSharp\16.0\bin\x64\Release\SprCsSample.pdb
+D:\Springhead\core\src\SprCSharp\SprCsSample\obj\x64\Release\SprCsSample16.0.csprojAssemblyReference.cache
+D:\Springhead\core\src\SprCSharp\SprCsSample\obj\x64\Release\SprCsSample16.0.csproj.CoreCompileInputs.cache
+D:\Springhead\core\src\SprCSharp\SprCsSample\obj\x64\Release\SprCsSample16.0.csproj.CopyComplete
+D:\Springhead\core\src\SprCSharp\SprCsSample\obj\x64\Release\SprCsSample.exe
+D:\Springhead\core\src\SprCSharp\SprCsSample\obj\x64\Release\SprCsSample.pdb
+D:\springheadSrcUniversal\core\src\SprCSharp\16.0\bin\x64\Release\SprCsSample.exe.config
+D:\springheadSrcUniversal\core\src\SprCSharp\16.0\bin\x64\Release\SprCsSample.exe
+D:\springheadSrcUniversal\core\src\SprCSharp\16.0\bin\x64\Release\SprCsSample.pdb
+D:\springheadSrcUniversal\core\src\SprCSharp\SprCsSample\obj\x64\Release\SprCsSample16.0.csprojAssemblyReference.cache
+D:\springheadSrcUniversal\core\src\SprCSharp\SprCsSample\obj\x64\Release\SprCsSample16.0.csproj.CoreCompileInputs.cache
+D:\springheadSrcUniversal\core\src\SprCSharp\SprCsSample\obj\x64\Release\SprCsSample16.0.csproj.CopyComplete
+D:\springheadSrcUniversal\core\src\SprCSharp\SprCsSample\obj\x64\Release\SprCsSample.exe
+D:\springheadSrcUniversal\core\src\SprCSharp\SprCsSample\obj\x64\Release\SprCsSample.pdb

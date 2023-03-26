@@ -1,0 +1,80 @@
+#  Do not edit. RunSwig_CSharp.bat will update this file.   
+#  File: Makefile_CSharp.swig.Framework	
+			
+INCHDRS=\
+../../include/Framework/SprFWApp.h \
+../../include/Framework/SprFWConsoleDebugMonitor.h \
+../../include/Framework/SprFWEditor.h \
+../../include/Framework/SprFWFemMesh.h \
+../../include/Framework/SprFWFemMeshNew.h \
+../../include/Framework/SprFWHapticPointer.h \
+../../include/Framework/SprFWJoyStick.h \
+../../include/Framework/SprFWKeyMouse.h \
+../../include/Framework/SprFWObject.h \
+../../include/Framework/SprFWOpHapticHandler.h \
+../../include/Framework/SprFWOpObj.h \
+../../include/Framework/SprFWOptimizer.h \
+../../include/Framework/SprFWScene.h \
+../../include/Framework/SprFWSdk.h \
+../../include/Framework/SprFWSkeletonSensor.h \
+../../include/Framework/SprFWWin.h \
+			
+SRCHDRS=\
+../../src/Framework/Framework.h \
+../../src/Framework/FWFemMesh.h \
+../../src/Framework/FWFemMeshNew.h \
+../../src/Framework/FWGLUI.h \
+../../src/Framework/FWGLUT.h \
+../../src/Framework/FWGraphicsHandler.h \
+../../src/Framework/FWHapticPointer.h \
+../../src/Framework/FWJoyStickGLUT.h \
+../../src/Framework/FWKeyMouseGLUT.h \
+../../src/Framework/FWObject.h \
+../../src/Framework/FWOldSpringheadNode.h \
+../../src/Framework/FWOldSpringheadNodeHandler.h \
+../../src/Framework/FWOpHapticHandler.h \
+../../src/Framework/FWOpObj.h \
+../../src/Framework/FWOptimizer.h \
+../../src/Framework/FWScene.h \
+../../src/Framework/FWSdk.h \
+../../src/Framework/FWSkeletonSensor.h \
+../../src/Framework/FWSprTetgen.h \
+../../src/Framework/FWStaticTorqueOptimizer.h \
+../../src/Framework/FWWin.h \
+			
+INTFILES=\
+./Base.i \
+./Collision.i \
+./Creature.i \
+./FileIO.i \
+./Foundation.i \
+./Framework.i \
+./Graphics.i \
+./HumanInterface.i \
+./Physics.i \
+			
+FIXED_WRAPPERS=\
+./SprCSharp/wrapper.cs		\
+./SprImport/wrapper.cs		\
+./SprExport/wrapper.cpp	\
+			
+WRAPPERS=\
+./SprCSharp/module.wrapper.cs	\
+./SprImport/module.wrapper.cs	\
+./SprExport/module.wrapper.cpp	\
+			
+all:	./SprCSharp/CSFramework.cs    
+			
+./SprCSharp/CSFramework.cs:	$(INCHDRS) $(SRCHDRS) $(INTFILES) $(FIXED_WRAPPERS)
+	call RunSwig_CSharp\CSharpSwig.bat Framework 	
+				
+$(INCHDRS):			
+				
+$(SRCHDRS):			
+				
+$(INTFILES):			
+				
+$(FIXED_WRAPPERS):		
+				
+$(WRAPPERS):			
+				

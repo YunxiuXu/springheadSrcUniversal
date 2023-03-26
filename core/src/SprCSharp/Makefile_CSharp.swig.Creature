@@ -1,0 +1,68 @@
+#  Do not edit. RunSwig_CSharp.bat will update this file.   
+#  File: Makefile_CSharp.swig.Creature	
+			
+INCHDRS=\
+../../include/Creature/SprCRBody.h \
+../../include/Creature/SprCRBone.h \
+../../include/Creature/SprCRController.h \
+../../include/Creature/SprCRCreature.h \
+../../include/Creature/SprCREngine.h \
+../../include/Creature/SprCRReachController.h \
+../../include/Creature/SprCRSdk.h \
+../../include/Creature/SprCRTimeSeries.h \
+../../include/Creature/SprCRTouchSensor.h \
+../../include/Creature/SprCRTrajectoryPlanner.h \
+../../include/Creature/SprCRVisualSensor.h \
+			
+SRCHDRS=\
+../../src/Creature/CRBody.h \
+../../src/Creature/CRBone.h \
+../../src/Creature/CRCreature.h \
+../../src/Creature/CREngine.h \
+../../src/Creature/CRGazeController.h \
+../../src/Creature/CRGrabController.h \
+../../src/Creature/CRMinimumJerkTrajectory.h \
+../../src/Creature/CRMotionController.h \
+../../src/Creature/CRMotionPlanner.h \
+../../src/Creature/CRReachController.h \
+../../src/Creature/CRSdk.h \
+../../src/Creature/CRTouchSensor.h \
+../../src/Creature/CRTrajectoryPlanner.h \
+../../src/Creature/CRVisualSensor.h \
+			
+INTFILES=\
+./Base.i \
+./Collision.i \
+./Creature.i \
+./FileIO.i \
+./Foundation.i \
+./Framework.i \
+./Graphics.i \
+./HumanInterface.i \
+./Physics.i \
+			
+FIXED_WRAPPERS=\
+./SprCSharp/wrapper.cs		\
+./SprImport/wrapper.cs		\
+./SprExport/wrapper.cpp	\
+			
+WRAPPERS=\
+./SprCSharp/module.wrapper.cs	\
+./SprImport/module.wrapper.cs	\
+./SprExport/module.wrapper.cpp	\
+			
+all:	./SprCSharp/CSCreature.cs    
+			
+./SprCSharp/CSCreature.cs:	$(INCHDRS) $(SRCHDRS) $(INTFILES) $(FIXED_WRAPPERS)
+	call RunSwig_CSharp\CSharpSwig.bat Creature 	
+				
+$(INCHDRS):			
+				
+$(SRCHDRS):			
+				
+$(INTFILES):			
+				
+$(FIXED_WRAPPERS):		
+				
+$(WRAPPERS):			
+				
