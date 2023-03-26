@@ -1,12 +1,7 @@
 #include <Springhead.h>
-#include <Windows.h>
 #include <sstream>
 #include <SprPhysics.h>
-#include <Framework/SprFWApp.h>
 #include <Physics/SprPHJointMotor.h>
-#include <Framework/SprFWEditor.h>
-#include <Framework/SprFWOpObj.h>
-#include <Framework/FWScene.h>
 #include <../src/SprCSharp/SprExport/CSUtility.h>
 using namespace Spr;
 using namespace std;
@@ -1992,12 +1987,12 @@ extern "C" {
         try { delete (PHGenericJointCallback*) v; }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) void __cdecl Spr_PHGenericJointCallback_SetParam(void* _this, void* jnt, BSTR name, double value) {
+    __declspec(dllexport) void __cdecl Spr_PHGenericJointCallback_SetParam(void* _this, void* jnt, void* name, double value) {
 	string arg02_("");
-	int lenMB2 = ::WideCharToMultiByte(CP_ACP, (DWORD) 0, (LPCWSTR) name, -1, NULL, 0, NULL, NULL);
+	int lenMB2 = static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(name), 0));
 	if (lenMB2 > 0) {
-	    LPSTR addr2 = (LPSTR) ::SysAllocStringLen(0, lenMB2);
-	    ::WideCharToMultiByte(CP_ACP, (DWORD) 0, (LPCWSTR) name, -1, addr2, lenMB2, NULL, NULL);
+	    std::string str1(lenMB2, 0); char* addr2 = &str1[0];
+        static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(name), 0));
 	    arg02_ = (string) addr2;
 	}
 	try { ((PHGenericJointCallback*) _this)->SetParam((PHGenericJointIf*) jnt, (string) arg02_, value); }
@@ -4915,7 +4910,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHEngineIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -4925,17 +4920,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHEngineIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHEngineIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHEngineIf_GetIfInfo(void* _this) {
@@ -4994,7 +4989,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHConstraintEngineIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -5004,17 +4999,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHConstraintEngineIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHConstraintEngineIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHConstraintEngineIf_GetIfInfo(void* _this) {
@@ -5127,7 +5122,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHGravityEngineIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -5137,17 +5132,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHGravityEngineIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHGravityEngineIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHGravityEngineIf_GetIfInfo(void* _this) {
@@ -5174,7 +5169,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPenaltyEngineIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -5184,17 +5179,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHPenaltyEngineIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHPenaltyEngineIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPenaltyEngineIf_GetIfInfo(void* _this) {
@@ -5221,7 +5216,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHIKEngineIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -5231,17 +5226,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHIKEngineIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHIKEngineIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void __cdecl Spr_PHIKEngineIf_SetMaxVelocity(void* _this, double maxVel) {
@@ -5351,7 +5346,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemEngineIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -5361,17 +5356,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHFemEngineIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHFemEngineIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemEngineIf_GetIfInfo(void* _this) {
@@ -5476,7 +5471,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpEngineIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -5486,17 +5481,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHOpEngineIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHOpEngineIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpEngineIf_GetIfInfo(void* _this) {
@@ -5678,7 +5673,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemMeshIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -5688,17 +5683,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHFemMeshIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHFemMeshIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemMeshIf_GetIfInfo(void* _this) {
@@ -5725,7 +5720,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemMeshThermoIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -5735,17 +5730,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHFemMeshThermoIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHFemMeshThermoIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemMeshThermoIf_GetIfInfo(void* _this) {
@@ -6013,7 +6008,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemMeshNewIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -6023,17 +6018,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHFemMeshNewIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHFemMeshNewIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemMeshNewIf_GetIfInfo(void* _this) {
@@ -6242,7 +6237,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemBaseIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -6252,17 +6247,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHFemBaseIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHFemBaseIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemBaseIf_GetIfInfo(void* _this) {
@@ -6295,7 +6290,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemVibrationIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -6305,17 +6300,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHFemVibrationIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHFemVibrationIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemVibrationIf_GetIfInfo(void* _this) {
@@ -6504,7 +6499,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemThermoIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -6514,17 +6509,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHFemThermoIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHFemThermoIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemThermoIf_GetIfInfo(void* _this) {
@@ -6765,12 +6760,12 @@ extern "C" {
 	try { ((PHFemThermoIf*) _this)->IfRadiantHeatTransSteak(); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) float __cdecl Spr_PHFemThermoIf_calcGvtx(void* _this, BSTR fwfood, int pv, unsigned int texture_mode) {
+    __declspec(dllexport) float __cdecl Spr_PHFemThermoIf_calcGvtx(void* _this, void* fwfood, int pv, unsigned int texture_mode) {
 	string arg01_("");
-	int lenMB1 = ::WideCharToMultiByte(CP_ACP, (DWORD) 0, (LPCWSTR) fwfood, -1, NULL, 0, NULL, NULL);
+    int lenMB1 = static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(fwfood), 0));
 	if (lenMB1 > 0) {
-	    LPSTR addr1 = (LPSTR) ::SysAllocStringLen(0, lenMB1);
-	    ::WideCharToMultiByte(CP_ACP, (DWORD) 0, (LPCWSTR) fwfood, -1, addr1, lenMB1, NULL, NULL);
+	    std::string str1(lenMB1, 0); char* addr1 = &str1[0];
+	    static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(fwfood), 0));
 	    arg01_ = (string) addr1;
 	}
 	float _val = (float) NULL;
@@ -6932,7 +6927,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemPorousWOMoveIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -6942,17 +6937,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHFemPorousWOMoveIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHFemPorousWOMoveIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFemPorousWOMoveIf_GetIfInfo(void* _this) {
@@ -7031,12 +7026,12 @@ extern "C" {
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
 	return _val;
     }
-    __declspec(dllexport) float __cdecl Spr_PHFemPorousWOMoveIf_calcGvtx(void* _this, BSTR fwfood, int pv, unsigned int texture_mode) {
+    __declspec(dllexport) float __cdecl Spr_PHFemPorousWOMoveIf_calcGvtx(void* _this, void* fwfood, int pv, unsigned int texture_mode) {
 	string arg01_("");
-	int lenMB1 = ::WideCharToMultiByte(CP_ACP, (DWORD) 0, (LPCWSTR) fwfood, -1, NULL, 0, NULL, NULL);
+    int lenMB1 = static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(fwfood), 0));
 	if (lenMB1 > 0) {
-	    LPSTR addr1 = (LPSTR) ::SysAllocStringLen(0, lenMB1);
-	    ::WideCharToMultiByte(CP_ACP, (DWORD) 0, (LPCWSTR) fwfood, -1, addr1, lenMB1, NULL, NULL);
+	    std::string str1(lenMB1, 0); char* addr1 = &str1[0];
+	    static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(fwfood), 0));
 	    arg01_ = (string) addr1;
 	}
 	float _val = (float) NULL;
@@ -7073,7 +7068,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFrameIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -7083,17 +7078,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHFrameIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHFrameIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFrameIf_GetIfInfo(void* _this) {
@@ -7137,7 +7132,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBodyIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -7147,17 +7142,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHBodyIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHBodyIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBodyIf_GetIfInfo(void* _this) {
@@ -7292,7 +7287,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSolidIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -7302,17 +7297,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHSolidIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHSolidIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSolidIf_GetIfInfo(void* _this) {
@@ -7484,7 +7479,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHShapePairForLCPIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -7494,17 +7489,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHShapePairForLCPIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHShapePairForLCPIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHShapePairForLCPIf_GetIfInfo(void* _this) {
@@ -7565,7 +7560,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSolidPairIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -7575,17 +7570,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHSolidPairIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHSolidPairIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSolidPairIf_GetIfInfo(void* _this) {
@@ -7642,7 +7637,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSolidPairForLCPIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -7652,17 +7647,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHSolidPairForLCPIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHSolidPairForLCPIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSolidPairForLCPIf_GetIfInfo(void* _this) {
@@ -7731,7 +7726,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHHapticPointerIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -7741,17 +7736,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHHapticPointerIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHHapticPointerIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHHapticPointerIf_GetIfInfo(void* _this) {
@@ -8061,7 +8056,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHShapePairForHapticIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -8071,17 +8066,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHShapePairForHapticIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHShapePairForHapticIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHShapePairForHapticIf_GetIfInfo(void* _this) {
@@ -8148,7 +8143,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSolidPairForHapticIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -8158,17 +8153,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHSolidPairForHapticIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHSolidPairForHapticIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSolidPairForHapticIf_GetIfInfo(void* _this) {
@@ -8259,7 +8254,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHHapticEngineIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -8269,17 +8264,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHHapticEngineIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHHapticEngineIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHHapticEngineIf_GetIfInfo(void* _this) {
@@ -8379,7 +8374,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHIKEndEffectorIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -8389,17 +8384,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHIKEndEffectorIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHIKEndEffectorIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHIKEndEffectorIf_GetIfInfo(void* _this) {
@@ -8655,7 +8650,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHIKActuatorIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -8665,17 +8660,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHIKActuatorIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHIKActuatorIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHIKActuatorIf_GetIfInfo(void* _this) {
@@ -8803,7 +8798,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHIKBallActuatorIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -8813,17 +8808,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHIKBallActuatorIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHIKBallActuatorIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHIKBallActuatorIf_GetIfInfo(void* _this) {
@@ -8882,7 +8877,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHIKHingeActuatorIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -8892,17 +8887,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHIKHingeActuatorIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHIKHingeActuatorIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHIKHingeActuatorIf_GetIfInfo(void* _this) {
@@ -8959,7 +8954,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHIKSpringActuatorIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -8969,17 +8964,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHIKSpringActuatorIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHIKSpringActuatorIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHIKSpringActuatorIf_GetIfInfo(void* _this) {
@@ -9038,7 +9033,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHConstraintIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -9048,17 +9043,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHConstraintIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHConstraintIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHConstraintIf_GetIfInfo(void* _this) {
@@ -9179,7 +9174,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHConstraintsIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -9189,17 +9184,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHConstraintsIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHConstraintsIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHConstraintsIf_GetIfInfo(void* _this) {
@@ -9238,7 +9233,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHContactPointIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -9248,17 +9243,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHContactPointIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHContactPointIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHContactPointIf_GetIfInfo(void* _this) {
@@ -9298,7 +9293,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHJointIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -9308,17 +9303,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHJointIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHJointIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHJointIf_GetIfInfo(void* _this) {
@@ -9355,7 +9350,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PH1DJointIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -9365,17 +9360,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PH1DJointIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PH1DJointIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PH1DJointIf_GetIfInfo(void* _this) {
@@ -9607,7 +9602,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHHingeJointIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -9617,17 +9612,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHHingeJointIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHHingeJointIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHHingeJointIf_GetIfInfo(void* _this) {
@@ -9654,7 +9649,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSliderJointIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -9664,17 +9659,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHSliderJointIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHSliderJointIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSliderJointIf_GetIfInfo(void* _this) {
@@ -9701,7 +9696,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPathIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -9711,17 +9706,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHPathIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHPathIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPathIf_GetIfInfo(void* _this) {
@@ -9768,7 +9763,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPathJointIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -9778,17 +9773,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHPathJointIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHPathJointIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPathJointIf_GetIfInfo(void* _this) {
@@ -9819,7 +9814,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHGenericJointIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -9829,17 +9824,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHGenericJointIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHGenericJointIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHGenericJointIf_GetIfInfo(void* _this) {
@@ -9858,12 +9853,12 @@ extern "C" {
 	try { ((PHGenericJointIf*) _this)->SetCallback((PHGenericJointCallback*) cb); }
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
-    __declspec(dllexport) void __cdecl Spr_PHGenericJointIf_SetParam(void* _this, BSTR name, double value) {
+    __declspec(dllexport) void __cdecl Spr_PHGenericJointIf_SetParam(void* _this, void* name, double value) {
 	string arg01_("");
-	int lenMB1 = ::WideCharToMultiByte(CP_ACP, (DWORD) 0, (LPCWSTR) name, -1, NULL, 0, NULL, NULL);
+	int lenMB1 = static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(name), 0));
 	if (lenMB1 > 0) {
-	    LPSTR addr1 = (LPSTR) ::SysAllocStringLen(0, lenMB1);
-	    ::WideCharToMultiByte(CP_ACP, (DWORD) 0, (LPCWSTR) name, -1, addr1, lenMB1, NULL, NULL);
+	    std::string str1(lenMB1, 0); char* addr1 = &str1[0];
+        static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(name), 0));
 	    arg01_ = (string) addr1;
 	}
 	try { ((PHGenericJointIf*) _this)->SetParam((string) arg01_, value); }
@@ -9881,7 +9876,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -9891,17 +9886,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHBallJointIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHBallJointIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointIf_GetIfInfo(void* _this) {
@@ -10133,7 +10128,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFixJointIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10143,17 +10138,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHFixJointIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHFixJointIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFixJointIf_GetIfInfo(void* _this) {
@@ -10180,7 +10175,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSpringIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10190,17 +10185,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHSpringIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHSpringIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSpringIf_GetIfInfo(void* _this) {
@@ -10357,7 +10352,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHMateIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10367,17 +10362,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHMateIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHMateIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHMateIf_GetIfInfo(void* _this) {
@@ -10404,7 +10399,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPointToPointMateIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10414,17 +10409,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHPointToPointMateIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHPointToPointMateIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPointToPointMateIf_GetIfInfo(void* _this) {
@@ -10451,7 +10446,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPointToLineMateIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10461,17 +10456,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHPointToLineMateIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHPointToLineMateIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPointToLineMateIf_GetIfInfo(void* _this) {
@@ -10498,7 +10493,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPointToPlaneMateIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10508,17 +10503,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHPointToPlaneMateIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHPointToPlaneMateIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPointToPlaneMateIf_GetIfInfo(void* _this) {
@@ -10554,7 +10549,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHLineToLineMateIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10564,17 +10559,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHLineToLineMateIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHLineToLineMateIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHLineToLineMateIf_GetIfInfo(void* _this) {
@@ -10601,7 +10596,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPlaneToPlaneMateIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10611,17 +10606,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHPlaneToPlaneMateIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHPlaneToPlaneMateIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPlaneToPlaneMateIf_GetIfInfo(void* _this) {
@@ -10648,7 +10643,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHTreeNodeIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10658,17 +10653,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHTreeNodeIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHTreeNodeIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHTreeNodeIf_GetIfInfo(void* _this) {
@@ -10741,7 +10736,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHRootNodeIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10751,17 +10746,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHRootNodeIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHRootNodeIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHRootNodeIf_GetIfInfo(void* _this) {
@@ -10788,7 +10783,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHTreeNode1DIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10798,17 +10793,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHTreeNode1DIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHTreeNode1DIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHTreeNode1DIf_GetIfInfo(void* _this) {
@@ -10835,7 +10830,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHHingeJointNodeIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10845,17 +10840,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHHingeJointNodeIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHHingeJointNodeIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHHingeJointNodeIf_GetIfInfo(void* _this) {
@@ -10882,7 +10877,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSliderJointNodeIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10892,17 +10887,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHSliderJointNodeIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHSliderJointNodeIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSliderJointNodeIf_GetIfInfo(void* _this) {
@@ -10929,7 +10924,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPathJointNodeIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10939,17 +10934,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHPathJointNodeIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHPathJointNodeIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHPathJointNodeIf_GetIfInfo(void* _this) {
@@ -10976,7 +10971,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHGenericJointNodeIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -10986,17 +10981,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHGenericJointNodeIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHGenericJointNodeIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHGenericJointNodeIf_GetIfInfo(void* _this) {
@@ -11023,7 +11018,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointNodeIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11033,17 +11028,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHBallJointNodeIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHBallJointNodeIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointNodeIf_GetIfInfo(void* _this) {
@@ -11070,7 +11065,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFixJointNodeIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11080,17 +11075,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHFixJointNodeIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHFixJointNodeIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHFixJointNodeIf_GetIfInfo(void* _this) {
@@ -11117,7 +11112,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHGearIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11127,17 +11122,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHGearIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHGearIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHGearIf_GetIfInfo(void* _this) {
@@ -11210,7 +11205,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PH1DJointLimitIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11220,17 +11215,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PH1DJointLimitIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PH1DJointLimitIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PH1DJointLimitIf_GetIfInfo(void* _this) {
@@ -11305,7 +11300,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointLimitIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11315,17 +11310,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHBallJointLimitIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHBallJointLimitIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointLimitIf_GetIfInfo(void* _this) {
@@ -11402,7 +11397,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointConeLimitIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11412,17 +11407,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHBallJointConeLimitIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHBallJointConeLimitIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointConeLimitIf_GetIfInfo(void* _this) {
@@ -11476,7 +11471,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointSplineLimitIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11486,17 +11481,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHBallJointSplineLimitIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHBallJointSplineLimitIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointSplineLimitIf_GetIfInfo(void* _this) {
@@ -11550,7 +11545,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointIndependentLimitIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11560,17 +11555,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHBallJointIndependentLimitIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHBallJointIndependentLimitIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointIndependentLimitIf_GetIfInfo(void* _this) {
@@ -11619,7 +11614,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PH1DJointMotorIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11629,17 +11624,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PH1DJointMotorIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PH1DJointMotorIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PH1DJointMotorIf_GetIfInfo(void* _this) {
@@ -11666,7 +11661,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PH1DJointNonLinearMotorIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11676,17 +11671,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PH1DJointNonLinearMotorIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PH1DJointNonLinearMotorIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PH1DJointNonLinearMotorIf_GetIfInfo(void* _this) {
@@ -11729,7 +11724,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHHuman1DJointResistanceIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11739,17 +11734,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHHuman1DJointResistanceIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHHuman1DJointResistanceIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHHuman1DJointResistanceIf_GetIfInfo(void* _this) {
@@ -11782,7 +11777,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointMotorIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11792,17 +11787,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHBallJointMotorIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHBallJointMotorIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointMotorIf_GetIfInfo(void* _this) {
@@ -11829,7 +11824,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointNonLinearMotorIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11839,17 +11834,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHBallJointNonLinearMotorIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHBallJointNonLinearMotorIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBallJointNonLinearMotorIf_GetIfInfo(void* _this) {
@@ -11880,7 +11875,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHHumanBallJointResistanceIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11890,17 +11885,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHHumanBallJointResistanceIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHHumanBallJointResistanceIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHHumanBallJointResistanceIf_GetIfInfo(void* _this) {
@@ -11933,7 +11928,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSpringMotorIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11943,17 +11938,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHSpringMotorIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHSpringMotorIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSpringMotorIf_GetIfInfo(void* _this) {
@@ -11980,7 +11975,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpObjIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -11990,17 +11985,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHOpObjIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHOpObjIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpObjIf_GetIfInfo(void* _this) {
@@ -12199,7 +12194,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpParticleIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -12209,17 +12204,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHOpParticleIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHOpParticleIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpParticleIf_GetIfInfo(void* _this) {
@@ -12282,7 +12277,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpGroupIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -12292,17 +12287,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHOpGroupIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHOpGroupIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpGroupIf_GetIfInfo(void* _this) {
@@ -12353,7 +12348,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpHapticControllerIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -12363,17 +12358,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHOpHapticControllerIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHOpHapticControllerIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpHapticControllerIf_GetIfInfo(void* _this) {
@@ -12479,7 +12474,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpHapticRendererIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -12489,17 +12484,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHOpHapticRendererIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHOpHapticRendererIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpHapticRendererIf_GetIfInfo(void* _this) {
@@ -12538,7 +12533,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpAnimationIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -12548,17 +12543,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHOpAnimationIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHOpAnimationIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpAnimationIf_GetIfInfo(void* _this) {
@@ -12604,7 +12599,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpSpHashColliAgentIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -12614,17 +12609,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHOpSpHashColliAgentIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHOpSpHashColliAgentIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHOpSpHashColliAgentIf_GetIfInfo(void* _this) {
@@ -12724,7 +12719,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHRayIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -12734,17 +12729,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHRayIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHRayIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHRayIf_GetIfInfo(void* _this) {
@@ -12837,7 +12832,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSceneIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -12847,17 +12842,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHSceneIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHSceneIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSceneIf_GetIfInfo(void* _this) {
@@ -13559,7 +13554,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSdkIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -13569,17 +13564,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHSdkIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHSdkIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSdkIf_GetIfInfo(void* _this) {
@@ -13668,7 +13663,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBoneIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -13678,17 +13673,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHBoneIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHBoneIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHBoneIf_GetIfInfo(void* _this) {
@@ -13769,7 +13764,7 @@ extern "C" {
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSkeletonIf_ToString(void* _this) {
-        BSTR result = NULL;
+        void * result = nullptr;
         try {
             ostringstream oss;
             string str = "";
@@ -13779,17 +13774,17 @@ extern "C" {
             }
             const char* cstr = str.c_str();
             int lenA = str.size();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, NULL, 0);
+            int lenW = lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW >= 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, lenA, result, lenW);
+                result = result = ::calloc(lenW + 1, sizeof(wchar_t));
+                lenW = ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
         }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
         return result;
     }
-    __declspec(dllexport) void __cdecl Spr_PHSkeletonIf_FreeString(BSTR ptr) {
-        try { ::SysFreeString(ptr); }
+    __declspec(dllexport) void __cdecl Spr_PHSkeletonIf_FreeString(void* ptr) {
+        try { delete(ptr); }
         catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_PHSkeletonIf_GetIfInfo(void* _this) {
