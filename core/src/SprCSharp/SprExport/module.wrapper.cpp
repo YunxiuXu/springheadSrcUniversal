@@ -1,13 +1,8 @@
 #include <Springhead.h>
-#include <Windows.h>
 #include <SprBase.h>
 #include <Base/TMatrix.h>
 #include <Collision/CDDetectorImp.h>
-#include <FileIO/FIFileCOLLADAHandler.h>
 #include <Foundation/UTSocket.h>
-#include <Framework/SprFWOpObj.h>
-#include <HumanInterface/HILeap.h>
-#include <HumanInterface/HISpaceNavigator.h>
 #include <Physics/SprPHJointMotor.h>
 #include <Physics/PHConstraint.h>
 #include <Physics/PHConstraintEngine.h>

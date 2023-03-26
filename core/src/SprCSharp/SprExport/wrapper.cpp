@@ -1,7 +1,6 @@
 // wrapper.cpp
 //
 #include <Springhead.h>
-#include <Windows.h>
 #include <vector>
 #include "CSUtility.h"
 #include <stdio.h>
@@ -255,14 +254,14 @@ extern "C" {
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
     }
     __declspec(dllexport) void* __cdecl Spr_vector_get_string(void* ptr, int index) {
-        BSTR result = NULL;
+        void * result = nullptr;
         vector<string>* vecptr = (vector<string>*) ptr;
 	try {
             const char* cstr = (*vecptr)[index].c_str();
-            int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, -1, NULL, 0);
+            int lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW > 0) {
-                result = ::SysAllocStringLen(0, lenW);
-                ::MultiByteToWideChar(CP_ACP, 0, cstr, -1, result, lenW);
+                result = ::calloc(lenW + 1, sizeof(wchar_t));;
+                ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
 	}
 	catch (SEH_Exception e) { e.raise_managed_exception("SprExport.dll"); }
@@ -270,10 +269,10 @@ extern "C" {
     }
     __declspec(dllexport) void __cdecl Spr_vector_set_string(void* ptr, int index, void* value) {
 	try {
-            int lenMB = ::WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) value, -1, NULL, 0, NULL, NULL);
+            int lenMB = static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(value), 0));
             if (lenMB > 0) {
-                LPSTR addr = (LPSTR) ::SysAllocStringLen(0, lenMB);
-                ::WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) value, -1, addr, lenMB, NULL, NULL);
+                std::string str1(lenMB, 0); char* addr = &str1[0];
+                static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(value), 0));
                 vector<string>* vecptr = (vector<string>*) ptr;
                 (*vecptr)[index] = string(addr);
             }
@@ -290,10 +289,10 @@ extern "C" {
     }
     __declspec(dllexport) void __cdecl Spr_vector_push_back_string(void* ptr, void* value) {
 	try {
-            int lenMB = ::WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) value, -1, NULL, 0, NULL, NULL);
+            int lenMB = static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(value), 0));
             if (lenMB > 0) {
-                LPSTR addr = (LPSTR) ::SysAllocStringLen(0, lenMB);
-                ::WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) value, -1, addr, lenMB, NULL, NULL);
+                std::string str1(lenMB, 0); char* addr = &str1[0];
+                static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(value), 0));
                 vector<string>* vecptr = (vector<string>*) ptr;
                 (*vecptr).push_back(string(addr));
             }
@@ -407,30 +406,30 @@ extern "C" {
         std::string().swap(*aryptr);
     }
     __declspec(dllexport) void* __cdecl Spr_array_get_string(void* ptr, int index) {
-        BSTR result = NULL;
+        void * result = nullptr;
         std::string* aryptr = (std::string*) ptr;
         std::string str = aryptr[index];
-        int lenW = ::MultiByteToWideChar(CP_ACP, 0, str.c_str(), -1, NULL, 0);
+        int lenW = lenW = ::mbstowcs(NULL, str.c_str(), 0);
         if (lenW > 0) {
-            result = ::SysAllocStringLen(0, lenW);
-            ::MultiByteToWideChar(CP_ACP, 0, str.c_str(), -1, result, lenW);
+            result = ::calloc(lenW + 1, sizeof(wchar_t));;
+            lenW = ::mbstowcs((wchar_t*) result, str.c_str(), lenW);
         }
         return (void*) result;
     }
     __declspec(dllexport) void __cdecl Spr_array_set_string(void* ptr, int index, void* value) {
-        int lenMB = ::WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) value, -1, NULL, 0, NULL, NULL);
+        int lenMB = static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(value), 0));
         if (lenMB > 0) {
-            LPSTR addr = (LPSTR) ::SysAllocStringLen(0, lenMB);
-            ::WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) value, -1, addr, lenMB, NULL, NULL);
+            std::string str1(lenMB, 0); char* addr = &str1[0];
+            static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(value), 0));
             int len = strlen(addr);
             char* strptr = new char[len+1];
 	    strptr[len] = '\0';
             strcpy_s(strptr, len+1, addr);
-            //SysFreeString((BSTR) addr);
+            //delete((void*) addr);
             //char** aryptr = (char**) ptr;
             std::string* aryptr = (std::string*) ptr;
             aryptr[index] = std::string(strptr);
-            SysFreeString((BSTR) addr);
+            delete((void*) addr);
         }
     }
 
@@ -452,25 +451,25 @@ extern "C" {
         for (unsigned int i = 0; i < nelm; i++) { aryptr[i] = NULL; }
     }
     __declspec(dllexport) void* __cdecl Spr_array_get_char_p(void* ptr, int index) {
-        BSTR result = NULL;
+        void * result = nullptr;
         char** aryptr = (char**) ptr;
         char* cstr = aryptr[index];
-        int lenW = ::MultiByteToWideChar(CP_ACP, 0, cstr, -1, NULL, 0);
+        int lenW = ::mbstowcs(NULL, cstr, 0);
         if (lenW > 0) {
-            result = ::SysAllocStringLen(0, lenW);
-            ::MultiByteToWideChar(CP_ACP, 0, cstr, -1, result, lenW);
+            result = ::calloc(lenW + 1, sizeof(wchar_t));;
+            ::mbstowcs((wchar_t*) result, cstr, lenW);
         }
         return (void*) result;
     }
     __declspec(dllexport) void __cdecl Spr_array_set_char_p(void* ptr, int index, void* value) {
-        int lenMB = ::WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) value, -1, NULL, 0, NULL, NULL);
+        int lenMB = static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(value), 0));
         if (lenMB > 0) {
-            LPSTR addr = (LPSTR) ::SysAllocStringLen(0, lenMB);
-            ::WideCharToMultiByte(CP_ACP, 0, (LPCWSTR) value, -1, addr, lenMB, NULL, NULL);
+            std::string str1(lenMB, 0); char* addr = &str1[0];
+            static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(value), 0));
             int len = strlen(addr);
             char* strptr = new char[len+1];
             strcpy_s(strptr, len+1, addr);
-            SysFreeString((BSTR) addr);
+            delete((void*) addr);
             char** aryptr = (char**) ptr;
             aryptr[index] = strptr;
         }
