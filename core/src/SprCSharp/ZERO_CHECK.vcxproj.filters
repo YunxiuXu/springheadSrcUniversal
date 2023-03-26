@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\SprCSharp\build\CMakeFiles\faeb8483c2cacf4b691afbe21807e18f\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E37CAC6C-8204-3F0C-A783-F2497D558D25}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

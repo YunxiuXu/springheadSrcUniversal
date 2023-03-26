@@ -1,0 +1,7 @@
+C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/Base/CMakeFiles/Base.dir
+C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/Collision/CMakeFiles/Collision.dir
+C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/Foundation/CMakeFiles/Foundation.dir
+C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/Physics/CMakeFiles/Physics.dir
+C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/SprExport/CMakeFiles/SprExport16.0.dir

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDBox.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDCapsule.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDConvex.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDConvexMesh.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDConvexMeshInterpolate.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDCutRing.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDDetectorImp.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDEllipsoid.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDGJK.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDRegisterTypeDesc.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDRoundCone.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDShape.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDSpatialHashTable.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDSphere.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CollisionStub.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Collision\SprCDDetector.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Collision\SprCDShape.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Collision\SprCDSpHash.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDBox.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDCapsule.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDCollisionFunctions.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDConvex.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDConvexMesh.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDConvexMeshInterpolate.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDCutRing.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDDetectorImp.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDEllipsoid.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDQuickHull2D.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDQuickHull2DImp.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDQuickHull3D.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDQuickHull3DImp.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDRoundCone.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDShape.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDSpatialHashTable.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CDSphere.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\Collision.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Collision\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{BA6DA0B2-5E02-347F-93E5-2436A8BF5766}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{E67FC0E6-4968-3EC6-BB6C-D9ABD26A712B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

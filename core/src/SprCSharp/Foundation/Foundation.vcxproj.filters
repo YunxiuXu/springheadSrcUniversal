@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\FoundationStub.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\Object.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\QuadProg++.cc">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\Scene.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\ScilabStub.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTCriticalSection.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTDllLoader.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTLoadContext.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTLoadHandler.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTOptimizer.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTPath.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTQPTimer.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTRegisterTypeDesc.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTSocket.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTTimer.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTTypeDesc.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Foundation\SprObject.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Foundation\SprScene.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Foundation\SprUTCriticalSection.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Foundation\SprUTOptimizer.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Foundation\SprUTQPTimer.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Foundation\SprUTTimer.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\SprFoundation.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\ClapackLibsDef.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\Object.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\QuadProg++.hh">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\Scene.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTBaseType.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTClapack.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTDllLoader.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTDllLoaderImpl.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTLoadContext.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTLoadHandler.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTOptimizer.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTPath.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTQPTimer.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTSocket.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTTimer.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\UTTypeDesc.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Foundation\Scilab.i" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{8132F219-FDB8-3D59-A980-3173E5CF1CB4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{B0E05E1C-AD57-3142-9FD2-CCB3EA9B1B91}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Trace|x64">
+      <Configuration>Trace</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{013BDFFC-0811-3A84-B835-E6DB3D60113F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>Base</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Trace|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Base.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Base16.0x64</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Base.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Base16.0x64</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">Base.dir\Trace\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">Base16.0x64</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..\..\include;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Oi-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;4244</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SDLCheck>true</SDLCheck>
+      <StringPooling>false</StringPooling>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);_LIB;_MBCS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_LIB;_MBCS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..\..\include;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..\..\include;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+cd C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+echo Base16.0x64.lib done 1&amp;2&gt;
+if %errorlevel% neq 0 goto :cmEnd
+cd.   &amp;2&gt;
+if %errorlevel% neq 0 goto :cmEnd
+cd.   &amp;2&gt;
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..\..\include;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Oi-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CallingConvention>FastCall</CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;4244</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>true</OmitFramePointers>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SDLCheck>true</SDLCheck>
+      <StringPooling>false</StringPooling>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);_LIB;_MBCS;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_LIB;_MBCS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..\..\include;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..\..\include;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+cd C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+cd.   &amp;2&gt;
+if %errorlevel% neq 0 goto :cmEnd
+echo Base16.0x64.lib done 1&amp;2&gt;
+if %errorlevel% neq 0 goto :cmEnd
+cd.   &amp;2&gt;
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..\..\include;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Oi-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CallingConvention>FastCall</CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;4244</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SDLCheck>true</SDLCheck>
+      <StringPooling>false</StringPooling>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);TRACE;_LIB;_MBCS;CMAKE_INTDIR="Trace"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;TRACE;_LIB;_MBCS;CMAKE_INTDIR=\"Trace\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..\..\include;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..\..\include;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\..;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+cd C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+cd.   &amp;2&gt;
+if %errorlevel% neq 0 goto :cmEnd
+cd.   &amp;2&gt;
+if %errorlevel% neq 0 goto :cmEnd
+echo Base16.0x64.lib done 1&amp;2&gt;
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/Base/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp -BC:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/"$"{Configurations} --check-stamp-file C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/"$"{Configurations}/Base/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\SprCSharp\CMake\Default.cmake;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\SprCSharp\CMake\DefaultCXX.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\SprCSharp\build\${Configurations}\Base\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/Base/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp -BC:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/"$"{Configurations} --check-stamp-file C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/"$"{Configurations}/Base/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\SprCSharp\CMake\Default.cmake;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\SprCSharp\CMake\DefaultCXX.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\SprCSharp\build\${Configurations}\Base\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">Building Custom Rule C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/Base/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp -BC:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/"$"{Configurations} --check-stamp-file C:/Users/xu_yu/Desktop/Dev/Cpp/springheadSrcUniversal/core/src/SprCSharp/build/"$"{Configurations}/Base/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\SprCSharp\CMake\Default.cmake;C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\SprCSharp\CMake\DefaultCXX.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\SprCSharp\build\${Configurations}\Base\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\Affine.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\BaseDebug.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\BaseTypeInfo.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\BaseUtility.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\Env.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\QuadProgram.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\Spatial.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\TCurve.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\TinyMat.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\TinyVec.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\TMatrix.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\TMatrixUtility.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\TQuaternion.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\TVector.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\include\Base\VectorDebug.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\Base.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\Combination.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\KeyList.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\RingBuf.h" />
+    <ClInclude Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\StrBufBase.h" />
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\Affine.cpp" />
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\BaseDebug.cpp" />
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\BaseTypeInfo.cpp" />
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\BaseUtility.cpp" />
+    <ClCompile Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\Base\StrbufBase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\xu_yu\Desktop\Dev\Cpp\springheadSrcUniversal\core\src\SprCSharp\build\${Configurations}\ZERO_CHECK.vcxproj">
+      <Project>{AD1C26E9-FC01-38E9-B646-67B1240767CF}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

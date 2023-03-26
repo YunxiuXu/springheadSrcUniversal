@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="CSBase.cpp" />
+    <ClCompile Include="CSCollision.cpp" />
+    <ClCompile Include="CSFoundation.cpp" />
+    <ClCompile Include="CSPhysics.cpp" />
+    <ClCompile Include="module.wrapper.cpp" />
+    <ClCompile Include="wrapper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{B0E05E1C-AD57-3142-9FD2-CCB3EA9B1B91}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
