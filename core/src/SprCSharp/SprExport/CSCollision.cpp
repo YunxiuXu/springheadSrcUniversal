@@ -2,7 +2,6 @@
 #include <sstream>
 #include <SprCollision.h>
 #include <Physics/SprPHJointMotor.h>
-#include <../src/SprCSharp/SprExport/CSUtility.h>
 #include <codecvt>
 using namespace Spr;
 using namespace std;

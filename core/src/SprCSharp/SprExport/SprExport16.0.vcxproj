@@ -215,14 +215,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CSUtility.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="CSBase.cpp" />
     <ClCompile Include="CSCollision.cpp" />
     <ClCompile Include="CSFoundation.cpp" />
     <ClCompile Include="CSPhysics.cpp" />
-    <ClCompile Include="CSUtility.cpp" />
     <ClCompile Include="module.wrapper.cpp" />
     <ClCompile Include="wrapper.cpp" />
   </ItemGroup>

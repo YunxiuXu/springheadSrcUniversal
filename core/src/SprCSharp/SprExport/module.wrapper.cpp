@@ -12,7 +12,6 @@
 #include <Physics/PHHapticEngine.h>
 #include <Physics/PHJointLimit.h>
 #include <vector>
-#include <../src/SprCSharp/SprExport/CSUtility.h>
 using namespace Spr;
 using namespace std;
 extern "C" {

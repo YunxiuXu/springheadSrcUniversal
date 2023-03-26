@@ -2,9 +2,9 @@
 //
 #include <Springhead.h>
 #include <vector>
-#include "CSUtility.h"
+
 #include <stdio.h>
-#include <../src/SprCSharp/SprExport/CSUtility.h>
+
 
 using namespace std;
 using namespace Spr;
