@@ -109,7 +109,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Oi-</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BufferSecurityCheck>true</BufferSecurityCheck>

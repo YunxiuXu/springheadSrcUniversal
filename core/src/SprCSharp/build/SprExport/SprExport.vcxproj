@@ -120,7 +120,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..\..\include;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..;D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..\..\include;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..;D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /GL- /clr:No</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DisableSpecificWarnings>4091;4244;4267</DisableSpecificWarnings>
@@ -135,7 +135,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;_MBCS;CMAKE_INTDIR="Release";SprExport_EXPORTS</PreprocessorDefinitions>
