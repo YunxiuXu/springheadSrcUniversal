@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libBase.a CMakeFiles/Base.dir/Affine.cpp.o CMakeFiles/Base.dir/BaseDebug.cpp.o CMakeFiles/Base.dir/BaseTypeInfo.cpp.o CMakeFiles/Base.dir/BaseUtility.cpp.o CMakeFiles/Base.dir/StrbufBase.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libBase.a

@@ -57,6 +57,11 @@ set(ALL_FILES
 ################################################################################
 add_library(${PROJECT_NAME} STATIC ${ALL_FILES})
 include_directories(${SPR_CORE_DEP}/src)
+include_directories(${SPR_SRC_DIR})
+include_directories(${SPR_INC_DIR})
+include_directories(${SPR_INC_DIR/Collision/../../include})
+include_directories(${SPR_SRC_DIR/Collision/..})
+include_directories(${SPR_SRC_DIR/Collision})
 #use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" "${DEFAULT_CXX_PROPS}")
 ################################################################################
 # Includes for CMake from *.props

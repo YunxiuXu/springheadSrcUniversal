@@ -22,7 +22,8 @@ message("---------------Fdsfdsfdsfsdffd范德萨范德萨分--------"(${SPR_CORE
 # Target
 ################################################################################
 add_library(${PROJECT_NAME} SHARED ${ALL_FILES})
-
+include_directories(${SPR_INC_DIR})
+include_directories(${SPR_SRC_DIR})
 #use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" #"${DEFAULT_CXX_PROPS}")
 ################################################################################
 # Includes for CMake from *.props

@@ -25,7 +25,7 @@ namespace Spr {
 		fname.append(ss.str());
 		// fname.append(".dfmopf");
 		//const char* filename;//ss.str().c_str();//"forceLog" + ss.str() +".dfmOpf";
-		fopen_s(&logForceFile, fname.c_str(), "w+");
+		//fopen(&logForceFile, fname.c_str(), "w+");
 		if (!logForceFile) {
 			DSTR << "forceLog file cannot open" << std::endl;
 			return false;
@@ -37,7 +37,7 @@ namespace Spr {
 		fname2.append(ss2.str());
 		//fname2.append(".dfmopf");
 		//const char* filename2 = "posLog2.dfmopp";// = ss.str().c_str();
-		fopen_s(&logPosFile, fname2.c_str(), "w+");
+		//fopen(&logPosFile, fname2.c_str(), "w+");
 		if (!logPosFile){
 			DSTR << "posLog file cannot open" << std::endl;
 		}
@@ -47,7 +47,7 @@ namespace Spr {
 		fname3.append(ss3.str());
 		//fname2.append(".dfmopf");
 		//const char* filename2 = "posLog2.dfmopp";// = ss.str().c_str();
-		fopen_s(&logPPosFile, fname3.c_str(), "w+");
+		//fopen(&logPPosFile, fname3.c_str(), "w+");
 		if (!logPPosFile){
 			DSTR << "PposLog file cannot open" << std::endl;
 			return false;
@@ -58,7 +58,7 @@ namespace Spr {
 		fname4.append(ss4.str());
 		//fname2.append(".dfmopf");
 		//const char* filename2 = "posLog2.dfmopp";// = ss.str().c_str();
-		fopen_s(&logUPosFile, fname4.c_str(), "w+");
+		//fopen(&logUPosFile, fname4.c_str(), "w+");
 		if (!logUPosFile){
 			DSTR << "UposLog file cannot open" << std::endl;
 			return false;

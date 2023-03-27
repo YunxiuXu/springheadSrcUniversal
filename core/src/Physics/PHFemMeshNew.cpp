@@ -27,7 +27,7 @@ int& FemTet::edge(int i, int j){
 // 四面体の面
 void FemFace::Update(){
 	for(int i=0; i<3; ++i) sorted[i] = vertexIDs[i];
-	std::sort(sorted, sorted+3);
+	//std::sort(sorted, sorted+3);
 }
 
 bool FemFace::operator < (const FemFace& f2){
@@ -95,208 +95,208 @@ bool PHFemMeshNew::GetDesc(void* p) const {
 }
 
 void PHFemMeshNew::SetDesc(const void* p){
-	PHFemMeshNewDesc* d = (PHFemMeshNewDesc*)p;
-	tets.clear();
-	tets.resize(d->tets.size() / 4);
-	vertices.clear();
-	vertices.resize(d->vertices.size());
-	for(unsigned i=0; i<tets.size(); ++i){
-		for(unsigned j=0; j<4; ++j)
-			tets[i].vertexIDs[j] = d->tets[i*4+j];
-	}
-	for(unsigned i=0; i<vertices.size(); ++i){
-		vertices[i].pos = d->vertices[i];
-		vertices[i].initialPos = vertices[i].pos;
-		vertices[i].tetIDs.clear();
-	}
-	//	接続情報の更新
-	//	頂点に属する四面体を追加
-	for(unsigned i=0; i<tets.size(); ++i){
-		for(unsigned j=0; j<4; ++j){
-			vertices[tets[i].vertexIDs[j]].tetIDs.push_back(i);
-		}
-	}
-	//	表面を探す
-	std::vector<FemFace> allFaces;
-	//	裏表を考える必要がある。
-	/*
-					0
+// 	PHFemMeshNewDesc* d = (PHFemMeshNewDesc*)p;
+// 	tets.clear();
+// 	tets.resize(d->tets.size() / 4);
+// 	vertices.clear();
+// 	vertices.resize(d->vertices.size());
+// 	for(unsigned i=0; i<tets.size(); ++i){
+// 		for(unsigned j=0; j<4; ++j)
+// 			tets[i].vertexIDs[j] = d->tets[i*4+j];
+// 	}
+// 	for(unsigned i=0; i<vertices.size(); ++i){
+// 		vertices[i].pos = d->vertices[i];
+// 		vertices[i].initialPos = vertices[i].pos;
+// 		vertices[i].tetIDs.clear();
+// 	}
+// 	//	接続情報の更新
+// 	//	頂点に属する四面体を追加
+// 	for(unsigned i=0; i<tets.size(); ++i){
+// 		for(unsigned j=0; j<4; ++j){
+// 			vertices[tets[i].vertexIDs[j]].tetIDs.push_back(i);
+// 		}
+// 	}
+// 	//	表面を探す
+// 	std::vector<FemFace> allFaces;
+// 	//	裏表を考える必要がある。
+// 	/*
+// 					0
 
 
-			1			3
-				2
-		012, 023, 031, 321
-	*/
-	int tfs[4][3]={{0,1,2}, {0,2,3}, {0,3,1}, {3,2,1}};
-	for(unsigned i=0; i<tets.size(); ++i){
-		for(unsigned j=0; j<4; ++j){
-			FemFace f;	
-			for(unsigned k=0; k<3; ++k) f.vertexIDs[k] = tets[i].vertexIDs[tfs[j][k]];
-			f.Update();
-			allFaces.push_back(f);
-		}
-	}
-	std::sort(allFaces.begin(), allFaces.end());
+// 			1			3
+// 				2
+// 		012, 023, 031, 321
+// 	*/
+// 	int tfs[4][3]={{0,1,2}, {0,2,3}, {0,3,1}, {3,2,1}};
+// 	for(unsigned i=0; i<tets.size(); ++i){
+// 		for(unsigned j=0; j<4; ++j){
+// 			FemFace f;	
+// 			for(unsigned k=0; k<3; ++k) f.vertexIDs[k] = tets[i].vertexIDs[tfs[j][k]];
+// 			f.Update();
+// 			allFaces.push_back(f);
+// 		}
+// 	}
+// 	//std::sort(allFaces.begin(), allFaces.end());
 
-	faces.clear();
-	std::vector<FemFace> ifaces;
-	for(unsigned i=0; i<allFaces.size(); ++i){
-		if (i+1<allFaces.size() && allFaces[i] == allFaces[i+1]){
-			ifaces.push_back(allFaces[i]);	//	中面
-			i++;
-		}else{
-			faces.push_back(allFaces[i]);	//	表面
-		}
-	}
-	nSurfaceFace = (unsigned)faces.size();
-	faces.insert(faces.end(), ifaces.begin(), ifaces.end());
-	surfaceVertices.clear();
-	//	表面の頂点の列挙
-	for(unsigned i=0; i<nSurfaceFace; ++i){
-		for(unsigned j=0; j<3; ++j){
-			surfaceVertices.push_back(faces[i].vertexIDs[j]);
-		}
-	}
-	std::sort(surfaceVertices.begin(), surfaceVertices.end());
-	std::vector<int>::iterator newEnd = std::unique(surfaceVertices.begin(), surfaceVertices.end());
-	surfaceVertices.erase(newEnd, surfaceVertices.end());
+// 	faces.clear();
+// 	std::vector<FemFace> ifaces;
+// 	for(unsigned i=0; i<allFaces.size(); ++i){
+// 		if (i+1<allFaces.size() && allFaces[i] == allFaces[i+1]){
+// 			ifaces.push_back(allFaces[i]);	//	中面
+// 			i++;
+// 		}else{
+// 			faces.push_back(allFaces[i]);	//	表面
+// 		}
+// 	}
+// 	nSurfaceFace = (unsigned)faces.size();
+// 	faces.insert(faces.end(), ifaces.begin(), ifaces.end());
+// 	surfaceVertices.clear();
+// 	//	表面の頂点の列挙
+// 	for(unsigned i=0; i<nSurfaceFace; ++i){
+// 		for(unsigned j=0; j<3; ++j){
+// 			surfaceVertices.push_back(faces[i].vertexIDs[j]);
+// 		}
+// 	}
+// 	//std::sort(surfaceVertices.begin(), surfaceVertices.end());
+// 	std::vector<int>::iterator newEnd = std::unique(surfaceVertices.begin(), surfaceVertices.end());
+// 	surfaceVertices.erase(newEnd, surfaceVertices.end());
 
-	//	辺の列挙
-	//	まず表面の辺
-	edges.clear();
-	for(unsigned i=0; i<nSurfaceFace; ++i){
-		for(unsigned j=0; j<3; ++j){
-			edges.push_back(FemEdge(faces[i].vertexIDs[j], faces[i].vertexIDs[(j+1)%3]));
-		}
-	}
-	std::sort(edges.begin(), edges.end());
-	std::vector<FemEdge>::iterator newEEnd = std::unique(edges.begin(), edges.end());
-	edges.erase(newEEnd, edges.end());
-	nSurfaceEdge = (unsigned)edges.size();
-	//	内部の辺の列挙
-	std::vector<FemEdge> iEdges;
-	for(unsigned i=nSurfaceFace; i<faces.size() ;++i){
-		for(unsigned j=0; j<3; ++j){
-			iEdges.push_back(FemEdge(faces[i].vertexIDs[j], faces[i].vertexIDs[(j+1)%3]));
-		}
-	}
-	//	重複を削除
-	std::sort(iEdges.begin(), iEdges.end());
-	newEEnd = std::unique(iEdges.begin(), iEdges.end());
-	iEdges.erase(newEEnd, iEdges.end());
-	//	表の辺(edgesのnSurfaceEdgeまで)に含まれない物を、edgesの後ろに追加
-	edges.resize(nSurfaceEdge + iEdges.size());
-	newEEnd = std::set_difference(iEdges.begin(), iEdges.end(), edges.begin(), edges.begin()+nSurfaceEdge, edges.begin()+nSurfaceEdge);
-	edges.erase(newEEnd, edges.end());
+// 	//	辺の列挙
+// 	//	まず表面の辺
+// 	edges.clear();
+// 	for(unsigned i=0; i<nSurfaceFace; ++i){
+// 		for(unsigned j=0; j<3; ++j){
+// 			edges.push_back(FemEdge(faces[i].vertexIDs[j], faces[i].vertexIDs[(j+1)%3]));
+// 		}
+// 	}
+// 	//std::sort(edges.begin(), edges.end());
+// 	std::vector<FemEdge>::iterator newEEnd = std::unique(edges.begin(), edges.end());
+// 	edges.erase(newEEnd, edges.end());
+// 	nSurfaceEdge = (unsigned)edges.size();
+// 	//	内部の辺の列挙
+// 	std::vector<FemEdge> iEdges;
+// 	for(unsigned i=nSurfaceFace; i<faces.size() ;++i){
+// 		for(unsigned j=0; j<3; ++j){
+// 			iEdges.push_back(FemEdge(faces[i].vertexIDs[j], faces[i].vertexIDs[(j+1)%3]));
+// 		}
+// 	}
+// 	//	重複を削除
+// 	//std::sort(iEdges.begin(), iEdges.end());
+// 	newEEnd = std::unique(iEdges.begin(), iEdges.end());
+// 	iEdges.erase(newEEnd, iEdges.end());
+// 	//	表の辺(edgesのnSurfaceEdgeまで)に含まれない物を、edgesの後ろに追加
+// 	edges.resize(nSurfaceEdge + iEdges.size());
+// 	newEEnd = std::set_difference(iEdges.begin(), iEdges.end(), edges.begin(), edges.begin()+nSurfaceEdge, edges.begin()+nSurfaceEdge);
+// 	edges.erase(newEEnd, edges.end());
 
-	//	頂点に辺を追加
-	for(unsigned i=0; i<edges.size(); ++i){
-		for(int j=0; j<2; ++j){
-			vertices[edges[i].vertexIDs[j]].edgeIDs.push_back(i);
-		}
-	}
-	//	四面体に面を追加
-	for(unsigned i=0; i<tets.size(); ++i){
-		for(unsigned j=0; j<4; ++j){
-			FemFace f;
-			for(unsigned k=0; k<3; ++k) f.vertexIDs[k] = tets[i].vertexIDs[k<j ? k : k+1];
-			f.Update();
-			unsigned k;
-			for(k=0; k<faces.size(); ++k){
-				if (faces[k] == f){
-					tets[i].faceIDs[j] = k;
-					break;
-				}
-			}
-			assert(k < faces.size());
-		}
-	}
-	//	四面体に辺を追加
-	for(unsigned i=0; i<tets.size(); ++i){
-		int count = 0;
-		for(unsigned j=0; j<4; ++j){
-			FemVertex& vtx = vertices[tets[i].vertexIDs[j]];
-			//	四面体のある頂点から出ている辺のうち、その頂点が始点(vertices[0])になっているものについて
-			for(unsigned k=0; k<vtx.edgeIDs.size(); ++k){
-				FemEdge& e = edges[vtx.edgeIDs[k]];
-				if (e.vertexIDs[0] != tets[i].vertexIDs[j]) continue;
-				//	辺が四面体に含まれる場合、辺を設定
-				for(int l=0; l<4; ++l){
-					if (e.vertexIDs[1] == tets[i].vertexIDs[l]){
-						tets[i].edge(j, l) = vtx.edgeIDs[k];
-						count ++;
-						break;
-					}
-				}
-			}
-		}
-		assert(count == 6);
-	}
-	//	頂点に属する面を追加
-	for(unsigned i=0;i<faces.size();i++){
-		for(unsigned j=0;j<3;j++){
-			vertices[faces[i].vertexIDs[j]].faceIDs.push_back(i);
-		}
-	}
+// 	//	頂点に辺を追加
+// 	for(unsigned i=0; i<edges.size(); ++i){
+// 		for(int j=0; j<2; ++j){
+// 			vertices[edges[i].vertexIDs[j]].edgeIDs.push_back(i);
+// 		}
+// 	}
+// 	//	四面体に面を追加
+// 	for(unsigned i=0; i<tets.size(); ++i){
+// 		for(unsigned j=0; j<4; ++j){
+// 			FemFace f;
+// 			for(unsigned k=0; k<3; ++k) f.vertexIDs[k] = tets[i].vertexIDs[k<j ? k : k+1];
+// 			f.Update();
+// 			unsigned k;
+// 			for(k=0; k<faces.size(); ++k){
+// 				if (faces[k] == f){
+// 					tets[i].faceIDs[j] = k;
+// 					break;
+// 				}
+// 			}
+// 			assert(k < faces.size());
+// 		}
+// 	}
+// 	//	四面体に辺を追加
+// 	for(unsigned i=0; i<tets.size(); ++i){
+// 		int count = 0;
+// 		for(unsigned j=0; j<4; ++j){
+// 			FemVertex& vtx = vertices[tets[i].vertexIDs[j]];
+// 			//	四面体のある頂点から出ている辺のうち、その頂点が始点(vertices[0])になっているものについて
+// 			for(unsigned k=0; k<vtx.edgeIDs.size(); ++k){
+// 				FemEdge& e = edges[vtx.edgeIDs[k]];
+// 				if (e.vertexIDs[0] != tets[i].vertexIDs[j]) continue;
+// 				//	辺が四面体に含まれる場合、辺を設定
+// 				for(int l=0; l<4; ++l){
+// 					if (e.vertexIDs[1] == tets[i].vertexIDs[l]){
+// 						tets[i].edge(j, l) = vtx.edgeIDs[k];
+// 						count ++;
+// 						break;
+// 					}
+// 				}
+// 			}
+// 		}
+// 		assert(count == 6);
+// 	}
+// 	//	頂点に属する面を追加
+// 	for(unsigned i=0;i<faces.size();i++){
+// 		for(unsigned j=0;j<3;j++){
+// 			vertices[faces[i].vertexIDs[j]].faceIDs.push_back(i);
+// 		}
+// 	}
 
-this->root = NULL; //Clear the mesh KDTree root
+// this->root = NULL; //Clear the mesh KDTree root
 
-	int fs = (int) faces.size();
-	for(int i=0;i<fs;i++){
-		faces[i].centroid.x = (vertices[faces[i].vertexIDs[0]].pos.x + vertices[faces[i].vertexIDs[1]].pos.x + vertices[faces[i].vertexIDs[2]].pos.x)  /3.0f;
-		faces[i].centroid.y = (vertices[faces[i].vertexIDs[0]].pos.y + vertices[faces[i].vertexIDs[1]].pos.y + vertices[faces[i].vertexIDs[2]].pos.y)  /3.0f;
-		faces[i].centroid.z = (vertices[faces[i].vertexIDs[0]].pos.z + vertices[faces[i].vertexIDs[1]].pos.z + vertices[faces[i].vertexIDs[2]].pos.z)  /3.0f;
-	}
+// 	int fs = (int) faces.size();
+// 	for(int i=0;i<fs;i++){
+// 		faces[i].centroid.x = (vertices[faces[i].vertexIDs[0]].pos.x + vertices[faces[i].vertexIDs[1]].pos.x + vertices[faces[i].vertexIDs[2]].pos.x)  /3.0f;
+// 		faces[i].centroid.y = (vertices[faces[i].vertexIDs[0]].pos.y + vertices[faces[i].vertexIDs[1]].pos.y + vertices[faces[i].vertexIDs[2]].pos.y)  /3.0f;
+// 		faces[i].centroid.z = (vertices[faces[i].vertexIDs[0]].pos.z + vertices[faces[i].vertexIDs[1]].pos.z + vertices[faces[i].vertexIDs[2]].pos.z)  /3.0f;
+// 	}
 
-	//Calculating the Area of each tetra face
-	for(int i=0;i<fs;i++){
-		Vec3d vec[2];
-		vec[0] = vertices[faces[i].vertexIDs[1]].pos - vertices[faces[i].vertexIDs[0]].pos;  //vec[0] = pos[1] - pos[0];
-		vec[1] = vertices[faces[i].vertexIDs[2]].pos - vertices[faces[i].vertexIDs[0]].pos;  //vec[1] = pos[2] - pos[0];
+// 	//Calculating the Area of each tetra face
+// 	for(int i=0;i<fs;i++){
+// 		Vec3d vec[2];
+// 		vec[0] = vertices[faces[i].vertexIDs[1]].pos - vertices[faces[i].vertexIDs[0]].pos;  //vec[0] = pos[1] - pos[0];
+// 		vec[1] = vertices[faces[i].vertexIDs[2]].pos - vertices[faces[i].vertexIDs[0]].pos;  //vec[1] = pos[2] - pos[0];
 		
-		Vec3d normal = vec[1] % vec[0];
+// 		Vec3d normal = vec[1] % vec[0];
 		
-		faces[i].area = sqrt (( normal.x * normal.x ) + (normal.y * normal.y) + (normal.z * normal.z)) / 2.0f;
-	}
+// 		faces[i].area = sqrt (( normal.x * normal.x ) + (normal.y * normal.y) + (normal.z * normal.z)) / 2.0f;
+// 	}
 
-	//Calculating normal
-	for(int i=0;i<fs;i++){
-		faces[i].normal = this->CompFaceNormal(i, false);
-	}
+// 	//Calculating normal
+// 	for(int i=0;i<fs;i++){
+// 		faces[i].normal = this->CompFaceNormal(i, false);
+// 	}
 
-	//This code calculates the distance from the vertex to the 
-	//closest nieghbor face centroid
-	int nv = NVertices();
-	for (int i=0; i< nv ;i++){
-		int nf = (int) vertices[i].faceIDs.size();
-		double maxDist = DBL_MIN;
+// 	//This code calculates the distance from the vertex to the 
+// 	//closest nieghbor face centroid
+// 	int nv = NVertices();
+// 	for (int i=0; i< nv ;i++){
+// 		int nf = (int) vertices[i].faceIDs.size();
+// 		double maxDist = DBL_MIN;
 
-		for (int j=0; j< nf ;j++) {
-			int face = vertices[i].faceIDs[j];
+// 		for (int j=0; j< nf ;j++) {
+// 			int face = vertices[i].faceIDs[j];
 
-			if (face > (int) nSurfaceFace) { continue; }
+// 			if (face > (int) nSurfaceFace) { continue; }
 
-			for (int k=0; k<3 ;k++) {
-				int vid = faces[face].vertexIDs[k];
+// 			for (int k=0; k<3 ;k++) {
+// 				int vid = faces[face].vertexIDs[k];
 
-				if (vid == i) { continue; }
+// 				if (vid == i) { continue; }
 
-				double dd = (vertices[vid].pos - vertices[i].pos).norm();
-				if (dd > maxDist ) {
-					maxDist = dd;
-				}
-			}
-		}
-		vertices[i].centerDist = maxDist;
-	}
+// 				double dd = (vertices[vid].pos - vertices[i].pos).norm();
+// 				if (dd > maxDist ) {
+// 					maxDist = dd;
+// 				}
+// 			}
+// 		}
+// 		vertices[i].centerDist = maxDist;
+// 	}
 
-	//for the faces in the surface saves the correspondant tetId 
-	for (int i=0; i < (int) nSurfaceFace; i++) {
-		faces[i].tetraId = FindTetFromFace(i);
-	}
+// 	//for the faces in the surface saves the correspondant tetId 
+// 	for (int i=0; i < (int) nSurfaceFace; i++) {
+// 		faces[i].tetraId = FindTetFromFace(i);
+// 	}
 
-	//saves if the mesh is spheric or not from the sprfile flag
-	this->spheric = d->spheric;
+// 	//saves if the mesh is spheric or not from the sprfile flag
+// 	this->spheric = d->spheric;
 }
 
 bool PHFemMeshNew::AddChildObject(ObjectIf* o){

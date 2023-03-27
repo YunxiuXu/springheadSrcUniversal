@@ -1267,9 +1267,9 @@ void PHFemMeshThermo::CalcIHdqdtband_(double xS,double xE,double dqdtAll,unsigne
 					}
 				}
 			}
-			if(faces[i].fluxarea >= 0){	
-				faceS += faces[i].fluxarea[0];
-			}else{		assert(0);	}		//	faces[i].fluxareaに0未満の数字が入っているのに加算しようとしている
+			//if(faces[i].fluxarea >= 0){	
+			//	faceS += faces[i].fluxarea[0];
+			//}else{		assert(0);	}		//	faces[i].fluxareaに0未満の数字が入っているのに加算しようとしている
 			//DSTR << "faces[" << i << "].fluxarea: " << faces[i].fluxarea << std::endl;
 		//}
 	}
@@ -1316,9 +1316,9 @@ void PHFemMeshThermo::CalcIHdqdtband(double xS,double xE,double dqdtAll,unsigned
 			else if(nObinnerVtx == 3)		faces[i].fluxarea[0] = faces[i].area;
 			else if(nObinnerVtx == 0)		faces[i].fluxarea[0] = 0.0;
 
-			if(faces[i].fluxarea >= 0){	
-				faceS += faces[i].fluxarea[0];
-			}else{		assert(0);	}		//	faces[i].fluxareaに0未満の数字が入っているのに加算しようとしている
+			//f(faces[i].fluxarea >= 0){	
+			//	faceS += faces[i].fluxarea[0];
+			//}else{		assert(0);	}		//	faces[i].fluxareaに0未満の数字が入っているのに加算しようとしている
 			//DSTR << "faces[" << i << "].fluxarea: " << faces[i].fluxarea << std::endl;
 		}
 	}
@@ -1832,9 +1832,9 @@ void PHFemMeshThermo::CalcIHdqdt(double r,double R,double dqdtAll,unsigned num){
 			else if(nObinnerVtx == 3)		faces[i].fluxarea[0] = faces[i].area;
 			else if(nObinnerVtx == 0)		faces[i].fluxarea[0] = 0;
 
-			if(faces[i].fluxarea >= 0){	
-				faceS += faces[i].fluxarea[0];
-			}else{		assert(0);	}		//	faces[i].fluxareaに0未満の数字が入っているのに加算しようとしている
+			//if(faces[i].fluxarea >= 0){	
+			//	faceS += faces[i].fluxarea[0];
+			//}else{		assert(0);	}		//	faces[i].fluxareaに0未満の数字が入っているのに加算しようとしている
 			//DSTR << "faces[" << i << "].fluxarea: " << faces[i].fluxarea << std::endl;
 		}
 	}
@@ -4977,38 +4977,38 @@ void PHFemMeshThermo::CreateVecf2surface(unsigned id,unsigned num){
 		//faces[tets.faces[i]].sorted;		/// 1,24,58みたいな節点番号が入っている
 		///	..行列型の入れ物を用意
 		//faces[tets.faces[l]].vertices;
-		if(tets[id].faces[l] < (int)nSurfaceFace && faces[tets[id].faces[l]].fluxarea > 0 ){			///	外殻の面 且つ 熱伝達率が更新されたら matk2を更新する必要がある
-			///	四面体の三角形の面積を計算		///	この関数の外で面積分の面積計算を実装する。移動する
-			if(faces[tets[id].faces[l]].area ==0 || faces[tets[id].faces[l]].deformed ){		///	面積が計算されていない時（はじめ） or deformed(変形した時・初期状態)がtrueの時		///	条件の追加	面積が0か ||(OR) αが更新されたか
-				faces[tets[id].faces[l]].area = CalcTriangleArea(faces[tets[id].faces[l]].vertices[0], faces[tets[id].faces[l]].vertices[1], faces[tets[id].faces[l]].vertices[2]);
-				faces[tets[id].faces[l]].deformed = false;
-			}
-			///	計算結果を行列に代入
-			///	areaの計算に使っていない点が入っている行を除いたベクトルの積をとる
-			///	積分計算を根本から考える
-			unsigned vtx = tets[id].vertices[0] + tets[id].vertices[1] + tets[id].vertices[2] + tets[id].vertices[3];			
-			///	area計算に使われていない節点ID：ID
-			unsigned ID = vtx -( faces[tets[id].faces[l]].vertices[0] + faces[tets[id].faces[l]].vertices[1] + faces[tets[id].faces[l]].vertices[2] );
-			for(unsigned j=0;j<4;j++){
-				if(tets[id].vertices[j] == ID){					///	形状関数が１、（すなわち）このfaceに対面する頂点　と一致したら　その時のfaceで面積分する
-					///	外殻にないメッシュ面の面積は0で初期化しておく
-					///	以下の[]は上までの[l]と異なる。
-					///	IDが何番目かによって、形状関数の係数が異なるので、
-					for(unsigned i =0;i<3;++i){
-						tets[id].vecf[1] += faces[tets[id].faces[l]].heatflux[num][i] * (1.0/3.0) * faces[tets[id].faces[l]].area * vecf2array[j];
-					}
-//					DSTR << vecf2array[j] << std::endl;
-					//DSTR << "tets[id].matk2にfaces[tets[id].faces[l]].heatTransRatio * (1.0/12.0) * faces[tets[id].faces[l]].area * matk2array[" << j << "]"<< "を加算: " <<faces[tets[id].faces[l]].heatTransRatio * (1.0/12.0) * faces[tets[id].faces[l]].area * matk2array[j] << std::endl;
-					//DSTR << "tets[id].matk2 +=  " << tets[id].matk2 << std::endl;
-				}
-				//else{
-				//	///	IDと一致しない場合には、matk2array[j]には全成分0を入れる
-				//	///	としたいところだが、
-				//	//matk2array[j] =0.0 * matk2array[j];
-				//	//DSTR << "matk2array[" << j << "]: " << matk2array[j] << std::endl;
-				//}
-			}
-		}
+// 		if(tets[id].faces[l] < (int)nSurfaceFace && faces[tets[id].faces[l]].fluxarea > 0 ){			///	外殻の面 且つ 熱伝達率が更新されたら matk2を更新する必要がある
+// 			///	四面体の三角形の面積を計算		///	この関数の外で面積分の面積計算を実装する。移動する
+// 			if(faces[tets[id].faces[l]].area ==0 || faces[tets[id].faces[l]].deformed ){		///	面積が計算されていない時（はじめ） or deformed(変形した時・初期状態)がtrueの時		///	条件の追加	面積が0か ||(OR) αが更新されたか
+// 				faces[tets[id].faces[l]].area = CalcTriangleArea(faces[tets[id].faces[l]].vertices[0], faces[tets[id].faces[l]].vertices[1], faces[tets[id].faces[l]].vertices[2]);
+// 				faces[tets[id].faces[l]].deformed = false;
+// 			}
+// 			///	計算結果を行列に代入
+// 			///	areaの計算に使っていない点が入っている行を除いたベクトルの積をとる
+// 			///	積分計算を根本から考える
+// 			unsigned vtx = tets[id].vertices[0] + tets[id].vertices[1] + tets[id].vertices[2] + tets[id].vertices[3];			
+// 			///	area計算に使われていない節点ID：ID
+// 			unsigned ID = vtx -( faces[tets[id].faces[l]].vertices[0] + faces[tets[id].faces[l]].vertices[1] + faces[tets[id].faces[l]].vertices[2] );
+// 			for(unsigned j=0;j<4;j++){
+// 				if(tets[id].vertices[j] == ID){					///	形状関数が１、（すなわち）このfaceに対面する頂点　と一致したら　その時のfaceで面積分する
+// 					///	外殻にないメッシュ面の面積は0で初期化しておく
+// 					///	以下の[]は上までの[l]と異なる。
+// 					///	IDが何番目かによって、形状関数の係数が異なるので、
+// 					for(unsigned i =0;i<3;++i){
+// 						tets[id].vecf[1] += faces[tets[id].faces[l]].heatflux[num][i] * (1.0/3.0) * faces[tets[id].faces[l]].area * vecf2array[j];
+// 					}
+// //					DSTR << vecf2array[j] << std::endl;
+// 					//DSTR << "tets[id].matk2にfaces[tets[id].faces[l]].heatTransRatio * (1.0/12.0) * faces[tets[id].faces[l]].area * matk2array[" << j << "]"<< "を加算: " <<faces[tets[id].faces[l]].heatTransRatio * (1.0/12.0) * faces[tets[id].faces[l]].area * matk2array[j] << std::endl;
+// 					//DSTR << "tets[id].matk2 +=  " << tets[id].matk2 << std::endl;
+// 				}
+// 				//else{
+// 				//	///	IDと一致しない場合には、matk2array[j]には全成分0を入れる
+// 				//	///	としたいところだが、
+// 				//	//matk2array[j] =0.0 * matk2array[j];
+// 				//	//DSTR << "matk2array[" << j << "]: " << matk2array[j] << std::endl;
+// 				//}
+// 			}
+// 		}
 		///	SurfaceFaceじゃなかったら、matk2arrayには0を入れる
 		//else{
 		//	//matk2array[l];
@@ -5030,7 +5030,7 @@ void PHFemMeshThermo::CreateVecf2surface(unsigned id){
 		//faces[tets.faces[i]].sorted;		/// 1,24,58みたいな節点番号が入っている
 		///	..行列型の入れ物を用意
 		//faces[tets.faces[l]].vertices;
-		if(tets[id].faces[l] < (int)nSurfaceFace && faces[tets[id].faces[l]].fluxarea > 0 ){			///	外殻の面 且つ 熱伝達率が更新されたら matk2を更新する必要がある
+		if(1){			///	外殻の面 且つ 熱伝達率が更新されたら matk2を更新する必要がある
 			///	四面体の三角形の面積を計算		///	この関数の外で面積分の面積計算を実装する。移動する
 			if(faces[tets[id].faces[l]].area ==0 || faces[tets[id].faces[l]].deformed ){		///	面積が計算されていない時（はじめ） or deformed(変形した時・初期状態)がtrueの時		///	条件の追加	面積が0か ||(OR) αが更新されたか
 				faces[tets[id].faces[l]].area = CalcTriangleArea(faces[tets[id].faces[l]].vertices[0], faces[tets[id].faces[l]].vertices[1], faces[tets[id].faces[l]].vertices[2]);

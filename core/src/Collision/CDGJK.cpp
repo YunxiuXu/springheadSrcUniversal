@@ -1024,7 +1024,7 @@ qpTimerForCollision.Accumulate(coltimePhase2);
 					DSTR << "ids:"; for (int i = 0; i < 4; ++i) DSTR << ids[i]; DSTR << std::endl;
 					DSTR << "w:"; for (int i = 0; i < 4; ++i) DSTR << w[i]; DSTR << std::endl;
 					DSTR << "v:"; for (int i = 0; i < 4; ++i) DSTR << v[i]; DSTR << std::endl;
-					__debugbreak();
+					//__debugbreak();
 				}
 				else {
 #if NORM_BIAS >= 1

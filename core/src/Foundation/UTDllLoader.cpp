@@ -1,4 +1,5 @@
-﻿#ifdef USE_HDRSTOP
+﻿#define __unix__
+#ifdef USE_HDRSTOP
 #pragma hdrstop
 #endif
 #include "UTDllLoader.h"

@@ -5,6 +5,7 @@
  *  software. Please deal with this software under one of the following licenses: 
  *  This license itself, Boost Software License, The MIT License, The BSD License.   
  */
+#define __unix__
 #ifdef USE_HDRSTOP
 #pragma hdrstop
 #endif

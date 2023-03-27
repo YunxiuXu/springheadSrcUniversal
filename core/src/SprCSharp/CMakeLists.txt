@@ -9,7 +9,8 @@ set(SPRCSHARP_PROJECT_VERSION 1.0.1)	# Change default target to 'Install'.
 #
 set(ProjectName SprCSharpMain)
 set(ProjectVersion ${SPRCSHARP_PROJECT_VERSION})
-project(${ProjectName} VERSION ${ProjectVersion} LANGUAGES CXX CSharp)
+project(${ProjectName} VERSION ${ProjectVersion} LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 14)
 message(STATUS "Project: ${ProjectName}, Version ${ProjectVersion}")
 
 set(CMAKE_SUPPRESS_REGENERATION true)
@@ -51,6 +52,7 @@ message(STATUS "Architecture: ${ARCHITECTURE}")
 set(CMAKE_GENERATOR_PLATFORM ${ARCHITECTURE})
 
 include_directories(${SPR_CORE_DEP}/src)
+include_directories(${SPR_INC_DIR})
 # ------------------------------------------------------------------------------
 #  Read function definitions.
 #

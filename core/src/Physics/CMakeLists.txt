@@ -157,6 +157,11 @@ set(ALL_FILES
 ################################################################################
 add_library(${PROJECT_NAME} STATIC ${ALL_FILES})
 include_directories(${SPR_CORE_DEP}/src)
+include_directories(${SPR_SRC_DIR})
+include_directories(${SPR_INC_DIR})
+include_directories(${SPR_INC_DIR/Physics/../../include})
+include_directories(${SPR_SRC_DIR/Physics/..})
+include_directories(${SPR_SRC_DIR/Physics})
 
 #use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" "${DEFAULT_CXX_PROPS}")
 ################################################################################
