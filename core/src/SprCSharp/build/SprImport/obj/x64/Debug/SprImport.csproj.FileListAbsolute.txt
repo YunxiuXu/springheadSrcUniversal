@@ -1,6 +1,0 @@
-D:\16.0\bin\x64\Debug\SprImport.dll
-D:\16.0\bin\x64\Debug\SprImport.pdb
-D:\springheadSrcUniversal\core\src\SprCSharp\build\SprImport\obj\x64\Debug\SprImport.csprojAssemblyReference.cache
-D:\springheadSrcUniversal\core\src\SprCSharp\build\SprImport\obj\x64\Debug\SprImport.csproj.CoreCompileInputs.cache
-D:\springheadSrcUniversal\core\src\SprCSharp\build\SprImport\obj\x64\Debug\SprImport.dll
-D:\springheadSrcUniversal\core\src\SprCSharp\build\SprImport\obj\x64\Debug\SprImport.pdb

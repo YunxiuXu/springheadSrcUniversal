@@ -16,12 +16,13 @@ source_group("Sources" FILES ${Sources})
 set(ALL_FILES
     ${Sources}
 )
-
+include_directories(${SPR_CORE_DEP}/src)
+message("---------------Fdsfdsfdsfsdffd范德萨范德萨分--------"(${SPR_CORE_DEP}/src))
 ################################################################################
 # Target
 ################################################################################
 add_library(${PROJECT_NAME} SHARED ${ALL_FILES})
-include_directories(${SPR_CORE_DEP/src})
+
 #use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" #"${DEFAULT_CXX_PROPS}")
 ################################################################################
 # Includes for CMake from *.props

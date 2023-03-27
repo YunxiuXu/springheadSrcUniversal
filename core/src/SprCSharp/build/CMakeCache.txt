@@ -210,9 +210,6 @@ SprCSharpMain_IS_TOP_LEVEL:STATIC=ON
 SprCSharpMain_SOURCE_DIR:STATIC=D:/springheadSrcUniversal/core/src/SprCSharp
 
 //Dependencies for the target
-SprExport16.0_LIB_DEPENDS:STATIC=general;Base;general;Collision;general;Foundation;general;Physics;general;XINPUT9_1_0;
-
-//Dependencies for the target
 SprExport_LIB_DEPENDS:STATIC=general;Base;general;Collision;general;Foundation;general;Physics;general;XINPUT9_1_0;
 
 
@@ -300,7 +297,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=14
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //noop for ranlib

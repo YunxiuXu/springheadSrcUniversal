@@ -156,8 +156,8 @@ set(ALL_FILES
 # Target
 ################################################################################
 add_library(${PROJECT_NAME} STATIC ${ALL_FILES})
-include_directories(${SPR_CORE_DEP/src})
-message("-----------------------(${SPR_CORE_DEP/src})
+include_directories(${SPR_CORE_DEP}/src)
+
 #use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" "${DEFAULT_CXX_PROPS}")
 ################################################################################
 # Includes for CMake from *.props

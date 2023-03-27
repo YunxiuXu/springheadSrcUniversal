@@ -1,2 +1,0 @@
-D:\springheadSrcUniversal\core\src\SprCSharp\build\SprCsSample\obj\x64\Debug\SprCsSample.csprojAssemblyReference.cache
-D:\springheadSrcUniversal\core\src\SprCSharp\build\SprCsSample\obj\x64\Debug\SprCsSample.csproj.CoreCompileInputs.cache

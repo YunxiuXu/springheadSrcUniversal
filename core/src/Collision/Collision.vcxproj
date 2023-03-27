@@ -93,10 +93,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_LIB;_MBCS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -138,10 +138,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_LIB;_MBCS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -154,7 +154,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /GL- /Oi-</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BufferSecurityCheck>true</BufferSecurityCheck>
@@ -182,10 +182,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;TRACE;_LIB;_MBCS;CMAKE_INTDIR=\"Trace\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>

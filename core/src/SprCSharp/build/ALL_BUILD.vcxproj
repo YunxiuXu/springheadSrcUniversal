@@ -59,7 +59,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -69,7 +69,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -79,7 +79,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -102,44 +102,17 @@
       <Project>{141EA5E9-6B2A-3E51-A244-A4DCCD2C7D40}</Project>
       <Name>Foundation</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\springheadSrcUniversal\core\src\SprCSharp\build\Install\Install.vcxproj">
-      <Project>{A89DC975-F26E-3075-A18B-2C496E78452A}</Project>
-      <Name>Install</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </ProjectReference>
     <ProjectReference Include="D:\springheadSrcUniversal\core\src\Physics\Physics.vcxproj">
       <Project>{17D9FB84-C4BB-36D6-995B-588DBF1F7203}</Project>
       <Name>Physics</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\springheadSrcUniversal\core\src\SprCSharp\build\SprCSharp\SprCSharp.csproj">
-      <Project>{7409A459-DCE0-3F37-B99B-5047FB53483F}</Project>
-      <Name>SprCSharp</Name>
-      <SkipGetTargetFrameworkProperties>true</SkipGetTargetFrameworkProperties>
     </ProjectReference>
     <ProjectReference Include="D:\springheadSrcUniversal\core\src\SprCSharp\build\SprCSharpMain.vcxproj">
       <Project>{8FADD34B-FB6F-3DCA-A208-A531CD28D497}</Project>
       <Name>SprCSharpMain</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\springheadSrcUniversal\core\src\SprCSharp\build\SprCsSample\SprCsSample.csproj">
-      <Project>{103A0B1D-65B4-3BBC-BC47-76458ADBF223}</Project>
-      <Name>SprCsSample</Name>
-      <SkipGetTargetFrameworkProperties>true</SkipGetTargetFrameworkProperties>
-    </ProjectReference>
     <ProjectReference Include="D:\springheadSrcUniversal\core\src\SprCSharp\build\SprExport\SprExport.vcxproj">
       <Project>{598FE361-BA8F-394C-A0B5-CDA36D779A06}</Project>
       <Name>SprExport</Name>
-    </ProjectReference>
-    <ProjectReference Include="D:\springheadSrcUniversal\core\src\SprCSharp\build\SprImport\SprImport.csproj">
-      <Project>{5354CCC1-1EC5-3627-B393-D225AD65AA9A}</Project>
-      <Name>SprImport</Name>
-      <SkipGetTargetFrameworkProperties>true</SkipGetTargetFrameworkProperties>
-    </ProjectReference>
-    <ProjectReference Include="D:\springheadSrcUniversal\core\src\SprCSharp\TargetManager\TargetManager.vcxproj">
-      <Project>{CA16F6C0-FB57-3F6D-82FD-5969754A4F72}</Project>
-      <Name>TargetManager</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -30,7 +30,7 @@ set(BUILDTOOL_DIR "${TOPDIR}/buildtool/win32")
 get_filename_component(TOPDIR ${TOPDIR} ABSOLUTE)
 get_filename_component(SPR_TOP_DIR ${SPR_TOP_DIR} ABSOLUTE)
 get_filename_component(SPR_COREDIR ${SPR_CORE_DIR} ABSOLUTE)
-get_filename_component(SPR_CORE_DEP ${SPR_CORE_DIR} ABSOLUTE)
+get_filename_component(SPR_CORE_DEP ${SPR_CORE_DEP} ABSOLUTE)
 get_filename_component(SPR_SRC_DIR ${SPR_SRC_DIR} ABSOLUTE)
 get_filename_component(SPR_INC_DIR ${SPR_INC_DIR} ABSOLUTE)
 get_filename_component(SPR_CSHARP_DIR ${SPR_CSHARP_DIR} ABSOLUTE)
@@ -50,7 +50,7 @@ message(STATUS "Host System: ${CMAKE_HOST_SYSTEM_NAME}")
 message(STATUS "Architecture: ${ARCHITECTURE}")
 set(CMAKE_GENERATOR_PLATFORM ${ARCHITECTURE})
 
-include_directories(${SPR_CORE_DEP/src})
+include_directories(${SPR_CORE_DEP}/src)
 # ------------------------------------------------------------------------------
 #  Read function definitions.
 #
@@ -176,7 +176,7 @@ set(DEP_Framework FileIO Foundation Graphics Physics)
 set(DEP_Graphics Foundation)
 set(DEP_HumanInterface Foundation)
 set(DEP_Physics Collision Foundation)
-add_subdirectory(${SPR_SRC_DIR}/RunSwig ${SPR_BLD_DIR}/RunSwig)
+#add_subdirectory(${SPR_SRC_DIR}/RunSwig ${SPR_BLD_DIR}/RunSwig)
 foreach(proj ${SPR_PROJS})
     add_subdirectory(${SPR_SRC_DIR}/${proj} ${SPR_BLD_DIR}/${proj})
     set(DEP_LIST RunSwig)
@@ -221,27 +221,15 @@ set(CMAKE_EXE_LINKER_FLAGS_TRACE /Dummy)
 # ------------------------------------------------------------------------------
 #  Define depending projects.
 #
-add_subdirectory(RunSwig_CSharp RunSwig_CSharp)
 add_subdirectory(SprExport SprExport)
-add_subdirectory(SprImport SprImport)
-add_subdirectory(SprCSharp SprCSharp)
-add_subdirectory(Install Install)
+
 
 add_subdirectory(${SPR_SRC_DIR}/Base ${SPR_SRC_DIR}/Base)
 add_subdirectory(${SPR_SRC_DIR}/Collision ${SPR_SRC_DIR}/Collision)
 add_subdirectory(${SPR_SRC_DIR}/Foundation ${SPR_SRC_DIR}/Foundation)
 add_subdirectory(${SPR_SRC_DIR}/Physics ${SPR_SRC_DIR}/Physics)
 
-add_dependencies(Install ${Target} SprExport SprImport SprCSharp)
-add_dependencies(${Target} SprCSharp SprExport SprImport)
-add_dependencies(SprCSharp SprExport SprImport)
-add_dependencies(SprExport RunSwig_CSharp)
-add_dependencies(SprImport RunSwig_CSharp)
-add_dependencies(RunSwig_CSharp TargetManager ${SPR_PROJS})
-add_dependencies(TargetManager NameManager)
-
-add_subdirectory(SprCsSample SprCsSample)
-add_dependencies(SprCsSample SprExport SprImport SprCSharp Install)
+add_dependencies(${Target} SprExport)
 
 # ------------------------------------------------------------------------------
 #  Clean up.

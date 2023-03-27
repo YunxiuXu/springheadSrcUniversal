@@ -34,17 +34,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/RunSwig/cmake_install.cmake")
-  include("D:/springheadSrcUniversal/core/src/SprCSharp/build/RunSwig_CSharp/cmake_install.cmake")
   include("D:/springheadSrcUniversal/core/src/SprCSharp/build/SprExport/cmake_install.cmake")
-  include("D:/springheadSrcUniversal/core/src/SprCSharp/build/SprImport/cmake_install.cmake")
-  include("D:/springheadSrcUniversal/core/src/SprCSharp/build/SprCSharp/cmake_install.cmake")
-  include("D:/springheadSrcUniversal/core/src/SprCSharp/build/Install/cmake_install.cmake")
   include("D:/springheadSrcUniversal/core/src/Base/cmake_install.cmake")
   include("D:/springheadSrcUniversal/core/src/Collision/cmake_install.cmake")
   include("D:/springheadSrcUniversal/core/src/Foundation/cmake_install.cmake")
   include("D:/springheadSrcUniversal/core/src/Physics/cmake_install.cmake")
-  include("D:/springheadSrcUniversal/core/src/SprCSharp/build/SprCsSample/cmake_install.cmake")
 
 endif()
 
