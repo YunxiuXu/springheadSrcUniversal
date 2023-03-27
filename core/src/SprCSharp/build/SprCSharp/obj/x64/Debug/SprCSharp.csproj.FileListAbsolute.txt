@@ -1,0 +1,2 @@
+D:\springheadSrcUniversal\core\src\SprCSharp\build\SprCSharp\obj\x64\Debug\SprCSharp.csprojAssemblyReference.cache
+D:\springheadSrcUniversal\core\src\SprCSharp\build\SprCSharp\obj\x64\Debug\SprCSharp.csproj.CoreCompileInputs.cache

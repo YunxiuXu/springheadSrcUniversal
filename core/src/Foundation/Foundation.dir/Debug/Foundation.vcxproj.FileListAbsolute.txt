@@ -1,0 +1,2 @@
+D:\springheadSrcUniversal\core\src\Foundation\Debug\Foundation.pdb
+D:\springheadSrcUniversal\core\src\Foundation\Foundation.dir\Debug\Foundation.pdb

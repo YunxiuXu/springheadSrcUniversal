@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Trace|x64">
+      <Configuration>Trace</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{17D9FB84-C4BB-36D6-995B-588DBF1F7203}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>Physics</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Trace|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\springheadSrcUniversal\core\src\Physics\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Physics.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Physics</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\springheadSrcUniversal\core\src\Physics\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Physics.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Physics</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">D:\springheadSrcUniversal\core\src\Physics\Trace\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">Physics.dir\Trace\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">Physics</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj /Oi-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;4244</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SDLCheck>true</SDLCheck>
+      <StringPooling>false</StringPooling>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_LIB;_MBCS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_LIB;_MBCS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /GL- /Oi-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;4244</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>true</OmitFramePointers>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SDLCheck>true</SDLCheck>
+      <StringPooling>false</StringPooling>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_LIB;_MBCS;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_LIB;_MBCS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /GL- /Oi-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;4244</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SDLCheck>true</SDLCheck>
+      <StringPooling>false</StringPooling>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;TRACE;_LIB;_MBCS;CMAKE_INTDIR="Trace"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;TRACE;_LIB;_MBCS;CMAKE_INTDIR=\"Trace\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="D:\springheadSrcUniversal\core\src\Physics\lcpnote.txt">
+    </None>
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHEngine.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHFemMesh.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHFemMeshNew.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHHaptic.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHIK.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHJoint.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHJointLimit.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHNodeHandlers.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHOpObj.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHOpSpHashAgent.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHScene.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHSdk.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHSkeleton.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Physics\SprPHSolid.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\SprPhysics.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHAxisIndex.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHBallJoint.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHBody.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHConstraint.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHConstraintEngine.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHContactDetector.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHContactPoint.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHContactSurface.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHEngine.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHFemBase.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHFemCollision.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHFemEngine.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHFemMesh.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHFemMeshNew.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHFemMeshThermo.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHFemPorousWOMove.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHFemThermo.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHFemVibration.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHFixJoint.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHForceField.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHGear.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHGenericJoint.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticEngine.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticPointer.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticStepBase.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticStepImpulse.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticStepLocalDynamics.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticStepLocalDynamicsDev.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticStepMulti.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticStepSingle.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHHingeJoint.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHIKActuator.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHIKEndEffector.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHIKEngine.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHJoint.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHJointLimit.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHJointMotor.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHOpAnimation.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHOpDecompositionMethods.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHOpEngine.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHOpGroup.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHOpHapticController.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHOpHapticRenderer.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHOpObj.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHOpParticle.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHOpSpHashColliAgent.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHPathJoint.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHPenaltyEngine.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHScene.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHSdk.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHSkeleton.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHSliderJoint.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHSolid.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHSpring.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\PHTreeNode.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Physics\Physics.h" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHBallJoint.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHBody.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHConstraint.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHConstraintEngine.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHContactDetector.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHContactPoint.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHContactSurface.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHEngine.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHFemBase.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHFemCollision.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHFemEngine.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHFemEngineHeatTransfer.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHFemMesh.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHFemMeshNew.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHFemMeshThermo.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHFemPorousWOMove.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHFemThermo.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHFemVibration.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHFixJoint.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHForceField.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHGear.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHGenericJoint.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticEngine.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticEngineRender.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticPointer.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticStepBase.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticStepImpulse.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticStepLocalDynamics.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticStepLocalDynamicsDev.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticStepMulti.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHHapticStepSingle.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHHingeJoint.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHIKActuator.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHIKEndEffector.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHIKEngine.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHJoint.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHJointLimit.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHJointMotor.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHLoadHandlers.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHOpAnimation.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHOpEngine.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHOpGroup.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHOpHapticController.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHOpHapticRenderer.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHOpHapticRenderer2.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHOpObj.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHOPParticle.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHOpSpHashColliAgent.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHPathJoint.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHPenaltyEngine.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHRegisterTypeDesc.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHScene.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHSdk.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHSkeleton.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHSliderJoint.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHSolid.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHSpring.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PHTreeNode.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Physics\PhysicsStub.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\springheadSrcUniversal\core\src\Collision\Collision.vcxproj">
+      <Project>{D0D5FEDC-1685-3BCE-A996-37E893A6995D}</Project>
+      <Name>Collision</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\springheadSrcUniversal\core\src\Foundation\Foundation.vcxproj">
+      <Project>{141EA5E9-6B2A-3E51-A244-A4DCCD2C7D40}</Project>
+      <Name>Foundation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

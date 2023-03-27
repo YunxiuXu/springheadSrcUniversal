@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Trace|x64">
+      <Configuration>Trace</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D0D5FEDC-1685-3BCE-A996-37E893A6995D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>Collision</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Trace|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\springheadSrcUniversal\core\src\Collision\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Collision.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Collision</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\springheadSrcUniversal\core\src\Collision\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Collision.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Collision</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">D:\springheadSrcUniversal\core\src\Collision\Trace\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">Collision.dir\Trace\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">Collision</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Oi-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SDLCheck>true</SDLCheck>
+      <StringPooling>false</StringPooling>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_LIB;_MBCS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_LIB;_MBCS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /GL- /Oi-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>true</OmitFramePointers>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SDLCheck>true</SDLCheck>
+      <StringPooling>false</StringPooling>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_LIB;_MBCS;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_LIB;_MBCS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /GL- /Oi-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SDLCheck>true</SDLCheck>
+      <StringPooling>false</StringPooling>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;TRACE;_LIB;_MBCS;CMAKE_INTDIR="Trace"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;TRACE;_LIB;_MBCS;CMAKE_INTDIR=\"Trace\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Collision\SprCDDetector.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Collision\SprCDShape.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Collision\SprCDSpHash.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDBox.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDCapsule.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDCollisionFunctions.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDConvex.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDConvexMesh.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDConvexMeshInterpolate.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDCutRing.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDDetectorImp.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDEllipsoid.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDQuickHull2D.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDQuickHull2DImp.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDQuickHull3D.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDQuickHull3DImp.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDRoundCone.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDShape.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDSpatialHashTable.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\CDSphere.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Collision\Collision.h" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDBox.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDCapsule.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDConvex.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDConvexMesh.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDConvexMeshInterpolate.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDCutRing.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDDetectorImp.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDEllipsoid.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDGJK.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDRegisterTypeDesc.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDRoundCone.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDShape.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDSpatialHashTable.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CDSphere.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Collision\CollisionStub.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\springheadSrcUniversal\core\src\Foundation\Foundation.vcxproj">
+      <Project>{141EA5E9-6B2A-3E51-A244-A4DCCD2C7D40}</Project>
+      <Name>Foundation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

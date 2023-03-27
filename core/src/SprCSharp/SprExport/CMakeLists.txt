@@ -1,4 +1,4 @@
-set(PROJECT_NAME SprExport16.0)
+set(PROJECT_NAME SprExport)
 
 ################################################################################
 # Source groups
@@ -21,20 +21,20 @@ set(ALL_FILES
 # Target
 ################################################################################
 add_library(${PROJECT_NAME} SHARED ${ALL_FILES})
-
-use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" "${DEFAULT_CXX_PROPS}")
+include_directories(${SPR_CORE_DEP/src})
+#use_props(${PROJECT_NAME} "${CMAKE_CONFIGURATION_TYPES}" #"${DEFAULT_CXX_PROPS}")
 ################################################################################
 # Includes for CMake from *.props
 ################################################################################
-if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
-    use_props(${PROJECT_NAME} Debug   "../../SpringheadMacros.cmake")
-    use_props(${PROJECT_NAME} Release "../../SpringheadMacros.cmake")
-    use_props(${PROJECT_NAME} Trace   "../../SpringheadMacros.cmake")
-elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
-    use_props(${PROJECT_NAME} Debug   "../../SpringheadMacros.cmake")
-    use_props(${PROJECT_NAME} Release "../../SpringheadMacros.cmake")
-    use_props(${PROJECT_NAME} Trace   "../../SpringheadMacros.cmake")
-endif()
+#if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
+#    use_props(${PROJECT_NAME} Debug   "../../SpringheadMacros.cmake")
+#    use_props(${PROJECT_NAME} Release "../../SpringheadMacros.cmake")
+#    use_props(${PROJECT_NAME} Trace   "../../SpringheadMacros.cmake")
+#elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
+#    use_props(${PROJECT_NAME} Debug   "../../SpringheadMacros.cmake")
+#   use_props(${PROJECT_NAME} Release "../../SpringheadMacros.cmake")
+#    use_props(${PROJECT_NAME} Trace   "../../SpringheadMacros.cmake")
+#endif()
 
 set(ROOT_NAMESPACE SprExport)
 

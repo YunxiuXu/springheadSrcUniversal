@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Trace|x64">
+      <Configuration>Trace</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{141EA5E9-6B2A-3E51-A244-A4DCCD2C7D40}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>Foundation</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Trace|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\springheadSrcUniversal\core\src\Foundation\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Foundation.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Foundation</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\springheadSrcUniversal\core\src\Foundation\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Foundation.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Foundation</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">D:\springheadSrcUniversal\core\src\Foundation\Trace\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">Foundation.dir\Trace\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">Foundation</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Oi-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4996;4244</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SDLCheck>true</SDLCheck>
+      <StringPooling>false</StringPooling>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_LIB;_MBCS;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_LIB;_MBCS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /GL- /Oi-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;4244</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>true</OmitFramePointers>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SDLCheck>true</SDLCheck>
+      <StringPooling>false</StringPooling>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_LIB;_MBCS;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_LIB;_MBCS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /GL- /Oi-</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CallingConvention>FastCall</CallingConvention>
+      <DisableSpecificWarnings>4996;4244</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <OpenMPSupport>true</OpenMPSupport>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SDLCheck>true</SDLCheck>
+      <StringPooling>false</StringPooling>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;TRACE;_LIB;_MBCS;CMAKE_INTDIR="Trace"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;TRACE;_LIB;_MBCS;CMAKE_INTDIR=\"Trace\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="D:\springheadSrcUniversal\core\src\Foundation\Scilab.i">
+    </None>
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Foundation\SprObject.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Foundation\SprScene.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Foundation\SprUTCriticalSection.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Foundation\SprUTOptimizer.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Foundation\SprUTQPTimer.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\Foundation\SprUTTimer.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\include\SprFoundation.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\ClapackLibsDef.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\Object.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\QuadProg++.hh" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\Scene.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\UTBaseType.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\UTClapack.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\UTDllLoader.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\UTDllLoaderImpl.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\UTLoadContext.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\UTLoadHandler.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\UTOptimizer.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\UTPath.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\UTQPTimer.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\UTSocket.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\UTTimer.h" />
+    <ClInclude Include="D:\springheadSrcUniversal\core\src\Foundation\UTTypeDesc.h" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\FoundationStub.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\Object.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\QuadProg++.cc" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\Scene.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\ScilabStub.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\UTCriticalSection.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\UTDllLoader.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\UTLoadContext.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\UTLoadHandler.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\UTOptimizer.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\UTPath.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\UTQPTimer.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\UTRegisterTypeDesc.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\UTSocket.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\UTTimer.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\Foundation\UTTypeDesc.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\springheadSrcUniversal\core\src\Base\Base.vcxproj">
+      <Project>{54A521BF-C9BC-3EB8-AAD7-4AB0F607E955}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

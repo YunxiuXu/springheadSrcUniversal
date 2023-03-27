@@ -1,5 +1,5 @@
 @echo off
-rem FILE: NameManager.bat
+rem FILE: D:\springheadSrcUniversal\core\src\SprCSharp\NameManager\NameManager.bat
 
 set BINDIR=D:\springheadSrcUniversal\core\bin
 set CSHARPCLEAN=D:\springheadSrcUniversal\core\src\SprCSharp\RunSwig_CSharp\RunSwig_Clean.bat
@@ -36,4 +36,4 @@ set WRAPPERFILE_INP=wrapper.cs
 set WRAPPERFILE_SRC=wrapper.cs
 set WRAPPERSBUILTFILE=D:\springheadSrcUniversal\core\src\SprCSharp\wrappers.built
 
-rem end: NameManager.bat
+rem end: D:\springheadSrcUniversal\core\src\SprCSharp\NameManager\NameManager.bat

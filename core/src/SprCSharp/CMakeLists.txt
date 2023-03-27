@@ -1,6 +1,7 @@
 # CMakeLists.txt for SprCSharp
 
 cmake_minimum_required(VERSION 3.1)
+set(CMAKE_SHARED_LINKER_FLAGS_TRACE "${CMAKE_SHARED_LINKER_FLAGS}")
 set(SPRCSHARP_PROJECT_VERSION 1.0.1)	# Change default target to 'Install'.
 
 # ------------------------------------------------------------------------------
@@ -21,6 +22,7 @@ set(TOPDIR "${CMAKE_SOURCE_DIR}/../../..")
 
 set(SPR_TOP_DIR  "${TOPDIR}")
 set(SPR_CORE_DIR "${TOPDIR}/core")
+set(SPR_CORE_DEP "${TOPDIR}/dependency")
 set(SPR_SRC_DIR  "${TOPDIR}/core/src")
 set(SPR_INC_DIR  "${TOPDIR}/core/include")
 set(SPR_CSHARP_DIR "${TOPDIR}/core/src/SprCSharp")
@@ -28,6 +30,7 @@ set(BUILDTOOL_DIR "${TOPDIR}/buildtool/win32")
 get_filename_component(TOPDIR ${TOPDIR} ABSOLUTE)
 get_filename_component(SPR_TOP_DIR ${SPR_TOP_DIR} ABSOLUTE)
 get_filename_component(SPR_COREDIR ${SPR_CORE_DIR} ABSOLUTE)
+get_filename_component(SPR_CORE_DEP ${SPR_CORE_DIR} ABSOLUTE)
 get_filename_component(SPR_SRC_DIR ${SPR_SRC_DIR} ABSOLUTE)
 get_filename_component(SPR_INC_DIR ${SPR_INC_DIR} ABSOLUTE)
 get_filename_component(SPR_CSHARP_DIR ${SPR_CSHARP_DIR} ABSOLUTE)
@@ -47,6 +50,7 @@ message(STATUS "Host System: ${CMAKE_HOST_SYSTEM_NAME}")
 message(STATUS "Architecture: ${ARCHITECTURE}")
 set(CMAKE_GENERATOR_PLATFORM ${ARCHITECTURE})
 
+include_directories(${SPR_CORE_DEP/src})
 # ------------------------------------------------------------------------------
 #  Read function definitions.
 #
@@ -99,11 +103,11 @@ execute_process(
     COMMAND ${PYTHON} NameManager.py --cmake
     WORKING_DIRECTORY ${SPR_CSHARP_DIR}/NameManager
 )
-include(NameManager/NameManager.cmake)
+#include(NameManager/NameManager.cmake)
 message(STATUS "using ${PYTHON}")
 message(STATUS "using ${NMAKE}")
 file(TO_NATIVE_PATH ${PYTHON} PYTHON)
-file(TO_NATIVE_PATH ${NMAKE} NMAKE)
+#file(TO_NATIVE_PATH ${NMAKE} NMAKE)
 
 # ------------------------------------------------------------------------------
 #  Some other definitions.
@@ -139,7 +143,7 @@ if("${TARGET_TYPE}" STREQUAL "ALL")
 	COMMAND ${PYTHON} make_projs_file.py ${_tmpf} SPR_PROJS --cmake
 	WORKING_DIRECTORY ${SPR_CSHARP_DIR}/RunSwig_CSharp
     )
-    include(RunSwig_CSharp/${_tmpf})
+    #include(RunSwig_CSharp/${_tmpf})
 else()
     set(_target_type ${TARGET_TYPE})
     string(REPLACE "PH" "Physics" _target_type ${TARGET_TYPE})
@@ -222,6 +226,11 @@ add_subdirectory(SprExport SprExport)
 add_subdirectory(SprImport SprImport)
 add_subdirectory(SprCSharp SprCSharp)
 add_subdirectory(Install Install)
+
+add_subdirectory(${SPR_SRC_DIR}/Base ${SPR_SRC_DIR}/Base)
+add_subdirectory(${SPR_SRC_DIR}/Collision ${SPR_SRC_DIR}/Collision)
+add_subdirectory(${SPR_SRC_DIR}/Foundation ${SPR_SRC_DIR}/Foundation)
+add_subdirectory(${SPR_SRC_DIR}/Physics ${SPR_SRC_DIR}/Physics)
 
 add_dependencies(Install ${Target} SprExport SprImport SprCSharp)
 add_dependencies(${Target} SprCSharp SprExport SprImport)

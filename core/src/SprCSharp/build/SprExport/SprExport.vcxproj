@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Trace|x64">
+      <Configuration>Trace</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{598FE361-BA8F-394C-A0B5-CDA36D779A06}</ProjectGuid>
+    <Keyword>ManagedCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>SprExport</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Trace|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\springheadSrcUniversal\core\src\SprCSharp\build\SprExport\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SprExport.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SprExport</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\springheadSrcUniversal\core\src\SprCSharp\build\SprExport\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SprExport.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SprExport</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">D:\springheadSrcUniversal\core\src\SprCSharp\build\SprExport\Trace\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">SprExport.dir\Trace\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">SprExport</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\dependency\src;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..\..\include;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..;D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /GL- /clr:No</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4091;4244;4267</DisableSpecificWarnings>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SDLCheck>false</SDLCheck>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_DEBUG;_MBCS;CMAKE_INTDIR="Debug";SprExport_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_MBCS;CMAKE_INTDIR=\"Debug\";SprExport_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..\..\include;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..;D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..\..\include;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..;D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>D:\springheadSrcUniversal\core\src\Base\Debug\Base.lib;D:\springheadSrcUniversal\core\src\Collision\Debug\Collision.lib;D:\springheadSrcUniversal\core\src\Foundation\Debug\Foundation.lib;D:\springheadSrcUniversal\core\src\Physics\Debug\Physics.lib;XINPUT9_1_0.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/springheadSrcUniversal/core/src/SprCSharp/SprExport/../win64;D:/springheadSrcUniversal/core/src/SprCSharp/SprExport/../win64/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /IGNORE:4099</AdditionalOptions>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>XINPUT.LIB;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ProgramDataBaseFile>D:/springheadSrcUniversal/core/src/SprCSharp/build/SprExport/Debug/SprExport.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..\..\include;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..;D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /GL- /clr:No</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DisableSpecificWarnings>4091;4244;4267</DisableSpecificWarnings>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SDLCheck>true</SDLCheck>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;_MBCS;CMAKE_INTDIR="Release";SprExport_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;_MBCS;CMAKE_INTDIR=\"Release\";SprExport_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..\..\include;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..;D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..\..\include;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..;D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>D:\springheadSrcUniversal\core\src\Base\Release\Base.lib;D:\springheadSrcUniversal\core\src\Collision\Release\Collision.lib;D:\springheadSrcUniversal\core\src\Foundation\Release\Foundation.lib;D:\springheadSrcUniversal\core\src\Physics\Release\Physics.lib;XINPUT9_1_0.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/springheadSrcUniversal/core/src/SprCSharp/SprExport/../win64;D:/springheadSrcUniversal/core/src/SprCSharp/SprExport/../win64/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /IGNORE:4099</AdditionalOptions>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>XINPUT.LIB;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ProgramDataBaseFile>D:/springheadSrcUniversal/core/src/SprCSharp/build/SprExport/Release/SprExport.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Trace|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..\..\include;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..;D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /GL- /clr:No</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DisableSpecificWarnings>4091;4244;4267</DisableSpecificWarnings>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>true</OmitFramePointers>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SDLCheck>true</SDLCheck>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;_MBCS;CMAKE_INTDIR="Trace";SprExport_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;_MBCS;CMAKE_INTDIR=\"Trace\";SprExport_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..\..\include;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..;D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..\..\include;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..\..;D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\..;D:\springheadSrcUniversal\core\src\Base\..\..\include;D:\springheadSrcUniversal\core\src\Base\..;D:\springheadSrcUniversal\core\src\Base;D:\springheadSrcUniversal\core\src\Collision\..\..\include;D:\springheadSrcUniversal\core\src\Collision\..;D:\springheadSrcUniversal\core\src\Collision;D:\springheadSrcUniversal\core\src\Foundation\..\..\include;D:\springheadSrcUniversal\core\src\Foundation\..;D:\springheadSrcUniversal\core\src\Foundation;D:\springheadSrcUniversal\core\src\Physics\..\..\include;D:\springheadSrcUniversal\core\src\Physics\..;D:\springheadSrcUniversal\core\src\Physics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>D:\springheadSrcUniversal\core\src\Base\Trace\Base.lib;D:\springheadSrcUniversal\core\src\Collision\Trace\Collision.lib;D:\springheadSrcUniversal\core\src\Foundation\Trace\Foundation.lib;D:\springheadSrcUniversal\core\src\Physics\Trace\Physics.lib;XINPUT9_1_0.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/springheadSrcUniversal/core/src/SprCSharp/SprExport/../win64;D:/springheadSrcUniversal/core/src/SprCSharp/SprExport/../win64/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 /machine:x64 /IGNORE:4099</AdditionalOptions>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>XINPUT.LIB;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ProgramDataBaseFile>D:/springheadSrcUniversal/core/src/SprCSharp/build/SprExport/Trace/SprExport.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\CSBase.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\CSCollision.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\CSFoundation.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\CSPhysics.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\module.wrapper.cpp" />
+    <ClCompile Include="D:\springheadSrcUniversal\core\src\SprCSharp\SprExport\wrapper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\springheadSrcUniversal\core\src\Base\Base.vcxproj">
+      <Project>{54A521BF-C9BC-3EB8-AAD7-4AB0F607E955}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\springheadSrcUniversal\core\src\Collision\Collision.vcxproj">
+      <Project>{D0D5FEDC-1685-3BCE-A996-37E893A6995D}</Project>
+      <Name>Collision</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\springheadSrcUniversal\core\src\Foundation\Foundation.vcxproj">
+      <Project>{141EA5E9-6B2A-3E51-A244-A4DCCD2C7D40}</Project>
+      <Name>Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\springheadSrcUniversal\core\src\Physics\Physics.vcxproj">
+      <Project>{17D9FB84-C4BB-36D6-995B-588DBF1F7203}</Project>
+      <Name>Physics</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\springheadSrcUniversal\core\src\SprCSharp\build\RunSwig_CSharp\RunSwig_CSharp.vcxproj">
+      <Project>{2C930B2C-281A-3CDD-AAD4-26CBA88C8D00}</Project>
+      <Name>RunSwig_CSharp</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

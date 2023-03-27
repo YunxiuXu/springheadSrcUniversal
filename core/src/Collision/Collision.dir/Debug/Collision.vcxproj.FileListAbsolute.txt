@@ -1,0 +1,2 @@
+D:\springheadSrcUniversal\core\src\Collision\Debug\Collision.pdb
+D:\springheadSrcUniversal\core\src\Collision\Collision.dir\Debug\Collision.pdb
