@@ -251,15 +251,15 @@ void RegisterTypeDescFoundation(UTTypeDescDbIf* db){
 	field = desc->AddField("", "double", "data", "16");
 	desc->SetOffset(field, int((char*)&(pAffined->data) - (char*)pAffined));
 	db->RegisterDesc(desc);
-	gimite::socket_address* psocket_address = NULL;
-	desc = UTTypeDescIf::Create("socket_address");
-	desc->SetSize(sizeof(gimite::socket_address));
-	desc->SetAccess(DBG_NEW UTAccess<gimite::socket_address>);
-	field = desc->AddField("pointer", "ip_address", "ip", "");
-	desc->SetOffset(field, int((char*)&(psocket_address->ip) - (char*)psocket_address));
-	field = desc->AddField("", "int", "port", "");
-	desc->SetOffset(field, int((char*)&(psocket_address->port) - (char*)psocket_address));
-	db->RegisterDesc(desc);
+	//gimite::socket_address* psocket_address = NULL;
+	//desc = UTTypeDescIf::Create("socket_address");
+	//desc->SetSize(sizeof(gimite::socket_address));
+	//desc->SetAccess(DBG_NEW UTAccess<gimite::socket_address>);
+	//field = desc->AddField("pointer", "ip_address", "ip", "");
+	//desc->SetOffset(field, int((char*)&(psocket_address->ip) - (char*)psocket_address));
+	//field = desc->AddField("", "int", "port", "");
+	//desc->SetOffset(field, int((char*)&(psocket_address->port) - (char*)psocket_address));
+	//db->RegisterDesc(desc);
 }
 
 SPR_IFIMP0(Object);

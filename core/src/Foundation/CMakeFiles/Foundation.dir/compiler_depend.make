@@ -4087,7 +4087,15 @@
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/dlfcn.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/stdbool.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stdbool.h \
-  /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/kludge_for_unix/kludge.h
+  /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/kludge_for_unix/kludge.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/unistd.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/unistd.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/_types/_posix_vdisable.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/_types/_seek_set.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/select.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/_select.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/_types/_uuid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/gethostuuid.h
 
 /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Foundation/CMakeFiles/Foundation.dir/UTLoadContext.cpp.o: /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Foundation/UTLoadContext.cpp \
   /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Foundation/UTLoadContext.h \
@@ -8180,12 +8188,6 @@
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/time.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/_select.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/select.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/_types/_posix_vdisable.h:
-
 /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Foundation/UTPath.cpp:
 
 /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Foundation/UTOptimizer.cpp:
@@ -8197,6 +8199,12 @@
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/fcntl.h:
 
 /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Foundation/UTLoadContext.cpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/_select.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/select.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/sys/_types/_posix_vdisable.h:
 
 /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/kludge_for_unix/kludge.h:
 

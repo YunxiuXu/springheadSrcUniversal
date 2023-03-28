@@ -16,14 +16,23 @@
 
 #ifdef __unix__
 # include "../kludge_for_unix/kludge.h"
+#include <unistd.h> 
+#include <cstring> 
 #endif
 
 namespace Spr {;
 
 std::string UTDllLoader::FindSpringhead() {
 	char exePath[1024 * 2];
-	GetModuleFileName(NULL, exePath, sizeof(exePath));
-	PathRemoveFileSpec(exePath);
+	ssize_t len = readlink("/proc/self/exe", exePath, sizeof(exePath)-1);
+	if (len != -1) {
+	    exePath[len] = '\0';
+	    return exePath;
+	}
+	char* p = strrchr(exePath, '/');
+	if (p != nullptr) {
+	    *p = '\0';
+	}
 	while (1) {
 		char* backslash = strrchr(exePath, '\\');
 		char* slash = strrchr(exePath, '/');
@@ -36,13 +45,13 @@ std::string UTDllLoader::FindSpringhead() {
 		char buf[1024 * 2];
 		strcpy(buf, exePath);
 		strcat(buf, "\\Springhead");
-		if (PathFileExists(buf)) {
-			return buf;
+		if (access(buf, F_OK) != -1) {
+		    return buf;
 		}
 		strcpy(buf, exePath);
 		strcat(buf, "\\dependency");
-		if (PathFileExists(buf)) {
-			return exePath;
+		if (access(buf, F_OK) != -1) {
+		    return buf;
 		}
 	}
 }

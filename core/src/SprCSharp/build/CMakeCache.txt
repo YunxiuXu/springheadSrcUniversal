@@ -207,6 +207,9 @@ CMAKE_STRIP:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Dependencies for the target
+Physics_LIB_DEPENDS:STATIC=general;-framework Accelerate;
+
 //Value Computed by CMake
 SprCSharpMain_BINARY_DIR:STATIC=/Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build
 
