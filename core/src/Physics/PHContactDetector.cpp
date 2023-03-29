@@ -276,9 +276,75 @@ size_t PHContactDetector::GetStateSize() const {
 	PHContactDetectorSt s(NSolidPairs(), NShapePairs());
 	return s.GetSize();
 }
+// void PHContactDetector::ConstructState(void* m) const {
+// 	new (m) PHContactDetectorSt(NSolidPairs(), NShapePairs());
+// }
+// int MAX_STATE_POOL_SIZE = 500;
+// void PHContactDetector::ConstructState(void* m) const {
+//     static std::vector<char> memory_pool(sizeof(PHContactDetectorSt) * MAX_STATE_POOL_SIZE);
+//     static std::atomic<int> pool_index(0);
+//     int index = pool_index.fetch_add(1);
+//     if (index >= MAX_STATE_POOL_SIZE) {
+//         throw std::runtime_error("Out of memory");
+//     }
+//     PHContactDetectorSt* state = reinterpret_cast<PHContactDetectorSt*>(&memory_pool[index * sizeof(PHContactDetectorSt)]);
+//     new (state) PHContactDetectorSt(NSolidPairs(), NShapePairs());
+//     memcpy(m, state, sizeof(PHContactDetectorSt));
+// }
+// 定义一个内存池类
+class MemoryPool {
+public:
+    MemoryPool(size_t blockSize, size_t numBlocks) : blockSize_(blockSize), numBlocks_(numBlocks) {
+        pool_ = static_cast<char*>(malloc(blockSize * numBlocks));
+        reset();
+    }
+    
+    ~MemoryPool() {
+        free(pool_);
+    }
+    
+    void* alloc(size_t size) {
+        if (size > blockSize_) {
+            return nullptr;
+        }
+        
+        if (free_ == nullptr) {
+            return nullptr;
+        }
+        
+        void* ptr = free_;
+        free_ = *reinterpret_cast<char**>(ptr);
+        return ptr;
+    }
+    
+    void free(void* ptr) {
+        *reinterpret_cast<char**>(ptr) = free_;
+        free_ = static_cast<char*>(ptr);
+    }
+    
+    void reset() {
+        free_ = pool_;
+        for (size_t i = 0; i < numBlocks_ - 1; ++i) {
+            *reinterpret_cast<char**>(free_) = free_ + blockSize_;
+            free_ += blockSize_;
+        }
+        *reinterpret_cast<char**>(free_) = nullptr;
+    }
+
+private:
+    char* pool_;
+    char* free_;
+    const size_t blockSize_;
+    const size_t numBlocks_;
+};
+
+// 修改ConstructState函数
 void PHContactDetector::ConstructState(void* m) const {
-	new (m) PHContactDetectorSt(NSolidPairs(), NShapePairs());
+    static MemoryPool pool(sizeof(PHContactDetectorSt), 1);
+    *reinterpret_cast<PHContactDetectorSt*>(m) = PHContactDetectorSt(NSolidPairs(), NShapePairs());
 }
+
+
 void PHContactDetector::DestructState(void* m) const {
 	((PHContactDetectorSt*)m)->~PHContactDetectorSt();
 }

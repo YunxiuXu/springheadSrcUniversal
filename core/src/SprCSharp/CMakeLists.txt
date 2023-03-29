@@ -16,6 +16,9 @@ message(STATUS "Project: ${ProjectName}, Version ${ProjectVersion}")
 set(CMAKE_SUPPRESS_REGENERATION true)
 set(CMAKE_USE_RELATIVE_PATHS true)
 
+
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -s")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Oz")
 # ------------------------------------------------------------------------------
 #  We set top directory of Springhead tree to "TOPDIR".
 #

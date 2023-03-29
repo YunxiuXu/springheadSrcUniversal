@@ -46,7 +46,6 @@
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include/stdarg.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/seek_constants.h \
-  /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdio.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/xlocale.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdlib.h \
@@ -227,7 +226,6 @@
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include/stdarg.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/seek_constants.h \
-  /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdio.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/xlocale.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdlib.h \
@@ -408,7 +406,6 @@
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include/stdarg.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/seek_constants.h \
-  /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdio.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/xlocale.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdlib.h \
@@ -589,7 +586,6 @@
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include/stdarg.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/seek_constants.h \
-  /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdio.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/xlocale.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdlib.h \
@@ -770,7 +766,6 @@
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include/stdarg.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/seek_constants.h \
-  /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdio.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/xlocale.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdlib.h \
@@ -908,6 +903,8 @@
 
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Base/BaseTypeInfo.cpp:
+
+/Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Base/BaseDebug.cpp:
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/include/Base/VectorDebug.h:
 
@@ -1096,10 +1093,6 @@
 /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/math.h:
 
 /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/wctype.h:
-
-/Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Base/BaseDebug.cpp:
-
-/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h:
 
 /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/c++/v1/vector:
 
