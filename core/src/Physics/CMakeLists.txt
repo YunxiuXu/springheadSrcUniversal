@@ -156,9 +156,9 @@ set(ALL_FILES
 # Target
 ################################################################################
 add_library(${PROJECT_NAME} STATIC ${ALL_FILES})
-target_link_libraries(${PROJECT_NAME}
-    "-framework Accelerate"
-)
+# target_link_libraries(${PROJECT_NAME}
+#     "-framework ScriptIntrinsicBLAS"
+# )
 include_directories(${SPR_CORE_DEP}/src)
 include_directories(${SPR_SRC_DIR})
 include_directories(${SPR_INC_DIR})

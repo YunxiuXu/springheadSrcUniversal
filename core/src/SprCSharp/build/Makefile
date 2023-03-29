@@ -57,10 +57,10 @@ RM = /opt/homebrew/Cellar/cmake/3.25.2/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp
+CMAKE_SOURCE_DIR = /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build
+CMAKE_BINARY_DIR = /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all:
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build/CMakeFiles /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build/CMakeFiles /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -147,7 +147,7 @@ Base:
 
 # fast build rule for target.
 Base/fast:
-	$(MAKE) $(MAKESILENT) -f /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Base/CMakeFiles/Base.dir/build.make /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Base/CMakeFiles/Base.dir/build
+	$(MAKE) $(MAKESILENT) -f /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Base/CMakeFiles/Base.dir/build.make /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Base/CMakeFiles/Base.dir/build
 .PHONY : Base/fast
 
 #=============================================================================
@@ -160,7 +160,7 @@ Collision:
 
 # fast build rule for target.
 Collision/fast:
-	$(MAKE) $(MAKESILENT) -f /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Collision/CMakeFiles/Collision.dir/build.make /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Collision/CMakeFiles/Collision.dir/build
+	$(MAKE) $(MAKESILENT) -f /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Collision/CMakeFiles/Collision.dir/build.make /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Collision/CMakeFiles/Collision.dir/build
 .PHONY : Collision/fast
 
 #=============================================================================
@@ -173,7 +173,7 @@ Foundation:
 
 # fast build rule for target.
 Foundation/fast:
-	$(MAKE) $(MAKESILENT) -f /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Foundation/CMakeFiles/Foundation.dir/build.make /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Foundation/CMakeFiles/Foundation.dir/build
+	$(MAKE) $(MAKESILENT) -f /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Foundation/CMakeFiles/Foundation.dir/build.make /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Foundation/CMakeFiles/Foundation.dir/build
 .PHONY : Foundation/fast
 
 #=============================================================================
@@ -186,7 +186,7 @@ Physics:
 
 # fast build rule for target.
 Physics/fast:
-	$(MAKE) $(MAKESILENT) -f /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Physics/CMakeFiles/Physics.dir/build.make /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/Physics/CMakeFiles/Physics.dir/build
+	$(MAKE) $(MAKESILENT) -f /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Physics/CMakeFiles/Physics.dir/build.make /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Physics/CMakeFiles/Physics.dir/build
 .PHONY : Physics/fast
 
 dummy/_cmake_dummy.o: dummy/_cmake_dummy.cpp.o

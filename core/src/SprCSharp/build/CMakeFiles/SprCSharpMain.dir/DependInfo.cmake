@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build/dummy/_cmake_dummy.cpp" "CMakeFiles/SprCSharpMain.dir/dummy/_cmake_dummy.cpp.o" "gcc" "CMakeFiles/SprCSharpMain.dir/dummy/_cmake_dummy.cpp.o.d"
+  "/Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build/dummy/_cmake_dummy.cpp" "CMakeFiles/SprCSharpMain.dir/dummy/_cmake_dummy.cpp.o" "gcc" "CMakeFiles/SprCSharpMain.dir/dummy/_cmake_dummy.cpp.o.d"
   )
 
 # Targets to which this target links.

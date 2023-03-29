@@ -768,8 +768,8 @@ void PHFemVibration::CompEigenValue(const VMatrixRd& _M, const VMatrixRd& _K, co
 #if USE_SUBSPACE
 		SubSpace(_K, _M, interval, 1e-5, e, v);
 #else
-		int info = sprsygvx(_K, _M, e, v, start, interval);
-		assert(info == 0);
+		//int info = sprsygvx(_K, _M, e, v, start, interval);
+		//assert(info == 0);
 #endif
 		DSTR << "eigenvalue" << std::endl;
 		DSTR << e << std::endl;

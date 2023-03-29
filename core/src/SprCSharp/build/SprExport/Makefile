@@ -57,10 +57,10 @@ RM = /opt/homebrew/Cellar/cmake/3.25.2/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp
+CMAKE_SOURCE_DIR = /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build
+CMAKE_BINARY_DIR = /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build/CMakeFiles /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build/SprExport//CMakeFiles/progress.marks
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SprExport/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build/CMakeFiles 0
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build/CMakeFiles /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build/SprExport//CMakeFiles/progress.marks
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SprExport/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SprExport/clean
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SprExport/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,17 +103,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SprExport/preinstall
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SprExport/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SprExport/preinstall
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SprExport/preinstall
 .PHONY : preinstall/fast
 
 # Convenience name for target.
 SprExport/CMakeFiles/SprExport.dir/rule:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SprExport/CMakeFiles/SprExport.dir/rule
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SprExport/CMakeFiles/SprExport.dir/rule
 .PHONY : SprExport/CMakeFiles/SprExport.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ SprExport: SprExport/CMakeFiles/SprExport.dir/rule
 
 # fast build rule for target.
 SprExport/fast:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/build
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/build
 .PHONY : SprExport/fast
 
 CSBase.o: CSBase.cpp.o
@@ -130,7 +130,7 @@ CSBase.o: CSBase.cpp.o
 
 # target to build an object file
 CSBase.cpp.o:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSBase.cpp.o
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSBase.cpp.o
 .PHONY : CSBase.cpp.o
 
 CSBase.i: CSBase.cpp.i
@@ -138,7 +138,7 @@ CSBase.i: CSBase.cpp.i
 
 # target to preprocess a source file
 CSBase.cpp.i:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSBase.cpp.i
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSBase.cpp.i
 .PHONY : CSBase.cpp.i
 
 CSBase.s: CSBase.cpp.s
@@ -146,7 +146,7 @@ CSBase.s: CSBase.cpp.s
 
 # target to generate assembly for a file
 CSBase.cpp.s:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSBase.cpp.s
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSBase.cpp.s
 .PHONY : CSBase.cpp.s
 
 CSCollision.o: CSCollision.cpp.o
@@ -154,7 +154,7 @@ CSCollision.o: CSCollision.cpp.o
 
 # target to build an object file
 CSCollision.cpp.o:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSCollision.cpp.o
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSCollision.cpp.o
 .PHONY : CSCollision.cpp.o
 
 CSCollision.i: CSCollision.cpp.i
@@ -162,7 +162,7 @@ CSCollision.i: CSCollision.cpp.i
 
 # target to preprocess a source file
 CSCollision.cpp.i:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSCollision.cpp.i
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSCollision.cpp.i
 .PHONY : CSCollision.cpp.i
 
 CSCollision.s: CSCollision.cpp.s
@@ -170,7 +170,7 @@ CSCollision.s: CSCollision.cpp.s
 
 # target to generate assembly for a file
 CSCollision.cpp.s:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSCollision.cpp.s
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSCollision.cpp.s
 .PHONY : CSCollision.cpp.s
 
 CSFoundation.o: CSFoundation.cpp.o
@@ -178,7 +178,7 @@ CSFoundation.o: CSFoundation.cpp.o
 
 # target to build an object file
 CSFoundation.cpp.o:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSFoundation.cpp.o
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSFoundation.cpp.o
 .PHONY : CSFoundation.cpp.o
 
 CSFoundation.i: CSFoundation.cpp.i
@@ -186,7 +186,7 @@ CSFoundation.i: CSFoundation.cpp.i
 
 # target to preprocess a source file
 CSFoundation.cpp.i:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSFoundation.cpp.i
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSFoundation.cpp.i
 .PHONY : CSFoundation.cpp.i
 
 CSFoundation.s: CSFoundation.cpp.s
@@ -194,7 +194,7 @@ CSFoundation.s: CSFoundation.cpp.s
 
 # target to generate assembly for a file
 CSFoundation.cpp.s:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSFoundation.cpp.s
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSFoundation.cpp.s
 .PHONY : CSFoundation.cpp.s
 
 CSPhysics.o: CSPhysics.cpp.o
@@ -202,7 +202,7 @@ CSPhysics.o: CSPhysics.cpp.o
 
 # target to build an object file
 CSPhysics.cpp.o:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSPhysics.cpp.o
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSPhysics.cpp.o
 .PHONY : CSPhysics.cpp.o
 
 CSPhysics.i: CSPhysics.cpp.i
@@ -210,7 +210,7 @@ CSPhysics.i: CSPhysics.cpp.i
 
 # target to preprocess a source file
 CSPhysics.cpp.i:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSPhysics.cpp.i
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSPhysics.cpp.i
 .PHONY : CSPhysics.cpp.i
 
 CSPhysics.s: CSPhysics.cpp.s
@@ -218,7 +218,7 @@ CSPhysics.s: CSPhysics.cpp.s
 
 # target to generate assembly for a file
 CSPhysics.cpp.s:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSPhysics.cpp.s
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/CSPhysics.cpp.s
 .PHONY : CSPhysics.cpp.s
 
 module.wrapper.o: module.wrapper.cpp.o
@@ -226,7 +226,7 @@ module.wrapper.o: module.wrapper.cpp.o
 
 # target to build an object file
 module.wrapper.cpp.o:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/module.wrapper.cpp.o
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/module.wrapper.cpp.o
 .PHONY : module.wrapper.cpp.o
 
 module.wrapper.i: module.wrapper.cpp.i
@@ -234,7 +234,7 @@ module.wrapper.i: module.wrapper.cpp.i
 
 # target to preprocess a source file
 module.wrapper.cpp.i:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/module.wrapper.cpp.i
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/module.wrapper.cpp.i
 .PHONY : module.wrapper.cpp.i
 
 module.wrapper.s: module.wrapper.cpp.s
@@ -242,7 +242,7 @@ module.wrapper.s: module.wrapper.cpp.s
 
 # target to generate assembly for a file
 module.wrapper.cpp.s:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/module.wrapper.cpp.s
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/module.wrapper.cpp.s
 .PHONY : module.wrapper.cpp.s
 
 wrapper.o: wrapper.cpp.o
@@ -250,7 +250,7 @@ wrapper.o: wrapper.cpp.o
 
 # target to build an object file
 wrapper.cpp.o:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.o
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.o
 .PHONY : wrapper.cpp.o
 
 wrapper.i: wrapper.cpp.i
@@ -258,7 +258,7 @@ wrapper.i: wrapper.cpp.i
 
 # target to preprocess a source file
 wrapper.cpp.i:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.i
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.i
 .PHONY : wrapper.cpp.i
 
 wrapper.s: wrapper.cpp.s
@@ -266,7 +266,7 @@ wrapper.s: wrapper.cpp.s
 
 # target to generate assembly for a file
 wrapper.cpp.s:
-	cd /Users/yunxiuxu/Documents/CppProjects/springheadSrcUniversal/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.s
+	cd /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/SprCSharp/build && $(MAKE) $(MAKESILENT) -f SprExport/CMakeFiles/SprExport.dir/build.make SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.s
 .PHONY : wrapper.cpp.s
 
 # Help Target
