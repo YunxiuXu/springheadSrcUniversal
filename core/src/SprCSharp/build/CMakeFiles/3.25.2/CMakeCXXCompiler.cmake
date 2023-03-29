@@ -51,7 +51,7 @@ set(CMAKE_CXX_LINKER_PREFERENCE 30)
 set(CMAKE_CXX_LINKER_PREFERENCE_PROPAGATES 1)
 
 # Save compiler ABI information.
-set(CMAKE_CXX_SIZEOF_DATA_PTR "4")
+set(CMAKE_CXX_SIZEOF_DATA_PTR "8")
 set(CMAKE_CXX_COMPILER_ABI "ELF")
 set(CMAKE_CXX_BYTE_ORDER "LITTLE_ENDIAN")
 set(CMAKE_CXX_LIBRARY_ARCHITECTURE "")
@@ -77,7 +77,7 @@ endif()
 
 
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/c++/v1;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/local/include;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/arm-linux-androideabi;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/c++/v1;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/local/include;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include")
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "c++;m;-l:libunwind.a;dl;c;-l:libunwind.a;dl")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/lib/linux/arm;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/arm-linux-androideabi/32;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/arm-linux-androideabi;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/lib/linux/aarch64;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/30;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android;/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

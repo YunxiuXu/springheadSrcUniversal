@@ -49,7 +49,6 @@ SprExport/CMakeFiles/SprExport.dir/CSBase.cpp.o: /Users/yunxiuxu/Desktop/springh
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include/stdarg.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/seek_constants.h \
-  /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdio.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/xlocale.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdlib.h \
@@ -317,7 +316,6 @@ SprExport/CMakeFiles/SprExport.dir/CSCollision.cpp.o: /Users/yunxiuxu/Desktop/sp
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include/stdarg.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/seek_constants.h \
-  /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdio.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/xlocale.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdlib.h \
@@ -586,7 +584,6 @@ SprExport/CMakeFiles/SprExport.dir/CSFoundation.cpp.o: /Users/yunxiuxu/Desktop/s
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include/stdarg.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/seek_constants.h \
-  /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdio.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/xlocale.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdlib.h \
@@ -854,7 +851,6 @@ SprExport/CMakeFiles/SprExport.dir/CSPhysics.cpp.o: /Users/yunxiuxu/Desktop/spri
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include/stdarg.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/seek_constants.h \
-  /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdio.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/xlocale.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdlib.h \
@@ -1122,7 +1118,6 @@ SprExport/CMakeFiles/SprExport.dir/module.wrapper.cpp.o: /Users/yunxiuxu/Desktop
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include/stdarg.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/seek_constants.h \
-  /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdio.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/xlocale.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdlib.h \
@@ -2037,7 +2032,6 @@ SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.o: /Users/yunxiuxu/Desktop/spring
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include/stdarg.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/seek_constants.h \
-  /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdio.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/xlocale.h \
   /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/fortify/stdlib.h \
@@ -2533,6 +2527,8 @@ SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.o: /Users/yunxiuxu/Desktop/spring
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/aux_/range_c/iterator.hpp:
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/aux_/range_c/O1_size.hpp:
+
+/Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/aux_/range_c/size.hpp:
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/aux_/preprocessed/gcc/equal_to.hpp:
 
@@ -3052,8 +3048,6 @@ SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.o: /Users/yunxiuxu/Desktop/spring
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/at_fwd.hpp:
 
-/Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/map/aux_/at_impl.hpp:
-
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/preprocessor/arithmetic/dec.hpp:
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/aux_/lambda_support.hpp:
@@ -3382,6 +3376,8 @@ SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.o: /Users/yunxiuxu/Desktop/spring
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/preprocessor/arithmetic/inc.hpp:
 
+/Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/map/aux_/at_impl.hpp:
+
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/include/Framework/SprFWFemMeshNew.h:
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/type_traits/is_integral.hpp:
@@ -3449,8 +3445,6 @@ SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.o: /Users/yunxiuxu/Desktop/spring
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/int.hpp:
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/deref.hpp:
-
-/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/struct_file.h:
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/include/Physics/SprPHFemMesh.h:
 
@@ -3525,8 +3519,6 @@ SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.o: /Users/yunxiuxu/Desktop/spring
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/include/Base/Spatial.h:
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/include/Physics/SprPHSolid.h:
-
-/Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/include/Physics/SprPHScene.h:
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/aux_/preprocessed/gcc/vector.hpp:
 
@@ -3766,8 +3758,6 @@ SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.o: /Users/yunxiuxu/Desktop/spring
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/type_traits/is_floating_point.hpp:
 
-/Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/aux_/range_c/size.hpp:
-
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/include/Base/TCurve.h:
 
 /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/c++/v1/initializer_list:
@@ -3873,6 +3863,8 @@ SprExport/CMakeFiles/SprExport.dir/wrapper.cpp.o: /Users/yunxiuxu/Desktop/spring
 /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/local/include/stdlib.h:
 
 /Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/dependency/src/boost/mpl/map/aux_/include_preprocessed.hpp:
+
+/Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/include/Physics/SprPHScene.h:
 
 /Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/c++/v1/string_view:
 

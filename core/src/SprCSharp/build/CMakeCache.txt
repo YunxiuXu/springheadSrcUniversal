@@ -21,7 +21,7 @@ ANDROID_ABI:UNINITIALIZED=armeabi-v7a
 ANDROID_NDK:UNINITIALIZED=
 
 //No help, variable specified on the command line.
-ANDROID_PLATFORM:UNINITIALIZED=android-26
+ANDROID_PLATFORM:UNINITIALIZED=android-27
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-addr2line
