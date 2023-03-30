@@ -258,12 +258,22 @@ void NamedObject::SetNameManager(NameManagerIf* s){
     if (name.length() && nameManager) {
         nameManager->names.Add(this);
     }
-}z
+}
 NamedObject::NamedObject(const NamedObject& n):nameManager(n.nameManager){
 }
-NamedObject& NamedObject::operator=(const NamedObject& n){
-	SetName("");
-	SetNameManager(n.nameManager->Cast());
+NamedObject& NamedObject::operator=(const NamedObject& n) {
+	if (n.nameManager == nullptr) {
+		return *this;
+	}
+	if (n.nameManager == this->nameManager) {
+		return *this;
+	}
+	if (n.name.length()) {
+		SetName(n.name.c_str());
+	}
+	if (n.nameManager != nullptr) {
+		SetNameManager(n.nameManager->Cast());
+	}
 	return *this;
 }
 

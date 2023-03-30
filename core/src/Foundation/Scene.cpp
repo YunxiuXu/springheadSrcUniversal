@@ -88,10 +88,19 @@ void NameManager::Clear(){
 	names.Clear();
 }
 void NameManager::SetNameManager(NameManagerIf* pi){
-	NameManager* p = pi->Cast();
-	if (nameManager==p) return;
-	if (nameManager) nameManager->DelChildManager(this);
-	if (p) p->AddChildManager(this);
+    if (pi == nullptr) {
+        return;
+    }
+    NameManager* p = pi->Cast();
+    if (nameManager == p) {
+        return;
+    }
+    if (nameManager != nullptr) {
+        nameManager->DelChildManager(this);
+    }
+    if (p != nullptr) {
+        p->AddChildManager(this);
+    }
 }
 void NameManager::AddChildManager(NameManager* c){
 	NameManager* ans = this;
