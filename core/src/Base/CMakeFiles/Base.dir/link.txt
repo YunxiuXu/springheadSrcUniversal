@@ -1,2 +1,2 @@
-/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar qc libBase.a CMakeFiles/Base.dir/Affine.cpp.o CMakeFiles/Base.dir/BaseDebug.cpp.o CMakeFiles/Base.dir/BaseTypeInfo.cpp.o CMakeFiles/Base.dir/BaseUtility.cpp.o CMakeFiles/Base.dir/StrbufBase.cpp.o
-/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ranlib libBase.a
+/Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar qc libBase.a CMakeFiles/Base.dir/Affine.cpp.o CMakeFiles/Base.dir/BaseDebug.cpp.o CMakeFiles/Base.dir/BaseTypeInfo.cpp.o CMakeFiles/Base.dir/BaseUtility.cpp.o CMakeFiles/Base.dir/StrbufBase.cpp.o
+/Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ranlib libBase.a

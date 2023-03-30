@@ -15,8 +15,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Base/StrbufBase.cpp" "/Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Base/CMakeFiles/Base.dir/StrbufBase.cpp.o" "gcc" "/Users/yunxiuxu/Desktop/springheadSrcUniversalForAndroid/core/src/Base/CMakeFiles/Base.dir/StrbufBase.cpp.o.d"
   )
 
-# Targets to which this target links.
-set(CMAKE_TARGET_LINKED_INFO_FILES
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

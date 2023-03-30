@@ -248,14 +248,16 @@ NameManagerIf* NamedObject::GetNameManager() const{
 	return nameManager->Cast();
 }
 void NamedObject::SetNameManager(NameManagerIf* s){
-	assert(!s || s->RefCount() >= 0);
-	if (nameManager){
-		nameManager->names.Del(this);
-	}
-	nameManager = DCAST(NameManager, s);
-	if (name.length()){
-		if (nameManager) nameManager->names.Add(this);
-	}
+    if (s == nullptr) {
+        return;
+    }
+    if (nameManager != nullptr){
+        nameManager->names.Del(this);
+    }
+    nameManager = DCAST(NameManager, s);
+    if (name.length() && nameManager) {
+        nameManager->names.Add(this);
+    }
 }
 NamedObject::NamedObject(const NamedObject& n):nameManager(n.nameManager){
 }
