@@ -32,15 +32,16 @@
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/stdint.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/wchar_limits.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/types.h \
-  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/arm-linux-androideabi/asm/types.h \
+  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android/asm/types.h \
+  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/types.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/int-ll64.h \
-  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/arm-linux-androideabi/asm/bitsperlong.h \
+  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android/asm/bitsperlong.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/bitsperlong.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/posix_types.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/stddef.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/compiler_types.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/compiler.h \
-  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/arm-linux-androideabi/asm/posix_types.h \
+  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android/asm/posix_types.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/posix_types.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/pthread_types.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/14.0.7/include/stdarg.h \
@@ -88,12 +89,14 @@
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/time_types.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/sys/select.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/signal.h \
-  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/arm-linux-androideabi/asm/sigcontext.h \
+  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android/asm/sigcontext.h \
+  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android/asm/sve_context.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/signal_types.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/signal.h \
-  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/arm-linux-androideabi/asm/signal.h \
+  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android/asm/signal.h \
+  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/signal.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/signal-defs.h \
-  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/arm-linux-androideabi/asm/siginfo.h \
+  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android/asm/siginfo.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/siginfo.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/bits/timespec.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/sys/ucontext.h \
@@ -119,7 +122,7 @@
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/c++/v1/errno.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/errno.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/linux/errno.h \
-  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/arm-linux-androideabi/asm/errno.h \
+  /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/aarch64-linux-android/asm/errno.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/errno.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/asm-generic/errno-base.h \
   /Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/include/android/legacy_errno_inlines.h \
