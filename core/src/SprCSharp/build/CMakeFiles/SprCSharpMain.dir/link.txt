@@ -1,2 +1,2 @@
-/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar qc libSprCSharpMain.a CMakeFiles/SprCSharpMain.dir/dummy/_cmake_dummy.cpp.o
-/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ranlib libSprCSharpMain.a
+/Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar qc libSprCSharpMain.a CMakeFiles/SprCSharpMain.dir/dummy/_cmake_dummy.cpp.o
+/Users/yunxiuxu/Documents/Android/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ranlib libSprCSharpMain.a
