@@ -258,7 +258,7 @@ void NamedObject::SetNameManager(NameManagerIf* s){
     if (name.length() && nameManager) {
         nameManager->names.Add(this);
     }
-}
+}z
 NamedObject::NamedObject(const NamedObject& n):nameManager(n.nameManager){
 }
 NamedObject& NamedObject::operator=(const NamedObject& n){
