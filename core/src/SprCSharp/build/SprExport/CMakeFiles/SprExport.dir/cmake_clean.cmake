@@ -11,8 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/SprExport.dir/module.wrapper.cpp.o.d"
   "CMakeFiles/SprExport.dir/wrapper.cpp.o"
   "CMakeFiles/SprExport.dir/wrapper.cpp.o.d"
+  "libSprExport.dylib"
   "libSprExport.pdb"
-  "libSprExport.so"
 )
 
 # Per-language clean rules from dependency scanning.

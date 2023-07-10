@@ -18,245 +18,245 @@ extern "C" {
     //  int
     __attribute__((visibility("default"))) void*  Spr_vector_new_int() {
 	void* _ptr = (void*) NULL;
-	 { _ptr = new vector<int>; }
-	//catch (const std::exception& e) {  }
+	try { _ptr = new vector<int>; }
+	catch (const std::exception& e) {  }
 	return (void*) _ptr;
     }
     __attribute__((visibility("default"))) void  Spr_vector_delete_int(void* ptr) {
 	if (ptr == NULL) return;
         vector<int>* vec = (vector<int>*) ptr;
-         { vector<int>().swap(*vec); }
-	//catch (const std::exception& e) {  }
+        try { vector<int>().swap(*vec); }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) int  Spr_vector_get_int(void* ptr, int index) {
         vector<int>* vecptr = (vector<int>*) ptr;
 	int _val = 0;
-         { _val = (*vecptr)[index]; }
-	//catch (const std::exception& e) {  }
+        try { _val = (*vecptr)[index]; }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __attribute__((visibility("default"))) void  Spr_vector_set_int(void* ptr, int index, int value) {
         vector<int>* vecptr = (vector<int>*) ptr;
-         { (*vecptr)[index] = value; }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr)[index] = value; }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) int  Spr_vector_size_int(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<int>* vecptr = (vector<int>*) ptr;
 	int _val = 0;
-         { _val = (int) (*vecptr).size(); }
-	//catch (const std::exception& e) {  }
+        try { _val = (int) (*vecptr).size(); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __attribute__((visibility("default"))) void  Spr_vector_push_back_int(void* ptr, int value) {
         vector<int>* vecptr = (vector<int>*) ptr;
-         { (*vecptr).push_back(value); }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr).push_back(value); }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) void  Spr_vector_clear_int(void* ptr) {
 	if (ptr == NULL) return;
         vector<int>* vecptr = (vector<int>*) ptr;
-         { (*vecptr).clear(); }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr).clear(); }
+	catch (const std::exception& e) {  }
     }
 
     //  unsigned int
     __attribute__((visibility("default"))) void*  Spr_vector_new_unsigned_int() {
 	void* _ptr = (void*) NULL;
-         { _ptr = new vector<unsigned int>; }
-	//catch (const std::exception& e) {  }
+        try { _ptr = new vector<unsigned int>; }
+	catch (const std::exception& e) {  }
         return _ptr;
     }
     __attribute__((visibility("default"))) void  Spr_vector_delete_unsigned_int(void* ptr) {
 	if (ptr == NULL) return;
         vector<unsigned int>* vec = (vector<unsigned int>*) ptr;
-         { vector<unsigned int>().swap(*vec); }
-	//catch (const std::exception& e) {  }
+        try { vector<unsigned int>().swap(*vec); }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) unsigned int  Spr_vector_get_unsigned_int(void* ptr, int index) {
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
 	unsigned int _val = 0;
-         { _val = (*vecptr)[index]; }
-	//catch (const std::exception& e) {  }
+        try { _val = (*vecptr)[index]; }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __attribute__((visibility("default"))) void  Spr_vector_set_unsigned_int(void* ptr, int index, unsigned int value) {
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
-         { (*vecptr)[index] = value; }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr)[index] = value; }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) int  Spr_vector_size_unsigned_int(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
 	int _val = 0;
-         { _val = (int) (*vecptr).size(); }
-	//catch (const std::exception& e) {  }
+        try { _val = (int) (*vecptr).size(); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __attribute__((visibility("default"))) void  Spr_vector_push_back_unsigned_int(void* ptr, unsigned int value) {
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
-         { (*vecptr).push_back(value); }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr).push_back(value); }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) void  Spr_vector_clear_unsigned_int(void* ptr) {
 	if (ptr == NULL) return;
         vector<unsigned int>* vecptr = (vector<unsigned int>*) ptr;
-         { (*vecptr).clear(); }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr).clear(); }
+	catch (const std::exception& e) {  }
     }
 
     //  size_t
     __attribute__((visibility("default"))) void*  Spr_vector_new_size_t() {
 	void* _ptr = (void*) NULL;
-         { _ptr = new vector<size_t>; }
-	//catch (const std::exception& e) {  }
+        try { _ptr = new vector<size_t>; }
+	catch (const std::exception& e) {  }
         return _ptr;
     }
     __attribute__((visibility("default"))) void  Spr_vector_delete_size_t(void* ptr) {
 	if (ptr == NULL) return;
         vector<size_t>* vec = (vector<size_t>*) ptr;
-         { vector<size_t>().swap(*vec); }
-	//catch (const std::exception& e) {  }
+        try { vector<size_t>().swap(*vec); }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) size_t  Spr_vector_get_size_t(void* ptr, int index) {
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
 	size_t _val = 0;
-         { _val = (*vecptr)[index]; }
-	//catch (const std::exception& e) {  }
+        try { _val = (*vecptr)[index]; }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __attribute__((visibility("default"))) void  Spr_vector_set_size_t(void* ptr, int index, size_t value) {
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
-         { (*vecptr)[index] = value; }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr)[index] = value; }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) int  Spr_vector_size_size_t(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
 	int _val = 0;
-         { _val = (int) (*vecptr).size(); }
-	//catch (const std::exception& e) {  }
+        try { _val = (int) (*vecptr).size(); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __attribute__((visibility("default"))) void  Spr_vector_push_back_size_t(void* ptr, size_t value) {
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
-         { (*vecptr).push_back(value); }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr).push_back(value); }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) void  Spr_vector_clear_size_t(void* ptr) {
 	if (ptr == NULL) return;
         vector<size_t>* vecptr = (vector<size_t>*) ptr;
-         { (*vecptr).clear(); }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr).clear(); }
+	catch (const std::exception& e) {  }
     }
 
     //  float
     __attribute__((visibility("default"))) void*  Spr_vector_new_float() {
 	void* _ptr = (void*) NULL;
-	 { _ptr = new vector<float>; }
-	//catch (const std::exception& e) {  }
+	try { _ptr = new vector<float>; }
+	catch (const std::exception& e) {  }
         return _ptr;
     }
     __attribute__((visibility("default"))) void  Spr_vector_delete_float(void* ptr) {
 	if (ptr == NULL) return;
         vector<float>* vecptr = (vector<float>*) ptr;
-	 { vector<float>().swap(*vecptr); }
-	//catch (const std::exception& e) {  }
+	try { vector<float>().swap(*vecptr); }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) float  Spr_vector_get_float(void* ptr, int index) {
         vector<float>* vecptr = (vector<float>*) ptr;
 	float _val = 0;
-	 { _val = (*vecptr)[index]; }
-	//catch (const std::exception& e) {  }
+	try { _val = (*vecptr)[index]; }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __attribute__((visibility("default"))) void  Spr_vector_set_float(void* ptr, int index, float value) {
         vector<float>* vecptr = (vector<float>*) ptr;
-	 { (*vecptr)[index] = value; }
-	//catch (const std::exception& e) {  }
+	try { (*vecptr)[index] = value; }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) int  Spr_vector_size_float(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<float>* vecptr = (vector<float>*) ptr;
 	int _val = 0;
-	 { _val = (int) (*vecptr).size(); }
-	//catch (const std::exception& e) {  }
+	try { _val = (int) (*vecptr).size(); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __attribute__((visibility("default"))) void  Spr_vector_push_back_float(void* ptr, float value) {
         vector<float>* vecptr = (vector<float>*) ptr;
-	 { (*vecptr).push_back(value); }
-	//catch (const std::exception& e) {  }
+	try { (*vecptr).push_back(value); }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) void  Spr_vector_clear_float(void* ptr) {
 	if (ptr == NULL) return;
         vector<float>* vecptr = (vector<float>*) ptr;
-	 { (*vecptr).clear(); }
-	//catch (const std::exception& e) {  }
+	try { (*vecptr).clear(); }
+	catch (const std::exception& e) {  }
     }
 
     //  double
     __attribute__((visibility("default"))) void*  Spr_vector_new_double() {
 	void* _ptr = (void*) NULL;
-         { _ptr = new vector<double>; }
-	//catch (const std::exception& e) {  }
+        try { _ptr = new vector<double>; }
+	catch (const std::exception& e) {  }
         return _ptr;
     }
     __attribute__((visibility("default"))) void  Spr_vector_delete_double(void* ptr) {
 	if (ptr == NULL) return;
         vector<double>* vecptr = (vector<double>*) ptr;
-         { vector<double>().swap(*vecptr); }
-	//catch (const std::exception& e) {  }
+        try { vector<double>().swap(*vecptr); }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) double  Spr_vector_get_double(void* ptr, int index) {
         vector<double>* vecptr = (vector<double>*) ptr;
 	double _val = 0;
-         { _val = (*vecptr)[index]; }
-	//catch (const std::exception& e) {  }
+        try { _val = (*vecptr)[index]; }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __attribute__((visibility("default"))) void  Spr_vector_set_double(void* ptr, int index, double value) {
         vector<double>* vecptr = (vector<double>*) ptr;
-         { (*vecptr)[index] = value; }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr)[index] = value; }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) int  Spr_vector_size_double(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<double>* vecptr = (vector<double>*) ptr;
 	int _val = 0;
-         { _val = (int) (*vecptr).size(); }
-	//catch (const std::exception& e) {  }
+        try { _val = (int) (*vecptr).size(); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __attribute__((visibility("default"))) void  Spr_vector_push_back_double(void* ptr, double value) {
         vector<double>* vecptr = (vector<double>*) ptr;
-         { (*vecptr).push_back(value); }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr).push_back(value); }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) void  Spr_vector_clear_double(void* ptr) {
 	if (ptr == NULL) return;
         vector<double>* vecptr = (vector<double>*) ptr;
-         { (*vecptr).clear(); }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr).clear(); }
+	catch (const std::exception& e) {  }
     }
 
     //  string
     __attribute__((visibility("default"))) void*  Spr_vector_new_string() {
 	void* _ptr = (void*) NULL;
-         { _ptr = new vector<string>; }
-	//catch (const std::exception& e) {  }
+        try { _ptr = new vector<string>; }
+	catch (const std::exception& e) {  }
         return _ptr;
     }
     __attribute__((visibility("default"))) void  Spr_vector_delete_string(void* ptr) {
 	if (ptr == NULL) return;
         vector<string>* vecptr = (vector<string>*) ptr;
-         { vector<string>().swap(*vecptr); }
-	//catch (const std::exception& e) {  }
+        try { vector<string>().swap(*vecptr); }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) void*  Spr_vector_get_string(void* ptr, int index) {
         void * result = nullptr;
         vector<string>* vecptr = (vector<string>*) ptr;
-	 {
+	try {
             const char* cstr = (*vecptr)[index].c_str();
             int lenW = ::mbstowcs(NULL, cstr, 0);
             if (lenW > 0) {
@@ -264,11 +264,11 @@ extern "C" {
                 ::mbstowcs((wchar_t*) result, cstr, lenW);
             }
 	}
-	//catch (const std::exception& e) {  }
+	catch (const std::exception& e) {  }
         return result;
     }
     __attribute__((visibility("default"))) void  Spr_vector_set_string(void* ptr, int index, void* value) {
-	 {
+	try {
             int lenMB = static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(value), 0));
             if (lenMB > 0) {
                 std::string str1(lenMB, 0); char* addr = &str1[0];
@@ -277,18 +277,18 @@ extern "C" {
                 (*vecptr)[index] = string(addr);
             }
 	}
-	//catch (const std::exception& e) {  }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) int  Spr_vector_size_string(void* ptr) {
 	if (ptr == NULL) return 0;
         vector<string>* vecptr = (vector<string>*) ptr;
 	int _val = 0;
-         { _val = (int) (*vecptr).size(); }
-	//catch (const std::exception& e) {  }
+        try { _val = (int) (*vecptr).size(); }
+	catch (const std::exception& e) {  }
 	return _val;
     }
     __attribute__((visibility("default"))) void  Spr_vector_push_back_string(void* ptr, void* value) {
-	 {
+	try {
             int lenMB = static_cast<int>(std::wcstombs(nullptr, reinterpret_cast<const wchar_t*>(value), 0));
             if (lenMB > 0) {
                 std::string str1(lenMB, 0); char* addr = &str1[0];
@@ -297,27 +297,27 @@ extern "C" {
                 (*vecptr).push_back(string(addr));
             }
 	}
-	//catch (const std::exception& e) {  }
+	catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) void  Spr_vector_clear_string(void* ptr) {
 	if (ptr == NULL) return;
         vector<string>* vecptr = (vector<string>*) ptr;
-         { (*vecptr).clear(); }
-	//catch (const std::exception& e) {  }
+        try { (*vecptr).clear(); }
+	catch (const std::exception& e) {  }
     }
 
     // array
     //  int
     __attribute__((visibility("default"))) void*  Spr_array_new_int(unsigned int nelm) {
 	void* _ptr = (void*) NULL;
-	 { _ptr = new int[nelm]; }
-	//catch (const std::exception& e) {  }
+	try { _ptr = new int[nelm]; }
+	catch (const std::exception& e) {  }
 	return (void*) _ptr;
     }
     __attribute__((visibility("default"))) void  Spr_array_delete_int(void* ptr) {
 	int* _ptr = (int*) ptr;
-         { delete[] _ptr; }
-        //catch (const std::exception& e) {  }
+        try { delete[] _ptr; }
+        catch (const std::exception& e) {  }
     }
     __attribute__((visibility("default"))) int  Spr_array_get_int(void* ptr, int index) {
         int* aryptr = (int*) ptr;

@@ -2591,7 +2591,7 @@ void PHFemThermo::CalcHeatTransDirect2(double dt){
 			mm.at_element(i, j)=keisu[i][j];		//=matk
 		}
 	}
-	//double det = lapack::gesv(mm, ipiv, bb);
+	double det = lapack::gesv(mm, ipiv, bb);
 	x.resize(n);
 	for(int i=0; i<n; ++i){
 		x[i] = bb[i];

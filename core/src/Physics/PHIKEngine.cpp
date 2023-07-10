@@ -175,261 +175,261 @@ void PHIKEngine::CalcJacobian() {
 
 void PHIKEngine::IK(bool nopullback) {
 #ifdef USE_LAPACK
-	// auto start = std::chrono::system_clock::now();
-	// // 計算の準備（α・β・γの事前計算）
-	// for(size_t i=0; i<actuators.size(); ++i){
-	// 	actuators[i]->PrepareSolve();
-	// }
+	auto start = std::chrono::system_clock::now();
+	// 計算の準備（α・β・γの事前計算）
+	for(size_t i=0; i<actuators.size(); ++i){
+		actuators[i]->PrepareSolve();
+	}
 
-	// // <!!>Vの作成
-	// for (size_t j=0; j<endeffectors.size(); ++j){
-	// 	if (endeffectors[j]->IsEnabled() && (endeffectors[j]->bPosition || endeffectors[j]->bOrientation)) {
-	// 		// V
-	// 		PHIKEndEffector* eff = endeffectors[j];
-	// 		PTM::VVector<double> Vpart; Vpart.resize(eff->ndof);
-	// 		eff->GetTempTarget(Vpart);
-	// 		for (size_t y=0; y<(size_t)eff->ndof; ++y) {
-	// 			size_t Y = strideEff[j] + y;
-	// 			V[Y] = Vpart[y];
-	// 		}
-	// 	}
-	// }
-	// // std::cout << "V : " << V << std::endl;
+	// <!!>Vの作成
+	for (size_t j=0; j<endeffectors.size(); ++j){
+		if (endeffectors[j]->IsEnabled() && (endeffectors[j]->bPosition || endeffectors[j]->bOrientation)) {
+			// V
+			PHIKEndEffector* eff = endeffectors[j];
+			PTM::VVector<double> Vpart; Vpart.resize(eff->ndof);
+			eff->GetTempTarget(Vpart);
+			for (size_t y=0; y<(size_t)eff->ndof; ++y) {
+				size_t Y = strideEff[j] + y;
+				V[Y] = Vpart[y];
+			}
+		}
+	}
+	// std::cout << "V : " << V << std::endl;
 
-	// // <!!>擬似逆解を求める・lapack-SVD版
-	// vector_type S; S.resize((std::min)(J.size1(), J.size2())); S.clear();
+	// <!!>擬似逆解を求める・lapack-SVD版
+	vector_type S; S.resize((std::min)(J.size1(), J.size2())); S.clear();
 
-	// ublas::matrix<double> U, Vt;
-	// ublas::diagonal_matrix<double> D, Di, Di_;
-	// svd(J, U, D, Vt);
+	ublas::matrix<double> U, Vt;
+	ublas::diagonal_matrix<double> D, Di, Di_;
+	svd(J, U, D, Vt);
 
-	// Di.resize(D.size2(), D.size1());
+	Di.resize(D.size2(), D.size1());
 	
-	// float regularizeValue = 0;
-	// switch (regularizeMode) {
-	// 	case 0:   // Static
-	// 		regularizeValue = regularizeParam * regularizeParam;
-	// 		break;
-	// 	case 1:   // Effector error
-	// 	{
-	// 		double error = std::min(ublas::norm_2(V), 1.0);
-	// 		regularizeValue = regularizeParam * regularizeParam * error;
-	// 		break;
-	// 	}
-	// 	case 2:  // Manipulability measure
-	// 	{
-	// 		double manipulability = std::sqrt(std::abs(determinant(ublas::prod(J, ublas::trans(J)))));
-	// 		if (regularizeParam2 > 0 && manipulability < regularizeParam2) {
-	// 			regularizeValue = regularizeParam * regularizeParam * std::pow((1 - manipulability / regularizeParam2), 2.0);
-	// 		}
-	// 		else {
-	// 			regularizeValue = 0;
-	// 		}
-	// 		break;
-	// 	}
-	// 	default:  // None
-	// 		break;
-	// }
-	// for (size_t i = 0; i<(std::min(J.size1(), J.size2())); ++i) {
-	// 	// Tikhonov Regularization
-	// 	Di.at_element(i, i)  = D(i, i) / (D(i, i)*D(i, i) + regularizeValue);
-	// }
+	float regularizeValue = 0;
+	switch (regularizeMode) {
+		case 0:   // Static
+			regularizeValue = regularizeParam * regularizeParam;
+			break;
+		case 1:   // Effector error
+		{
+			double error = std::min(ublas::norm_2(V), 1.0);
+			regularizeValue = regularizeParam * regularizeParam * error;
+			break;
+		}
+		case 2:  // Manipulability measure
+		{
+			double manipulability = std::sqrt(std::abs(determinant(ublas::prod(J, ublas::trans(J)))));
+			if (regularizeParam2 > 0 && manipulability < regularizeParam2) {
+				regularizeValue = regularizeParam * regularizeParam * std::pow((1 - manipulability / regularizeParam2), 2.0);
+			}
+			else {
+				regularizeValue = 0;
+			}
+			break;
+		}
+		default:  // None
+			break;
+	}
+	for (size_t i = 0; i<(std::min(J.size1(), J.size2())); ++i) {
+		// Tikhonov Regularization
+		Di.at_element(i, i)  = D(i, i) / (D(i, i)*D(i, i) + regularizeValue);
+	}
 
-	// // --- 位置
-	// vector_type      UtV = ublas::prod(ublas::trans(U)  , V    );
-	// vector_type    DiUtV = ublas::prod(Di               , UtV  );
-	// W                    = ublas::prod(ublas::trans(Vt) , DiUtV);
+	// --- 位置
+	vector_type      UtV = ublas::prod(ublas::trans(U)  , V    );
+	vector_type    DiUtV = ublas::prod(Di               , UtV  );
+	W                    = ublas::prod(ublas::trans(Vt) , DiUtV);
 
-	// // <!!>Wに標準姿勢復帰速度を加える
-	// if (!nopullback) {
-	// 	vector_type       JWp = ublas::prod(J, Wp);
-	// 	vector_type     UtJWp = ublas::prod(ublas::trans(U), JWp);
-	// 	vector_type   DiUtJWp = ublas::prod(Di, UtJWp);
-	// 	vector_type  VDiUtJWp = ublas::prod(ublas::trans(Vt), DiUtJWp);
-	// 	vector_type Wpullback = Wp - VDiUtJWp;
-	// 	W = W + Wpullback;
-	// }
+	// <!!>Wに標準姿勢復帰速度を加える
+	if (!nopullback) {
+		vector_type       JWp = ublas::prod(J, Wp);
+		vector_type     UtJWp = ublas::prod(ublas::trans(U), JWp);
+		vector_type   DiUtJWp = ublas::prod(Di, UtJWp);
+		vector_type  VDiUtJWp = ublas::prod(ublas::trans(Vt), DiUtJWp);
+		vector_type Wpullback = Wp - VDiUtJWp;
+		W = W + Wpullback;
+	}
 
-	// // <!!>非常に大きくなりすぎた解を切り捨てる
-	// double limitW = 1e+10;
-	// for (size_t i=0; i<W.size(); ++i) {
-	// 	if (W[i]  >  limitW) { W[i]  =  limitW; }
-	// 	if (W[i]  < -limitW) { W[i]  = -limitW; }
-	// }
+	// <!!>非常に大きくなりすぎた解を切り捨てる
+	double limitW = 1e+10;
+	for (size_t i=0; i<W.size(); ++i) {
+		if (W[i]  >  limitW) { W[i]  =  limitW; }
+		if (W[i]  < -limitW) { W[i]  = -limitW; }
+	}
 
-	// // <!!>各Actuatorのωに擬似逆解を代入
-	// for (size_t i=0; i<actuators.size(); ++i) {
-	// 	if (actuators[i]->IsEnabled()) {
-	// 		PHIKActuator* act = actuators[i];
-	// 		for (size_t x=0; x<(size_t)act->ndof; ++x) {
-	// 			size_t X = strideAct[i] + x;
-	// 			act->omega[x] = W[X];
-	// 		}
-	// 	}
-	// }
+	// <!!>各Actuatorのωに擬似逆解を代入
+	for (size_t i=0; i<actuators.size(); ++i) {
+		if (actuators[i]->IsEnabled()) {
+			PHIKActuator* act = actuators[i];
+			for (size_t x=0; x<(size_t)act->ndof; ++x) {
+				size_t X = strideAct[i] + x;
+				act->omega[x] = W[X];
+			}
+		}
+	}
 
-	// // 結果にしたがってActuatorの一時変数を動かす
-	// for(size_t i=0; i<actuators.size(); ++i){
-	// 	if (actuators[i]->IsEnabled()) {
-	// 		actuators[i]->MoveTempJoint();
-	// 	}
-	// }
-	// auto fin = std::chrono::system_clock::now();
-	// double elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(fin - start).count();
-	// DSTR << "calc:" << elapsed << std::endl;
+	// 結果にしたがってActuatorの一時変数を動かす
+	for(size_t i=0; i<actuators.size(); ++i){
+		if (actuators[i]->IsEnabled()) {
+			actuators[i]->MoveTempJoint();
+		}
+	}
+	auto fin = std::chrono::system_clock::now();
+	double elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(fin - start).count();
+	DSTR << "calc:" << elapsed << std::endl;
 #else
 # pragma message("IK: define USE_LAPACK in SprDefs.h to use this function")
 #endif
 }
 void PHIKEngine::LQIK(bool nopullback) {
 #ifdef USE_LAPACK
-	// auto start = std::chrono::system_clock::now();
-	// // 計算の準備（α・β・γの事前計算）
-	// for (size_t i = 0; i<actuators.size(); ++i) {
-	// 	actuators[i]->PrepareSolve();
-	// }
+	auto start = std::chrono::system_clock::now();
+	// 計算の準備（α・β・γの事前計算）
+	for (size_t i = 0; i<actuators.size(); ++i) {
+		actuators[i]->PrepareSolve();
+	}
 
-	// // <!!>Vの作成
-	// for (size_t j = 0; j<endeffectors.size(); ++j) {
-	// 	if (endeffectors[j]->IsEnabled() && (endeffectors[j]->bPosition || endeffectors[j]->bOrientation)) {
-	// 		// V
-	// 		PHIKEndEffector* eff = endeffectors[j];
-	// 		PTM::VVector<double> Vpart; Vpart.resize(eff->ndof);
-	// 		eff->GetTempTarget(Vpart);
-	// 		for (size_t y = 0; y<(size_t)eff->ndof; ++y) {
-	// 			size_t Y = strideEff[j] + y;
-	// 			V[Y] = Vpart[y];
-	// 		}
-	// 	}
-	// }
-	// // std::cout << "V : " << V << std::endl;
+	// <!!>Vの作成
+	for (size_t j = 0; j<endeffectors.size(); ++j) {
+		if (endeffectors[j]->IsEnabled() && (endeffectors[j]->bPosition || endeffectors[j]->bOrientation)) {
+			// V
+			PHIKEndEffector* eff = endeffectors[j];
+			PTM::VVector<double> Vpart; Vpart.resize(eff->ndof);
+			eff->GetTempTarget(Vpart);
+			for (size_t y = 0; y<(size_t)eff->ndof; ++y) {
+				size_t Y = strideEff[j] + y;
+				V[Y] = Vpart[y];
+			}
+		}
+	}
+	// std::cout << "V : " << V << std::endl;
 
-	// // <!!>擬似逆解を求める・lapack-SVD版
-	// ublas::matrix<double> Q(J.size2(), J.size2());
-	// ublas::triangular_matrix<double, ublas::upper> L, Li;
-	// //ublas::matrix<double> L(J.size2(), J.size2());
-	// diag_matrix_type Wn; Wn.resize(J.size1(), J.size1());
+	// <!!>擬似逆解を求める・lapack-SVD版
+	ublas::matrix<double> Q(J.size2(), J.size2());
+	ublas::triangular_matrix<double, ublas::upper> L, Li;
+	//ublas::matrix<double> L(J.size2(), J.size2());
+	diag_matrix_type Wn; Wn.resize(J.size1(), J.size1());
 
-	// float regularizeValue = 0;
-	// switch (regularizeMode) {
-	// case 0:   // Static
-	// 	regularizeValue = regularizeParam * regularizeParam;
-	// 	break;
-	// case 1:   // Effector error
-	// {
-	// 	double error = std::min(ublas::norm_2(V), 1.0);
-	// 	regularizeValue = regularizeParam * regularizeParam * error;
-	// 	break;
-	// }
-	// case 2:  // Manipulability measure
-	// {
-	// 	double manipulability = std::sqrt(std::abs(determinant(ublas::prod(J, ublas::trans(J)))));
-	// 	if (regularizeParam2 > 0 && manipulability < regularizeParam2) {
-	// 		regularizeValue = regularizeParam * regularizeParam * std::pow((1 - manipulability / regularizeParam2), 2.0);
-	// 	}
-	// 	else {
-	// 		regularizeValue = 0;
-	// 	}
-	// 	break;
-	// }
-	// default:  // None
-	// 	break;
-	// }
-	// for (size_t i = 0; i<(std::min(J.size1(), J.size2())); ++i) {
-	// 	// Tikhonov Regularization
-	// 	Wn.at_element(i, i) = regularizeValue;
-	// }
+	float regularizeValue = 0;
+	switch (regularizeMode) {
+	case 0:   // Static
+		regularizeValue = regularizeParam * regularizeParam;
+		break;
+	case 1:   // Effector error
+	{
+		double error = std::min(ublas::norm_2(V), 1.0);
+		regularizeValue = regularizeParam * regularizeParam * error;
+		break;
+	}
+	case 2:  // Manipulability measure
+	{
+		double manipulability = std::sqrt(std::abs(determinant(ublas::prod(J, ublas::trans(J)))));
+		if (regularizeParam2 > 0 && manipulability < regularizeParam2) {
+			regularizeValue = regularizeParam * regularizeParam * std::pow((1 - manipulability / regularizeParam2), 2.0);
+		}
+		else {
+			regularizeValue = 0;
+		}
+		break;
+	}
+	default:  // None
+		break;
+	}
+	for (size_t i = 0; i<(std::min(J.size1(), J.size2())); ++i) {
+		// Tikhonov Regularization
+		Wn.at_element(i, i) = regularizeValue;
+	}
 
-	// //matrix_type JtWe = ublas::prod(ublas::trans(J), We);
-	// //matrix_type JtWe = ublas::trans(J);
-	// //matrix_type JtWeJ = ublas::prod(JtWe, J) + Wn;
+	//matrix_type JtWe = ublas::prod(ublas::trans(J), We);
+	//matrix_type JtWe = ublas::trans(J);
+	//matrix_type JtWeJ = ublas::prod(JtWe, J) + Wn;
 
-	// matrix_type JJt = ublas::prod(J, ublas::trans(J)) + Wn;
-	// /*
-	// ublas::matrix<double> U, Vt;
-	// ublas::diagonal_matrix<double> D, Di, Di_;
-	// svd(JJt, U, D, Vt);
+	matrix_type JJt = ublas::prod(J, ublas::trans(J)) + Wn;
+	/*
+	ublas::matrix<double> U, Vt;
+	ublas::diagonal_matrix<double> D, Di, Di_;
+	svd(JJt, U, D, Vt);
 
-	// Di.resize(D.size2(), D.size1());
+	Di.resize(D.size2(), D.size1());
 
-	// for (size_t i = 0; i<(std::min(J.size1(), J.size2())); ++i) {
-	// 	// Tikhonov Regularization
-	// 	Di.at_element(i, i) = D(i, i) / (D(i, i)*D(i, i));
-	// }
+	for (size_t i = 0; i<(std::min(J.size1(), J.size2())); ++i) {
+		// Tikhonov Regularization
+		Di.at_element(i, i) = D(i, i) / (D(i, i)*D(i, i));
+	}
 
-	// // --- 位置
-	// matrix_type      DiUt = ublas::prod(Di, ublas::trans(U));
-	// matrix_type    VtDiUt = ublas::prod(ublas::trans(Vt), DiUt);
-	// matrix_type      pinvJ = ublas::prod(ublas::trans(J), VtDiUt);
-	// W = ublas::prod(pinvJ, V);
-	// /*/
-	// // LQ分解
+	// --- 位置
+	matrix_type      DiUt = ublas::prod(Di, ublas::trans(U));
+	matrix_type    VtDiUt = ublas::prod(ublas::trans(Vt), DiUt);
+	matrix_type      pinvJ = ublas::prod(ublas::trans(J), VtDiUt);
+	W = ublas::prod(pinvJ, V);
+	/*/
+	// LQ分解
 	
-	// qr(JJt, Q, L);
+	qr(JJt, Q, L);
 	
-	// Li.resize(L.size1(), L.size2());
-	// for (int i = 0; i < (int) J.size1(); i++) {
-	// 	Li.at_element(i, i) = 1 / L(i, i);
-	// }
-	// for (int i = 0; i < (int) J.size1(); i++) {
-	// 	for (int j = i + 1; j < (int) L.size1(); j++) {
-	// 		double s = 0;
-	// 		for (int k = i; k < j; k++) s += Li(i, k) * L(k, j);
-	// 		Li(i, j) = -s / L(j, j);
-	// 	}
-	// }
+	Li.resize(L.size1(), L.size2());
+	for (int i = 0; i < (int) J.size1(); i++) {
+		Li.at_element(i, i) = 1 / L(i, i);
+	}
+	for (int i = 0; i < (int) J.size1(); i++) {
+		for (int j = i + 1; j < (int) L.size1(); j++) {
+			double s = 0;
+			for (int k = i; k < j; k++) s += Li(i, k) * L(k, j);
+			Li(i, j) = -s / L(j, j);
+		}
+	}
 	
-	// matrix_type invJtWeJ = ublas::prod(Li, ublas::trans(Q));
+	matrix_type invJtWeJ = ublas::prod(Li, ublas::trans(Q));
 
-	// matrix_type pinvJ = ublas::prod(ublas::trans(J), invJtWeJ);
+	matrix_type pinvJ = ublas::prod(ublas::trans(J), invJtWeJ);
 	
-	// // --- 位置
-	// //vector_type      JtWeV = ublas::prod(JtWe, V);
-	// //W = ublas::prod(invJtWeJ, JtWeV);
-	// W = ublas::prod(pinvJ, V);
+	// --- 位置
+	//vector_type      JtWeV = ublas::prod(JtWe, V);
+	//W = ublas::prod(invJtWeJ, JtWeV);
+	W = ublas::prod(pinvJ, V);
 	
-	// // <!!>Wに標準姿勢復帰速度を加える
-	// if (!nopullback) {
+	// <!!>Wに標準姿勢復帰速度を加える
+	if (!nopullback) {
 		
-	// 	vector_type       JWp = ublas::prod(J, Wp);
-	// 	vector_type     pinvJJWp = ublas::prod(pinvJ, JWp);
-	// 	vector_type Wpullback = Wp - pinvJJWp;
-	// 	W = W + Wpullback;
-	// 	/*/
-	// 	vector_type       JWp = ublas::prod(Q, Wp);
-	// 	vector_type     pinvJJWp = ublas::prod(ublas::trans(Q), JWp);
-	// 	vector_type Wpullback = Wp - pinvJJWp;
-	// 	W = W + Wpullback;
-	// 	*/
-	// }
+		vector_type       JWp = ublas::prod(J, Wp);
+		vector_type     pinvJJWp = ublas::prod(pinvJ, JWp);
+		vector_type Wpullback = Wp - pinvJJWp;
+		W = W + Wpullback;
+		/*/
+		vector_type       JWp = ublas::prod(Q, Wp);
+		vector_type     pinvJJWp = ublas::prod(ublas::trans(Q), JWp);
+		vector_type Wpullback = Wp - pinvJJWp;
+		W = W + Wpullback;
+		*/
+	}
 
-	// // <!!>非常に大きくなりすぎた解を切り捨てる
-	// double limitW = 1e+10;
-	// for (size_t i = 0; i<W.size(); ++i) {
-	// 	if (W[i]  >  limitW) { W[i] = limitW; }
-	// 	if (W[i]  < -limitW) { W[i] = -limitW; }
-	// }
+	// <!!>非常に大きくなりすぎた解を切り捨てる
+	double limitW = 1e+10;
+	for (size_t i = 0; i<W.size(); ++i) {
+		if (W[i]  >  limitW) { W[i] = limitW; }
+		if (W[i]  < -limitW) { W[i] = -limitW; }
+	}
 
-	// // <!!>各Actuatorのωに擬似逆解を代入
-	// for (size_t i = 0; i<actuators.size(); ++i) {
-	// 	if (actuators[i]->IsEnabled()) {
-	// 		PHIKActuator* act = actuators[i];
-	// 		for (size_t x = 0; x<(size_t)act->ndof; ++x) {
-	// 			size_t X = strideAct[i] + x;
-	// 			act->omega[x] = W[X];
-	// 		}
-	// 	}
-	// }
+	// <!!>各Actuatorのωに擬似逆解を代入
+	for (size_t i = 0; i<actuators.size(); ++i) {
+		if (actuators[i]->IsEnabled()) {
+			PHIKActuator* act = actuators[i];
+			for (size_t x = 0; x<(size_t)act->ndof; ++x) {
+				size_t X = strideAct[i] + x;
+				act->omega[x] = W[X];
+			}
+		}
+	}
 
-	// // 結果にしたがってActuatorの一時変数を動かす
-	// for (size_t i = 0; i<actuators.size(); ++i) {
-	// 	if (actuators[i]->IsEnabled()) {
-	// 		actuators[i]->MoveTempJoint();
-	// 	}
-	// }
-	// auto fin = std::chrono::system_clock::now();
-	// double elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(fin - start).count();
-	// DSTR << "calc:" << elapsed << std::endl;
+	// 結果にしたがってActuatorの一時変数を動かす
+	for (size_t i = 0; i<actuators.size(); ++i) {
+		if (actuators[i]->IsEnabled()) {
+			actuators[i]->MoveTempJoint();
+		}
+	}
+	auto fin = std::chrono::system_clock::now();
+	double elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(fin - start).count();
+	DSTR << "calc:" << elapsed << std::endl;
 #else
 # pragma message("IK: define USE_LAPACK in SprDefs.h to use this function")
 #endif
