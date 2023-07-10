@@ -1,28 +1,37 @@
-# Springhead For Mac
+# Springhead For Android
 
-I can only finish on Mac, and IK cannot work now because I cannot compile it. 
+I can only finish on Mac
 
-## 1.
+## 1. download https://developer.android.com/ndk/downloads
 
- cd .../springheadSrcMac/core/src/SprCSharp/
+Download Android NDK(mine is r25c)
 
-## 2.
+## 2. Get NDK files
 
- delete build folder(if have)
+Open the download file, in mac, open the .dmg file then display package content, find NDK folder.
 
-## 3.
+## 3. build
 
- cmake -B build -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
+cd .../springheadSrcUniversalForAndroid/core/src/SprCSharp/
+
+If have, delete "build" folder under SprCSharp. Also, please organize the format, avoid enter in the commands.
+
+cmake
+-DCMAKE_TOOLCHAIN_FILE=..................../NDK/build/cmake/android.toolchain.cmake
+-DANDROID_ABI="arm64-v8a" -DANDROID_NDK=$ANDROID_NDK
+-DANDROID_PLATFORM=android-27 -DCMAKE_BUILD_TYPE=Release -B build
+
+cd build
+
+make
 
 ## 4. Get the output.
 
-After a long time compile, you will get "libSprExport.dylib" under "build/SprExport" folder. This is what you want, you can bring it to Unity, ...Assets/SprUnity/Plugins/, then it can run in Mac, Enjoy!
-
-
+After a long time compile, you will get "libSprExport.so" under "build/SprExport" folder. This is what you want, you can bring it to Unity and it can run in Android. Enjoy!
 
 215 warnings generated.
 
-[ 98%] **Linking CXX shared library libSprExport.dylib**
+[ 98%] **Linking CXX shared library libSprExport.so**
 
 [ 98%] Built target SprExport
 
@@ -30,8 +39,26 @@ After a long time compile, you will get "libSprExport.dylib" under "build/SprExp
 
 [100%] **Linking CXX static library libSprCSharpMain.a**
 
-warning: /Library/Developer/CommandLineTools/usr/bin/ranlib: archive library: libSprCSharpMain.a the table of contents is empty (no object file members in the library define global symbols)
 
-[100%] Built target SprCSharpMain**
+
+
+
+-------------
+
+old memo:
+
+go to SprCharp folder
+
+Android:
+
+cmake -DCMAKE_TOOLCHAIN_FILE=/Users/yunxiuxu/Documents/Android/NDK/build/cmake/android.toolchain.cmake -DANDROID_ABI="arm64-v8a" -DANDROID_NDK=$ANDROID_NDK -DANDROID_PLATFORM=android-27 -DCMAKE_BUILD_TYPE=Release -B build
+
+Mac: 
+
+cmake -B build -G "Unix Makefiles"
+
+
+
+
 
 XU Yunxiu, 2023 7 10

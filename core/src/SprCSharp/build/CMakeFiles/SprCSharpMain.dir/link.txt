@@ -1,2 +1,2 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libSprCSharpMain.a CMakeFiles/SprCSharpMain.dir/dummy/_cmake_dummy.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libSprCSharpMain.a
+/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar qc libSprCSharpMain.a CMakeFiles/SprCSharpMain.dir/dummy/_cmake_dummy.cpp.o
+/Users/yunxiuxu/Desktop/NDK/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ranlib libSprCSharpMain.a

@@ -11,11 +11,16 @@ set(ProjectName SprCSharpMain)
 set(ProjectVersion ${SPRCSHARP_PROJECT_VERSION})
 project(${ProjectName} VERSION ${ProjectVersion} LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 14)
+
 message(STATUS "Project: ${ProjectName}, Version ${ProjectVersion}")
 
 set(CMAKE_SUPPRESS_REGENERATION true)
 set(CMAKE_USE_RELATIVE_PATHS true)
 
+#set(CMAKE_BUILD_TYPE Release)
+#set(CMAKE_CXX_FLAGS "-O3")
+#set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -s")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Oz")
 # ------------------------------------------------------------------------------
 #  We set top directory of Springhead tree to "TOPDIR".
 #
