@@ -1705,8 +1705,8 @@ void PHFemPorousWOMove::CalcWOContentDirect(double dt, double eps){
 			mmO.at_element(i, j)=keisuO[i][j];
 		}
 	}
-	//double detW = lapack::gesv(mmW, ipivW, bbW);
-	//double detO = lapack::gesv(mmO, ipivO, bbO);
+	double detW = lapack::gesv(mmW, ipivW, bbW);
+	double detO = lapack::gesv(mmO, ipivO, bbO);
 	xW.resize(n);
 	xO.resize(n);
 	for(int i=0; i<n; ++i){
@@ -2485,8 +2485,8 @@ PTM::VMatrixRow<double> PHFemPorousWOMove::inv(PTM::VMatrixRow<double> mat){
 		}
 	}
 
-	//dgetrf_(&n, &m, A, &lda, ipiv, &info);
-	//dgetri_(&m, A, &lda, ipiv, work, &lwork, &info);
+	dgetrf_(&n, &m, A, &lda, ipiv, &info);
+	dgetri_(&m, A, &lda, ipiv, work, &lwork, &info);
 
 	for(int i=0; i < m; i++){
 		for(int j=0; j < n; j++){

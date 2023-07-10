@@ -128,16 +128,16 @@ void UTTypeDesc::Composit::Print(std::ostream& os) const{
 	}
 }
 void UTTypeDesc::Composit::Link(UTTypeDescDb* db) {
-// 	for(iterator it = begin(); it != end(); ++it){
-// 		if (it->type == NULL){
-// 			it->type = db->Find(it->typeName)->Cast();
-// #if 0
-// 			if (it->type){
-// 				DSTR << it->typeName << " " << it->name << " = " << it->type->GetTypeName() << std::endl;
-// 			}
-// #endif
-// 		}
-// 	}
+	for(iterator it = begin(); it != end(); ++it){
+		if (it->type == NULL){
+			it->type = db->Find(it->typeName)->Cast();
+#if 0
+			if (it->type){
+				DSTR << it->typeName << " " << it->name << " = " << it->type->GetTypeName() << std::endl;
+			}
+#endif
+		}
+	}
 }
 
 UTTypeDesc::Field* UTTypeDesc::Composit::Find(const char* id){
