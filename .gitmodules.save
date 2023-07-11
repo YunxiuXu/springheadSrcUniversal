@@ -1,0 +1,8 @@
+[submodule "dependency"]
+	path = dependency
+	url = https://github.com/sprphys/dependency
+[submodule "buildtool"]
+	path = buildtoolexit
+q
+q
+	url = https://github.com/sprphys/buildtool.git
